@@ -1,0 +1,23 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+# Others #
+.settings
+.project
+.classpath
+.idea
+*.iml
+*.ipr
+*.iws
+temp
+bin
+target
+pom.xml.versionsBackup
+.svn
+pom.xml~
+*~
+.DS_Store
+transaction.log
