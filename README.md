@@ -2,9 +2,6 @@ eXo Documentation - Code Samples
 ================================
 
 This repository contains code samples that support learners who follow tutorials at http://docs.exoplatform.com
-
- To the readers
- ==============
  
  * The samples would be well-tested under the current version of eXo Platform at the time they were created, and might be updated along with the newer versions. Make sure you get the right code by checking out your Platform version.
  
