@@ -1,0 +1,67 @@
+<div class="uiAddActionForm resizable">
+  <h6 class="titleBar"><%=_ctx.appRes(uicomponent.getId() + ".title")%></h6>
+  <% uiform.begin() %>  
+  <div class="form-horizontal" style="min-width:550px;">
+    <div class="control-group" style="display:none">
+      <label class="control-label" for="id"><%=_ctx.appRes("ScriptAction.dialog.label.id")%>:</label>
+      <div class="controls">
+        <%
+          String[] fieldId = ["jcrPath=/node", "mixintype=mix:affectedNodeTypes", "editable=false", "visible=if-not-null"];
+          uicomponent.addMixinField("id", fieldId) ;  
+        %>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="actionName"><%=_ctx.appRes("ScriptAction.dialog.label.name")%>:</label>
+      <div class="controls">
+        <% 
+          String[] fieldName = ["jcrPath=/node/exo:name", "validate=empty,XSSValidator"];
+          uicomponent.addTextField("actionName", _ctx.appRes("ScriptAction.dialog.label.name"), fieldName);
+        %>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="lifecycle"><%=_ctx.appRes("ScriptAction.dialog.label.lifecycle")%>:</label>
+      <div class="controls">
+      <% 
+        String[] fieldLifecycle = ["jcrPath=/node/exo:lifecyclePhase", 
+                                   "options=read,node_added,node_removed,property_added,property_removed,property_changed",
+                                   "multiValues=true", "onchange=true","size=5","validate=empty"] ;
+        uicomponent.addSelectBoxField("lifecycle", fieldLifecycle) ;
+      %>  
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="isDeep"><%=_ctx.appRes("ScriptAction.dialog.label.isDeep")%>:</label>
+      <div class="controls"> 
+        <% 
+          String[] fieldDeep = ["jcrPath=/node/exo:isDeep", "defaultValues=true"];         
+          uicomponent.addCheckBoxField("isDeep", fieldDeep);
+        %>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="to">To Address:</label>
+      <div class="controls">
+      <% 
+        String[] fieldTo = ["jcrPath=/node/exo:to", "validate=empty,XSSValidator"];
+        uicomponent.addTextField("to", fieldTo);
+      %>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="subject">Subject:</label>
+      <div class="controls">
+      <% 
+        String[] fieldSubject = ["jcrPath=/node/exo:subject", "validate=empty,XSSValidator"];
+        uicomponent.addTextField("subject", fieldSubject);
+      %>
+      </div>
+    </div>
+  </div>
+  <%uiform.end()%>
+</div>
+  
+<%/* start render action*/%>
+  <%uiform.processRenderAction()%>
+<%/* end render action*/%>

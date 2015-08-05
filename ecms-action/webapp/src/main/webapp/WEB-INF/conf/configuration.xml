@@ -1,0 +1,157 @@
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+  xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+  <!-- Register action's nodetype. The nodetype definition is in a separate file. -->
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+		<component-plugin>
+			<name>add.nodeType</name>
+			<set-method>addPlugin</set-method>
+			<type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+			<init-params>
+				<values-param>
+					<name>autoCreatedInNewRepository</name>
+					<description>Node types configuration file</description>
+					<value>war:/conf/nodetypes-configuration.xml</value>
+				</values-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+	
+	<!-- Register the groovy script -->
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.cms.scripts.ScriptService</target-component>
+    <component-plugin>
+      <name>manage.script.plugin</name>
+      <set-method>addScriptPlugin</set-method>
+      <type>org.exoplatform.services.cms.scripts.impl.ScriptPlugin</type>
+      <description></description>
+      <init-params>
+        <value-param>
+          <name>autoCreateInNewRepository</name>
+          <value>true</value>
+        </value-param>
+        <value-param>
+          <name>predefinedScriptsLocation</name>
+          <value>war:/conf/ecms-action</value>
+        </value-param>
+        <object-param>
+          <name>predefined.scripts</name>
+          <description></description>
+          <object type="org.exoplatform.services.cms.impl.ResourceConfig">
+            <field name="resources">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.cms.impl.ResourceConfig$Resource">
+                    <field name="description"><string>Send Mail Script</string></field>
+                    <field name="name"><string>ecm-explorer/action/SendMailScript.groovy</string></field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+  
+  <!-- Register templates (view and dialog) that are used when user add/view/edit an action instance in UI -->
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.cms.templates.TemplateService</target-component>
+    <component-plugin>
+      <name>addTemplates</name>
+      <set-method>addTemplates</set-method>
+      <type>org.exoplatform.services.cms.templates.impl.TemplatePlugin</type>
+      <init-params>
+        <value-param>
+          <name>autoCreateInNewRepository</name>
+          <value>true</value>
+        </value-param>
+        <value-param>
+          <name>storedLocation</name>
+          <value>war:/conf/ecms-action/templates</value>
+        </value-param>
+        <object-param>
+          <name>template.configuration</name>
+          <object type="org.exoplatform.services.cms.templates.impl.TemplateConfig">
+            <field name="nodeTypes">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$NodeType">
+                    <field name="nodetypeName"><string>exo:sendMailAction</string></field>
+                    <field name="documentTemplate"><boolean>false</boolean></field>
+                    <field name="label"><string>Send Mail Action</string></field>
+                    <field name="referencedView">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$Template">
+                            <field name="templateFile"><string>/views/SendMailActionView.gtmpl</string></field>
+                            <field name="roles"><string>*</string></field>
+                          </object>
+                        </value>
+                      </collection>
+                    </field>
+                    <field name="referencedDialog">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$Template">
+                            <field name="templateFile"><string>/dialogs/SendMailActionDialog.gtmpl</string></field>
+                            <field name="roles"><string>*</string></field>
+                          </object>
+                        </value>
+                      </collection>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+  
+  <!-- Create an action instance (i.e attach the action to a node, /sites/shared in this case) -->
+  <!-- The action will be triggered when a child node is created/removed under /sites/shared -->
+  <!-- 
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.cms.actions.ActionServiceContainer</target-component>
+    <component-plugin>
+      <name>exo:scriptAction</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.cms.actions.impl.ScriptActionPlugin</type>
+      <init-params>
+        <object-param>
+          <name>predefined.actions</name>
+          <description></description>
+          <object type="org.exoplatform.services.cms.actions.impl.ActionConfig">
+            <field name="workspace"><string>collaboration</string></field>
+            <field name="actions">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.cms.actions.impl.ActionConfig$Action">
+                    <field name="type"><string>exo:sendMailAction</string></field>
+                    <field name="name"><string>sendMailAction</string></field>
+                    <field name="description"><string>A sample ECMS action</string></field>
+                    <field name="srcWorkspace"><string>collaboration</string></field>
+                    <field name="srcPath"><string>/sites/shared</string></field>
+                    <field name="isDeep"><boolean>true</boolean></field>
+                    <field name="lifecyclePhase">
+                      <collection type="java.util.ArrayList">
+                        <value><string>node_added</string></value>
+                        <value><string>node_removed</string></value>
+                      </collection>
+                    </field>
+                    <field name="variables">
+                      <string>exo:subject=Content update;exo:to=test@example.com</string>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+  -->
+</configuration>
