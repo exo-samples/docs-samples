@@ -1,0 +1,53 @@
+<%
+  def node = uicomponent.getNode();
+  StringBuilder builder;
+%>
+<table class="uiGrid table table-hover table-striped">            
+  <tr>
+    <td>Action Name</td>
+    <td>
+      <%if(node.hasProperty("exo:name")) {%>
+        <%=node.getProperty("exo:name").getString()%>
+      <%}%>
+    </td>
+  </tr>
+  <tr>
+    <td>Lifecycle Phases</td>
+    <td>
+      <% 
+        if (node.hasProperty("exo:lifecyclePhase")) {
+          builder = new StringBuilder();
+          def values = node.getProperty("exo:lifecyclePhase").getValues();
+          for (value in values) {
+            builder.append(value.getString()).append(",");
+          }
+          if (builder.length() > 0) {%><%= builder.deleteCharAt(builder.length() -1) %><%}
+        }
+      %>
+    </td>
+  </tr>
+  <tr>
+    <td>Is Deep?</td>
+    <td>
+    <%if(node.hasProperty("exo:isDeep")){%>
+      <%=node.getProperty("exo:isDeep").getString()%>
+    <%}%> 
+    </td>
+  </tr>
+  <tr>
+    <td>To Address</td>
+    <td>
+    <%if(node.hasProperty("exo:to")){%>
+      <%=node.getProperty("exo:to").getString()%>
+    <%}%> 
+    </td>
+  </tr>
+  <tr>
+    <td>Signature</td>
+    <td>
+    <%if(node.hasProperty("exo:subject")){%>
+      <%=node.getProperty("exo:subject").getString()%>
+    <%}%> 
+    </td>
+  </tr>
+</table>
