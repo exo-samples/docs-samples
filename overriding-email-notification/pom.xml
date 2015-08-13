@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.exoplatform</groupId>
+	<version>1.0.0</version>
+	<artifactId>email-notification-extension</artifactId>
+	<name>Email Notification Extension</name>
+	<packaging>pom</packaging>
+	<description>Email Notification Extension</description>
+	
+	<dependencyManagement>
+		<dependencies>
+			<!-- Import versions from platform project -->
+			<dependency>
+				<groupId>org.exoplatform.platform</groupId>
+				<artifactId>platform</artifactId>
+				<version>4.2.x-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
+	<modules>
+        <module>config</module>
+        <module>webapp</module>
+	</modules>
+</project>
