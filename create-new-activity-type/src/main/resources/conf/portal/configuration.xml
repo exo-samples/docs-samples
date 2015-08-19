@@ -1,0 +1,41 @@
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplatform.org/xml/ns/
+kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+	<external-component-plugins>
+		<target-component>org.exoplatform.webui.ext.UIExtensionManager</target-component>
+		<component-plugin>
+			<name>add.action</name>
+			<set-method>registerUIExtensionPlugin</set-method>
+			<type>org.exoplatform.webui.ext.UIExtensionPlugin</type>
+			<init-params>
+				<object-param>
+					<name>Space Activity</name>
+					<object type="org.exoplatform.social.webui.activity.UIActivityExtension">
+						<field name="type"><string>org.exoplatform.social.webui.activity.BaseUIActivity</string></field>
+						<field name="name"><string>test-activity-type</string></field>
+						<field name="component">
+							<string>com.acme.samples.activitytype.SampleUIActivity</string>
+						</field>
+						<field name="activityBuiderClass">
+							<string>com.acme.samples.activitytype.SampleUIActivityBuilder</string>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+	<external-component-plugins>
+		<target-component>org.exoplatform.wiki.service.WikiService</target-component>
+		<component-plugin>
+			<name>Wiki listener</name>
+			<set-method>addComponentPlugin</set-method>
+			<type>com.acme.samples.activitytype.GenerateActivity4Testing</type>
+			<init-params>
+				<value-param>
+					<name>wikiPortletName</name>
+					<value>wiki</value>
+				</value-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>

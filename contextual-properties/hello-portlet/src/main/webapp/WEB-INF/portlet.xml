@@ -1,0 +1,54 @@
+<portlet-app version="2.0" xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
+	<portlet>
+		<portlet-name>Hello</portlet-name>
+		<portlet-class>com.acme.samples.HelloPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Contextual properties</title>
+		</portlet-info>
+		<supported-public-render-parameter>navigation_uri</supported-public-render-parameter>
+		<supported-public-render-parameter>page_name</supported-public-render-parameter>
+		<supported-public-render-parameter>site_type</supported-public-render-parameter>
+		<supported-public-render-parameter>site_name</supported-public-render-parameter>
+		<supported-public-render-parameter>window_width</supported-public-render-parameter>
+		<supported-public-render-parameter>window_height</supported-public-render-parameter>
+		<supported-public-render-parameter>window_show_info_bar</supported-public-render-parameter>
+		<supported-public-render-parameter>current_time</supported-public-render-parameter>
+	</portlet>
+	<public-render-parameter>
+		<identifier>navigation_uri</identifier>
+		<qname xmlns:prp='http://www.gatein.org/xml/ns/prp_1_0'>prp:navigation_uri</qname>
+	</public-render-parameter>
+	<public-render-parameter>
+		<identifier>page_name</identifier>
+		<qname xmlns:prp='http://www.gatein.org/xml/ns/prp_1_0'>prp:page_name</qname>
+	</public-render-parameter>
+	<public-render-parameter>
+		<identifier>site_type</identifier>
+		<qname xmlns:prp='http://www.gatein.org/xml/ns/prp_1_0'>prp:site_type</qname>
+	</public-render-parameter>
+	<public-render-parameter>
+		<identifier>site_name</identifier>
+		<qname xmlns:prp='http://www.gatein.org/xml/ns/prp_1_0'>prp:site_name</qname>
+	</public-render-parameter>
+	<public-render-parameter>
+		<identifier>window_width</identifier>
+		<qname xmlns:prp='http://www.gatein.org/xml/ns/prp_1_0'>prp:window_width</qname>
+	</public-render-parameter>
+	<public-render-parameter>
+		<identifier>window_height</identifier>
+		<qname xmlns:prp='http://www.gatein.org/xml/ns/prp_1_0'>prp:window_height</qname>
+	</public-render-parameter>
+	<public-render-parameter>
+		<identifier>window_show_info_bar</identifier>
+		<qname xmlns:prp='http://www.gatein.org/xml/ns/prp_1_0'>prp:window_show_info_bar</qname>
+	</public-render-parameter>
+	<public-render-parameter>
+		<identifier>current_time</identifier>
+		<qname xmlns:prp='http://www.gatein.org/xml/ns/prp_1_0'>prp:current_time</qname>
+	</public-render-parameter>
+</portlet-app>

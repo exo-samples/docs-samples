@@ -1,0 +1,53 @@
+<%
+  import org.exoplatform.social.core.service.LinkProvider;
+  
+  //Retrieve the user's information and check whether the user is the owner or not
+  String aboutMe = uicomponent.getAboutMe();
+  boolean isOwner = uicomponent.isOwner();
+  List experienceData = uicomponent.getExperience();
+  def uiSocApplicationClzz = !isOwner && (experienceData.size() == 0) ? "" : "uiSocApplication";
+%>
+<div class="<%=uiSocApplicationClzz%> uiExperienceProfilePortlet" id="$uicomponent.id">
+<%
+	//if the About me information of the user is not empty, print out
+	if(aboutMe.length() > 0) { %>
+	  <h4 class="head-container"><%=_ctx.appRes("UIBasicProfile.label.AboutMe")%></h4>
+	  
+	  <!-- Add more description here -->
+	  <p>Quick description of the user</p>
+	  <div class="simpleBox aboutMe"><%=aboutMe%></div>
+	
+	<!-- if empty and the user is the owner, print out a message and provide Edit profile feature -->
+	<% } else if(isOwner) { %>
+	  <div class="no-content center">
+		<div><%=_ctx.appRes("UIBasicProfile.info.HaveNotAbout")%></div>
+		<button class="btn btn-primary" onclick="window.location.href=window.location.origin + '<%=LinkProvider.getBaseUri(null, null)%>/edit-profile/'">
+		  <i class="uiIconEdit uiIconLightGray"></i> <%=_ctx.appRes("UIBasicProfile.action.EditProfile")%></button>
+	  </div>
+	<% } 
+	
+	//if having experience information, loop through to print out
+    if(experienceData.size() > 0) {
+      print("<h4 class=\"head-container\">" + _ctx.appRes("UIBasicProfile.label.Experience") + "</h4>");
+      print("<div class=\"simpleBox\"> ");
+      for(experience in experienceData) {
+        print("<div class=\"experience-container\"> ");
+        String utilNow = experience.get(uicomponent.EXPERIENCES_IS_CURRENT);
+        for(key in experience.keySet()) {
+          if(uicomponent.EXPERIENCES_IS_CURRENT.equals(key)) {
+            continue;
+          }
+          String label = _ctx.appRes("UIBasicProfile.label." + key);
+%>
+        <div class="<%=key%> clearfix"><div class="labelName pull-left"><%=label%>:</div>
+          <div rel="tooltip" data-placement="top" title="" data-original-title="<%=experience.get(key)%>"
+            class="pull-left ellipsis"><%=experience.get(key)%><%=(utilNow != null && "startDate".equals(key)) ? (" " + _ctx.appRes("UIBasicProfile.label.untilNow")) : "" %></div>
+         </div> 
+<%
+        }
+        print("</div>");
+      }
+      print("</div>");
+    }
+%>
+</div>

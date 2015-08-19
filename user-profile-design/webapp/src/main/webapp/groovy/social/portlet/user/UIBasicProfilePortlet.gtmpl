@@ -1,0 +1,97 @@
+<%
+import org.exoplatform.social.user.portlet.UserProfileHelper;
+import org.exoplatform.social.webui.Utils;
+
+//Retrieve the basic information of the user
+def profile = uicomponent.getProfileInfo();
+def keys = profile.keySet();
+%>
+
+<!-- showing and hiding control buttons -->
+<button onclick="showFullContact()" id="btn_show_contact">Show full contact information</button>
+<button onclick="hideFullContact()" id="btn_hide_contact" style="display: none">Hide full contact information</button>
+
+<!-- javascript to show and hide full contact information -->
+<script type="text/javascript">
+function showFullContact(){
+	document.getElementById("$uicomponent.id").style.display = "block";
+	document.getElementById("btn_show_contact").style.display = "none";
+	document.getElementById("btn_hide_contact").style.display = "block";
+}
+function hideFullContact(){
+	document.getElementById("$uicomponent.id").style.display = "none";
+	document.getElementById("btn_show_contact").style.display = "block";
+	document.getElementById("btn_hide_contact").style.display = "none";
+}
+</script>
+
+<div class="uiSocApplication uiBasicProfilePortlet" id="$uicomponent.id" style="display: none">
+  <h4 class="head-container"><%=_ctx.appRes("UIBasicProfile.label.ContactInformation")%></h4>
+  <div class="uiBasicInfoSection">
+  
+    <%
+	//Loop through to print out all information
+      for(key in keys) {
+        def values = profile.get(key);
+        String clzz = key.substring(0, 1).toUpperCase() + key.substring(1);
+        System.out.println(key);
+		
+		//If the user is not the owner, do not print out email
+        if (!Utils.isOwner() && key.toString().equals("email")) continue;
+    %>
+    <div class="group-user-info">
+      <div class="label-user-info"><strong><%=_ctx.appRes("UIBasicProfile.label." + key)%>:</strong></div>
+      <div class="value-user-info">
+      <%
+        if(UserProfileHelper.isString(values)) {
+      %>
+        <div class="ui<%=clzz%> ellipsis" rel="tooltip" data-placement="top" title="" data-original-title="<%=values%>"><%=values%></div>
+      <%} else  {
+          for(subKey in values.keySet()) {
+            def isIms = UserProfileHelper.isIMs(key);
+            def typeIconClzz = "";
+            if (isIms) {
+              typeIconClzz = UserProfileHelper.getIconCss(subKey); 
+            }
+            
+            def listVal = values.get(subKey); 
+            int valueNum = 0;
+            if (UserProfileHelper.isURL(key)) {
+              for (url in listVal) { %>
+              <div class="ui<%=clzz%> ellipsis"><a href="<%=UserProfileHelper.toAbsoluteURL(url)%>" target="_blank"
+                   rel="tooltip" data-placement="top" title="" data-original-title="<%=url%>"><%=url%></a></div>
+            <%}
+            } else {
+              if (typeIconClzz.length() > 0) {
+                typeIconClzz = typeIconClzz + " uiIconSocLightGray";
+              }
+              for (val in listVal) { 
+              %>
+              <div class="listContent">
+              <%
+                if (valueNum == 0) {
+              %>
+                 <%if(isIms) {%>
+                <div><i class="<%=typeIconClzz%>"></i>&nbsp;&nbsp;<%=_ctx.appRes("UIBasicProfile.label." + subKey)%>:&nbsp;</div>
+                 <%} else { %>
+                <div><%=_ctx.appRes("UIBasicProfile.label." + subKey)%>:&nbsp;</div>  
+                 <%}%>
+              <%} else { %>
+                <div></div>
+              <%}
+                valueNum++;
+              %>
+                <div class="ellipsis" rel="tooltip" data-placement="top" title="" data-original-title="<%=val%>"><%=val%></div>
+              </div>
+              <% 
+              }
+            }
+          }
+        }
+      %>
+      </div>
+    </div>
+    <%}%>
+    <div class="line-bottom"><span></span></div>
+  </div>
+</div>

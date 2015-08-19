@@ -1,0 +1,13 @@
+<portal-config>
+	<portal-name>site1</portal-name>
+	<locale>en</locale>
+	<access-permissions>*:/platform/users</access-permissions>
+	<edit-permission>*:/platform/administrators</edit-permission>
+	<properties>
+		<entry key="sessionAlive">never</entry>
+		<entry key="showPortletInfo">1</entry>
+	</properties>
+	<portal-layout>
+		<page-body> </page-body>
+	</portal-layout>
+</portal-config>

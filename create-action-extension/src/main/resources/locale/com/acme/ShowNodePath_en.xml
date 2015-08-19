@@ -1,0 +1,12 @@
+<bundle>
+	<UITabForm>
+		<label>
+			<showNodePath>Show Node Path</showNodePath>
+		</label>
+	</UITabForm>
+	<UIActionBar>
+		<tooltip>
+			<ShowNodePath>Show Node Path</ShowNodePath>
+		</tooltip>
+	</UIActionBar>
+</bundle>

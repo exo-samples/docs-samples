@@ -1,0 +1,30 @@
+<portlet-app version="2.0" xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
+	<portlet>
+		<portlet-name>Sharing-PRP-Portlet</portlet-name>
+		<portlet-class>com.acme.samples.SharingPRPPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Sharing-PRP-Portlet</title>
+		</portlet-info>
+		<supported-public-render-parameter>current_time</supported-public-render-parameter>
+	</portlet>
+	<portlet>
+		<portlet-name>Consuming-PRP-Portlet</portlet-name>
+		<portlet-class>com.acme.samples.ConsumingPRPPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Consuming-PRP-Portlet</title>
+		</portlet-info>
+		<supported-public-render-parameter>current_time</supported-public-render-parameter>
+	</portlet>
+	<public-render-parameter>
+		<identifier>current_time</identifier>
+		<name>current_time</name>
+	</public-render-parameter>
+</portlet-app>

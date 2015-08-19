@@ -1,0 +1,6 @@
+.sampleactivitycomposer .uiIconSocSampleActivityComposer {
+	background: url('/eXoSkin/skin/images/themes/default/social/skin/UIManageSpaces/Member.png') no-repeat 3px 3px;
+}
+a.sampleactivitycomposer:hover .uiIconSocSampleActivityComposer {
+	background: url('/eXoSkin/skin/images/themes/default/social/skin/UIManageSpaces/Member.png') no-repeat 3px 3px;
+}

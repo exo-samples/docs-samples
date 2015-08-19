@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs author="eXoPlatform"
+	title="Hello World"
+	directory_title="Hello World"
+	description="The simplest gadget">
+	</ModulePrefs>
+	<Content type="html">
+		<![CDATA[
+			<link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
+			<script src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+			<script type="text/javascript">
+			$("body").live("click", ".hello .btn", function() {
+			$(".hello h6").css("color", "green");
+			});
+			</script>
+			<div class='hello'>
+			<h2>Hello</h2>
+			<h6>Welcome to Hello World gadget!</h6>
+			<p>Click <a class='btn'>here</a> to change the default color of the welcome message.
+			<p><i>Powered by eXo Platform.</i></p>
+			</div>
+		]]>
+	</Content>
+</Module>

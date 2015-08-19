@@ -1,0 +1,31 @@
+<%
+import org.exoplatform.webui.form.UIFormStringInput;
+def uicomponentId = uicomponent.id;
+def labelCheckin = _ctx.appRes("com.acme.LocationComposer.CheckinBtn");
+def locationValid = uicomponent.isLocationValid();
+uicomponent.setLocationValid(false);
+def location = uicomponent.getLocation();
+def params = "{" +
+"locationValid: '" + locationValid + "'," +
+"inputLocationId: 'InputLocation'," +
+"checkinButtonId: 'CheckinButton'," +
+"checkinUrl: encodeURI('" + uicomponent.url("Checkin") + "')," +
+"location: '" + location + "'" +
+"}";
+def requestContext = _ctx.getRequestContext();
+def jsManager = requestContext.getJavascriptManager();
+jsManager.require("SHARED/jquery", "jq").require("SHARED/location-activity-composer",
+"locComposer").addScripts("locComposer.onLoad($params);");
+%>
+<div id="$uicomponentId">
+<div id="LocationComposerContainer" class="uiComposerLink clearfix">
+<button id="CheckinButton" class="btn pull-right">$labelCheckin</button>
+<div class="Title Editable">
+<%if (locationValid) {%>
+<span class="tabName">Location: $location</span>
+<%} else {
+uicomponent.renderChild(UIFormStringInput.class);
+}%>
+</div>
+</div>
+</div>

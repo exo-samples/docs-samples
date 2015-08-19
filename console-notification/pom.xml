@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.acme.samples</groupId>
+	<artifactId>console-notification</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>lib</module>
+		<module>config</module>
+		<module>webapp</module>
+	</modules>
+	<properties>
+		<org.exoplatform.depmgt.version>10-SNAPSHOT</org.exoplatform.depmgt.version>
+		<org.exoplatform.kernel.version>2.4.9-GA</org.exoplatform.kernel.version>
+		<org.exoplatform.core.version>2.5.9-GA</org.exoplatform.core.version>
+		<!-- GateIn Project Dependencies -->
+		<org.gatein.portal.version>3.5.10.Final</org.gatein.portal.version>
+		<!-- Platform Project Dependencies -->
+		<org.exoplatform.social.version>4.2.x-SNAPSHOT</org.exoplatform.social.version>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<!-- Import versions from platform project -->
+			<dependency>
+				<groupId>org.exoplatform</groupId>
+				<artifactId>maven-depmgt-pom</artifactId>
+				<version>${org.exoplatform.depmgt.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.exoplatform.social</groupId>
+				<artifactId>social</artifactId>
+				<version>${org.exoplatform.social.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- To be replaced by an import of GateIn Portal parent POM -->
+			<dependency>
+				<groupId>org.gatein.portal</groupId>
+				<artifactId>exo.portal.component.portal</artifactId>
+				<version>${org.gatein.portal.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

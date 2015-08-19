@@ -1,0 +1,60 @@
+<%
+  import org.exoplatform.social.core.service.LinkProvider;
+  import org.exoplatform.portal.webui.util.Util;
+  import org.exoplatform.social.webui.Utils;
+  import org.exoplatform.social.user.portlet.UserProfileHelper;
+  
+  //Load current connections of the user
+  List profiles = uicomponent.loadPeoples();
+  int size = uicomponent.getAllSize();
+  uicomponent.initProfilePopup();
+%>
+
+<!-- showing and hiding control buttons -->
+<button onclick="showConnection()" id="btn_show_connection">Show connections</button>
+<button onclick="hideConnection()" id="btn_hide_connection" style="display: none">Hide connections</button>
+
+<!-- javascript to show and hide user's connections -->
+<script type="text/javascript">
+function showConnection(){
+	document.getElementById("$uicomponent.id").style.display = "block";
+	document.getElementById("btn_show_connection").style.display = "none";
+	document.getElementById("btn_hide_connection").style.display = "block";
+}
+function hideConnection(){
+	document.getElementById("$uicomponent.id").style.display = "none";
+	document.getElementById("btn_show_connection").style.display = "block";
+	document.getElementById("btn_hide_connection").style.display = "none";
+}
+</script>
+
+<div class="uiSocApplication uiMiniConnectionsPortlet" id="$uicomponent.id" style="display: none">
+  <h4 class="head-container"><%=_ctx.appRes("UIBasicProfile.label.Connections")%></h4>
+  <% if(size > 0) { %>
+  
+	<!-- if having connections, loop through to print out -->
+  	<div class="borderContainer" id="borderMiniConnectionsPortlet">
+    <% for(profile in profiles) { %>
+         <a href="<%=profile.getProfileURL()%>" class="avatarXSmall">
+           <img alt="<%=profile.getDisplayName()%>" src="<%=profile.getAvatarURL()%>">         
+         </a>
+    <% } %>
+	
+		<!-- Provide View all connections feature -->
+       <div class="viewAllConnection"><a href="<%=LinkProvider.getBaseUri(null, null)%>/connections/network/<%=uicomponent.getCurrentRemoteId()%>"><%=_ctx.appRes("UIBasicProfile.label.ViewAll")%>&nbsp;(<%=size%>)</a></div>
+     </div>
+  <% } else {
+  
+	  //if no connection and the user is the owner, provide Find new connection feature
+	  //if the user is not the owner, just print out the message
+      String keyNoConnection = Utils.isOwner() ? "YouHaveNotConnections" : "UserHaveNotConnections";
+      String noConnectionCSS = Utils.isOwner() ? "noConnection" : "";
+  %>
+      <div class="borderContainer $noConnectionCSS center">
+        <%=_ctx.appRes("UIBasicProfile.info." + keyNoConnection)%>
+        <%if (Utils.isOwner()) { %>
+        <div class="findConnection"><a href="<%=LinkProvider.getBaseUri(null, null)%>/connections/all-people/"><%=_ctx.appRes("UIBasicProfile.label.FindConnections")%></a></div>
+        <%} %>
+      </div>
+  <% } %>
+</div>
