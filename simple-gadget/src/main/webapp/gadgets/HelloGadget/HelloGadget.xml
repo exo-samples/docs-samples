@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+	<ModulePrefs author="eXoPlatform"
+	title="Hello World"
+	directory_title="Hello World"
+	description="The simplest gadget">
+	</ModulePrefs>
+	<Content type="html">
+		<![CDATA[
+			<div class='hello'>
+			<h2>Hello</h2>
+			<h6>Welcome to Hello World gadget!</h6>
+			<p><i>Powered by eXo Platform.</i></p>
+			</div>
+		]]>
+	</Content>
+</Module>

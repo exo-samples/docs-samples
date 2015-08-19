@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Memories!" width="240" height="200"/>
+  <Content type="html">
+  <![CDATA[
+  <!--Including JQuery library-->
+  <script src="http://code.jquery.com/jquery-2.1.3.js"></script>
+  
+  <!--Defining style for gadget-->
+  <style type="text/css">
+	img {width: 240px;}
+	#slideshow { 
+    margin: 10px auto 10px; 
+    position: relative; 
+    width: 240px; 
+    height: 200px; 
+    padding: 10px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+	}
+	#slideshow > div { 
+		position: absolute; 
+		top: 10px; 
+		left: 10px; 
+		right: 10px; 
+		bottom: 10px; 
+	}
+  </style>
+  
+  <!--Gadget's main body which will be added by HTML DOM Object later-->
+  <div id="slideshow">
+  </div>
+  
+  <script type="text/javascript">
+    getImages();
+	function traverseXMLDoc(xmlDoc, idOfContainerDomElement){
+	//This function traverses through the whole XML response returned from server
+	
+		var $xmlDocObjChildren, $contentDiv;
+		$contentDiv = $('#' + idOfContainerDomElement);
+		if ($contentDiv.length === 0) {
+			throw new Error('There are no DOM elements with this id: "' + idOfContainerDomElement + '"');
+		}
+		//Information of each image object is contained in "File" tag
+		$xmlDocObjChildren = $(xmlDoc).find("File");
+		$xmlDocObjChildren.each(function(index, Element) {
+        var $currentObject = $(this),
+            childElementCount = Element.childElementCount,
+			//Image's url is contained in "url" attribute
+            currentNodeType = $currentObject.attr('url');
+			
+		//Adding dynamic content into gadget's body
+        $contentDiv.append('<div><img src="'+currentNodeType+'"></div>');
+		});
+	}
+	
+	function getImages() {
+	//This function uses AJAX to send GET request to server's DriverConnector API and receive XML response
+     jQuery.ajax({
+         type: "GET",
+         url: "http://localhost:8080/portal/rest/wcmDriver/getFoldersAndFiles?driverName=Collaboration&currentFolder=Users/r___/ro___/roo___/root/Private/Pictures&currentPortal=intranet&repositoryName=repository&workspaceName=collaboration&filterBy=Image",
+         contentType: "application/xml; charset=utf-8",
+         dataType: "xml",
+         success: function (data, status, jqXHR) {
+			var strResults=new XMLSerializer().serializeToString(data.documentElement);
+			//build dynamic html content for "slideshow" div tag
+			traverseXMLDoc(strResults, "slideshow");
+         },
+		//error report
+         error: function (jqXHR, status) {
+             // error handler
+			 alert("Cannot retrieve data!");
+         }
+	});
+	}
+	
+	//Creating gagdet's effects
+	$("#slideshow > div:gt(0)").hide();
+	setInterval(function() { 
+	  $('#slideshow > div:first')
+		.fadeOut(1000)
+		.next()
+		.fadeIn(1000)
+		.end()
+		.appendTo('#slideshow');
+	},  3000);
+  </script>
+  ]]>
+  </Content>
+</Module>

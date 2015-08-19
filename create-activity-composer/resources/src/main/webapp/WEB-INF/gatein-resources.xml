@@ -1,0 +1,33 @@
+<gatein-resources
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_3 http://www.gatein.org/xml/ns/gatein_resources_1_3"
+xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
+	<portal-skin>
+		<skin-name>Default</skin-name>
+		<skin-module>acme.samples</skin-module>
+		<css-path>/skin/DefaultSkin/Stylesheet.css</css-path>
+	</portal-skin>
+	<module>
+		<name>location-activity-composer</name>
+		<script>
+			<path>/javascript/acme/samples/LocationComposer.js</path>
+		</script>
+		<depends>
+			<module>socialUtil</module>
+		</depends>
+		<depends>
+			<module>jquery</module>
+			<as>jq</as>
+		</depends>
+		<depends>
+			<module>mentionsPlugin</module>
+		</depends>
+		<depends>
+			<module>mentionsLib</module>
+			<as>mentions</as>
+		</depends>
+		<depends>
+			<module>webui</module>
+		</depends>
+	</module>
+</gatein-resources>

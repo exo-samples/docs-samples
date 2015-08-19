@@ -1,0 +1,15 @@
+.HelloPortlet1, .HelloPortlet2, .HelloPortlet3 {
+	padding: 10px;
+	font-style: italic;
+	font-size: 18px;
+	width: 400px;
+}
+.HelloPortlet1 {
+	background-color: antiquewhite;
+}
+.HelloPortlet2 {
+	background-color: lemonchiffon;
+}
+.HelloPortlet3 {
+	background-color: wheat;
+}

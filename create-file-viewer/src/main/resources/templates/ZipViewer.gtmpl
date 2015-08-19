@@ -1,0 +1,29 @@
+<style>
+ul.zip-file-list {
+padding: 0 20px;
+}
+ul.zip-file-list li {
+list-style-position: inside;
+list-style-type: circle;
+}
+</style>
+<%
+import java.util.zip.ZipEntry
+import java.util.zip.ZipInputStream
+import org.exoplatform.webui.core.UIComponent
+def uiParent = uicomponent.getParent()
+def originalNode = uiParent.getOriginalNode()
+def contentNode = originalNode.getNode("jcr:content")
+def zis;
+try {
+zis = new ZipInputStream(contentNode.getProperty("jcr:data").getStream())
+ZipEntry ze
+out.println("<ul class=\"zip-file-list\">")
+while ((ze = zis.getNextEntry()) != null) {
+out.println("<li>" + ze.getName() + "</li>")
+}
+out.println("</ul>")
+} finally {
+zis?.close()
+	}
+	%>	

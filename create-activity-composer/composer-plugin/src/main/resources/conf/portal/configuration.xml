@@ -1,0 +1,44 @@
+<configuration
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_1.xsd http://www.exoplatform.org/xml/ns/kernel_1_1.xsd"
+xmlns="http://www.exoplatform.org/xml/ns/kernel_1_1.xsd">
+	<external-component-plugins>
+		<target-component>org.exoplatform.webui.ext.UIExtensionManager</target-component>
+		<component-plugin>
+			<name>add.action</name>
+			<set-method>registerUIExtensionPlugin</set-method>
+			<type>org.exoplatform.webui.ext.UIExtensionPlugin</type>
+			<init-params>
+				<object-param>
+					<name>Sample Activity Composer</name>
+					<object type="org.exoplatform.webui.ext.UIExtension">
+						<field name="type"><string>org.exoplatform.social.webui.composer.UIActivityComposer</string></field>
+						<field name="name"><string>SampleActivityComposer</string></field>
+						<field name="component"><string>com.acme.samples.SampleActivityComposer</string></field>
+						<field name="rank"><int>1</int></field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.resources.ResourceBundleService</target-component>
+		<component-plugin>
+			<name>Location Activity Composer Plugin</name>
+			<set-method>addResourceBundle</set-method>
+			<type>org.exoplatform.services.resources.impl.BaseResourceBundlePlugin</type>
+			<init-params>
+				<values-param>
+					<name>classpath.resources</name>
+					<description></description>
+					<value>locale.com.acme.LocationComposer</value>
+				</values-param>
+				<values-param>
+					<name>portal.resource.names</name>
+					<description></description>
+					<value>locale.com.acme.LocationComposer</value>
+				</values-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+	<!-- register new event listener -->
+	<external-component-plugins>
+		<target-component>org.exoplatform.social.core.manager.IdentityManager</target-component>
+		<component-plugin>
+			<name>SocialProfileListener</name>
+			<set-method>registerProfileListener</set-method>
+			<type>com.acme.samples.notification.SocialProfileListener</type>
+		</component-plugin>
+	</external-component-plugins>
+	<!-- register new channel -->
+	<external-component-plugins>
+		<target-component>org.exoplatform.commons.api.notification.channel.ChannelManager</target-component>
+		<component-plugin profiles="all">
+			<name>console.channel</name>
+			<set-method>register</set-method>
+			<type>com.acme.samples.notification.ConsoleChannel</type>
+			<description>Register the console channel to manager.</description>
+		</component-plugin>
+	</external-component-plugins>
+	<!-- register new notification type -->
+	<external-component-plugins>
+		<target-component>org.exoplatform.commons.api.notification.service.setting.PluginContainer</target-component>
+		<component-plugin>
+			<name>notification.plugins</name>
+			<set-method>addPlugin</set-method>
+			<type>com.acme.samples.notification.plugin.UpdateProfilePlugin</type>
+			<description>Initial information for plugin.</description>
+			<init-params>
+				<object-param>
+					<name>template.UpdateProfilePlugin</name>
+					<description>The template of UpdateProfilePlugin</description>
+					<object
+					type="org.exoplatform.commons.api.notification.plugin.config.PluginConfig">
+						<field name="pluginId">
+							<string>UpdateProfilePlugin</string>
+						</field>
+						<field name="resourceBundleKey">
+							<string>UINotification.label.UpdateProfilePlugin</string>
+						</field>
+						<field name="order">
+							<string>11</string>
+						</field>
+						<field name="defaultConfig">
+							<collection type="java.util.ArrayList">
+								<value>
+									<string>Instantly</string>
+								</value>
+							</collection>
+						</field>
+						<field name="groupId">
+							<string>general</string>
+						</field>
+						<field name="bundlePath">
+							<string>locale.notification.template.Notification</string>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>

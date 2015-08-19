@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>social</artifactId>
+		<groupId>org.exoplatform.social</groupId>
+		<version>4.0.4</version>
+	</parent>
+	<artifactId>social-location-composer</artifactId>
+	<version>4.0.x</version>
+	<packaging>pom</packaging>
+	<name>eXo Social - Location Composer</name>
+	<description>eXo Social - Location Composer</description>
+	<modules>
+		<module>resources</module>
+		<module>composer-plugin</module>
+	</modules>
+</project>
