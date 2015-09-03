@@ -310,13 +310,13 @@ public class ExoEvent {
 
     public class FromDateTime {
       public int day;
-      public int timeZoneOffset;
+      public int timezoneOffset;
       public int date;
       public int hours;
       public int minutes;
       public int month;
       public int seconds;
-      public int time;
+      public long time;
       public int year;
       
       public int getDay() {
@@ -325,11 +325,11 @@ public class ExoEvent {
       public void setDay(int day) {
         this.day = day;
       }
-      public int getTimeZoneOffset() {
-        return timeZoneOffset;
+      public int getTimezoneOffset() {
+        return timezoneOffset;
       }
-      public void setTimeZoneOffset(int timeZoneOffset) {
-        this.timeZoneOffset = timeZoneOffset;
+      public void setTimezoneOffset(int timezoneOffset) {
+        this.timezoneOffset = timezoneOffset;
       }
       public int getDate() {
         return date;
@@ -361,10 +361,10 @@ public class ExoEvent {
       public void setSeconds(int seconds) {
         this.seconds = seconds;
       }
-      public int getTime() {
+      public long getTime() {
         return time;
       }
-      public void setTime(int time) {
+      public void setTime(long time) {
         this.time = time;
       }
       public int getYear() {
