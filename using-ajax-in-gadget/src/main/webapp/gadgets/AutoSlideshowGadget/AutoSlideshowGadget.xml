@@ -57,7 +57,7 @@
 	//This function uses AJAX to send GET request to server's DriverConnector API and receive XML response
      jQuery.ajax({
          type: "GET",
-         url: "http://localhost:8080/portal/rest/wcmDriver/getFoldersAndFiles?driverName=Collaboration&currentFolder=Users/r___/ro___/roo___/root/Private/Pictures&currentPortal=intranet&repositoryName=repository&workspaceName=collaboration&filterBy=Image",
+         url: "/portal/rest/wcmDriver/getFoldersAndFiles?driverName=Collaboration&currentFolder=Users/r___/ro___/roo___/root/Private/Pictures&currentPortal=intranet&repositoryName=repository&workspaceName=collaboration&filterBy=Image",
          contentType: "application/xml; charset=utf-8",
          dataType: "xml",
          success: function (data, status, jqXHR) {
