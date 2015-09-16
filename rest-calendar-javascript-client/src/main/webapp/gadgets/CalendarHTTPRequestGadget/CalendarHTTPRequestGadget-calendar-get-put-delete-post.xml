@@ -40,7 +40,7 @@
 				}
 				function deleteCalendar(){
 					$.ajax({
-						url: "/portal/rest/v1/calendar/calendars/"+current_cal_obj.id,
+						url: "/rest/private/v1/calendar/calendars/"+current_cal_obj.id,
 						method: "DELETE"
 						}).done(function () {
 						   $("#calendar-result").remove();
@@ -74,7 +74,7 @@
 					current_cal_obj.name=$("#cal-name").val();
 					current_cal_obj.description=$("#cal-description").val();
 					$.ajax({
-						url: "/portal/rest/v1/calendar/calendars/"+current_cal_obj.id,
+						url: "/rest/private/v1/calendar/calendars/"+current_cal_obj.id,
 						contentType: "application/json",
 						data: JSON.stringify(current_cal_obj),
 						method: "PUT"
@@ -108,7 +108,7 @@
 						"color":$("#cal-color").val()
 						};
 					$.ajax({
-						url: "/portal/rest/v1/calendar/calendars",
+						url: "/rest/private/v1/calendar/calendars",
 						contentType: "application/json",
 						data: JSON.stringify(cal_json_obj),
 						method: "POST"
@@ -130,7 +130,7 @@
 					//Calendar REST API GET /portal/rest/v1/calendar/calendars/
 					$.ajax({
 						 type: "GET",
-						 url: "/portal/rest/v1/calendar/calendars/"+cal_id,
+						 url: "/rest/private/v1/calendar/calendars/"+cal_id,
 						 success: function (data, status, jqXHR) {
 							//print the result
 							  processGetCalendar(data);
@@ -146,7 +146,7 @@
 					//Calendar REST API GET /portal/rest/v1/calendar/calendars/
 					$.ajax({
 						 type: "GET",
-						 url: "/portal/rest/v1/calendar/calendars/"+current_user+"-defaultCalendarId",
+						 url: "/rest/private/v1/calendar/calendars/"+current_user+"-defaultCalendarId",
 						 success: function (data, status, jqXHR) {
 							  processGetCalendar(data);
 						 },
