@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<beans xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://jboss.org/schema/cdi/beans_1_0.xsd">
+	<!-- This file is required to enable CDI for this web-app. There is nothing 
+		here because the beans will be declared using annotations. In case your beans 
+		are packaged in jar, this file should be placed under META-INF/ folder. -->
+</beans>

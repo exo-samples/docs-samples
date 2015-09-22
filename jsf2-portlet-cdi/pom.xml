@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.exoplatform.samples</groupId>
+	<artifactId>jsf2portlet-cdi-example</artifactId>
+	<packaging>war</packaging>
+	<name>JSF2 CDI Portlet Example</name>
+	<version>1.0</version>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>2.1.14</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<scope>runtime</scope>
+			<version>2.1.14</version>
+		</dependency>
+
+		<!-- JPB (JBoss Portlet Bridge) -->
+		<dependency>
+			<groupId>org.jboss.portletbridge</groupId>
+			<artifactId>portletbridge-api</artifactId>
+			<version>3.1.2.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.portletbridge</groupId>
+			<artifactId>portletbridge-impl</artifactId>
+			<version>3.1.2.Final</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- CDI (Contexts and Dependency Injection) -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>1.0-SP4</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.gatein</groupId>
+			<artifactId>cdi-portlet-integration</artifactId>
+			<version>1.0.3.Final</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- eXo -->
+		<dependency>
+			<groupId>org.exoplatform.core</groupId>
+			<artifactId>exo.core.component.security.core</artifactId>
+			<version>2.5.13-GA</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.social</groupId>
+			<artifactId>social-component-core</artifactId>
+			<version>4.2.0</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>jsf2portlet-cdi-example</finalName>
+	</build>
+</project>
