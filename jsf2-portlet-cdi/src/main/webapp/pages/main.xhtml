@@ -2,15 +2,17 @@
 xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 	<h:head />
 	<h:body>
-		<h2>JSF 2 portlet</h2>
+		<h2>JSF 2 portlet utilizing CDI</h2>
 		<h:form id="form1">
-			Subject: <h:inputText id="subject" autocomplete="off" value="#{mailSender.subject}"></h:inputText>
-			<br/>
-			Message: <h:inputTextarea id="body" value="#{mailSender.body}"></h:inputTextarea>
-			<br/>
-			<h:commandButton id="sendCustomer" value="Send Customers" actionListener="#{mailSender.sendCustomers}"></h:commandButton>
-			<br/>
-			<h:commandButton id="sendPartners" value="Send Partners" actionListener="#{mailSender.sendPartners}"></h:commandButton>
+			<h:panelGrid columns="2">
+				Subject: <h:inputText id="subject" autocomplete="off" value="#{mailSender.subject}"></h:inputText>
+				Message: <h:inputTextarea id="body" value="#{mailSender.body}"></h:inputTextarea>
+				<br/>
+				<h:panelGroup>
+					<h:commandButton id="sendCustomer" value="Send Customers" actionListener="#{mailSender.sendCustomers}"></h:commandButton>
+					<h:commandButton id="sendPartners" value="Send Partners" actionListener="#{mailSender.sendPartners}"></h:commandButton>
+				</h:panelGroup>
+			</h:panelGrid>
 		</h:form>
 	</h:body>
 </f:view>
