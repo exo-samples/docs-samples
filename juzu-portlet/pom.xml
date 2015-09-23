@@ -102,6 +102,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 				<dependency>
 					<groupId>org.springframework</groupId>
 					<artifactId>spring-web</artifactId>
+					<scope>runtime</scope>
 					<version>2.5.5</version>
 				</dependency>
 			</dependencies>
@@ -115,8 +116,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 						<version>2.6</version>
 						<configuration>
 							<packagingExcludes>
-								WEB-INF/jboss-deployment-structure.xml,
-								WEB-INF/lib/*.jar
+								WEB-INF/jboss-deployment-structure.xml
 							</packagingExcludes>
 						</configuration>
 					</plugin>
@@ -140,6 +140,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 				<dependency>
 					<groupId>org.springframework</groupId>
 					<artifactId>spring-web</artifactId>
+					<scope>runtime</scope>
 					<version>2.5.5</version>
 				</dependency>
 			</dependencies>

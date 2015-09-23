@@ -1,0 +1,17 @@
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/portlet http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+version="2.0">
+	<portlet>
+		<portlet-name>contact</portlet-name>
+		<display-name>Contact</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Contact</title>
+		</portlet-info>
+	</portlet>
+</portlet-app>
