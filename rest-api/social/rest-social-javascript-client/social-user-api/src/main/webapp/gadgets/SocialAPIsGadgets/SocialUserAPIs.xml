@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="Social User Gadget">
+	</ModulePrefs>
+	<Content type="html">
+		<![CDATA[
+			<!--Including platform css-->
+			<link href="/eXoSkin/skin/css/Core.css" rel="stylesheet"></link>
+			<link href="/eXoSkin/skin/css/sub-core.css" rel="stylesheet"></link>
+			<!--Including JQuery library-->
+			<script src="jquery-2.1.3.js"></script>
+			
+			<!--Gadget's main body which will be added by HTML DOM Object later-->
+			<div id="main-body" style="max-width: 850px" class="uiComposer uiGrayLightBox">
+					<div class="input-append" style="margin: 20px 30px 20px 30px">
+						//control button for searching users
+						<button id="get_users_btn" onclick="getUsers()" class="btn btn-primary">Search for user</button>
+						<input type="text" id="user_info_txt" placeholder="Enter user information...">
+						//control button for getting a specified user
+						<button id="get_user_by_id_btn" onclick="getUserById()" class="btn btn-primary">Get user by remote id</button>
+						<input type="text" id="get_user_by_id_txt" placeholder="Enter remote id...">
+					</div>
+			</div>
+			<!--Start calling js function-->
+			<script type="text/javascript">
+				//current user to process
+				var current_user;
+				function getUsers(){
+					//get all users
+					//send http request
+					$.ajax({
+						 type: "GET",
+						 url: "/rest/v1/social/users?q="+$("#user_info_txt").val(),
+						 success: function (data, status, jqXHR) {
+							//print the result
+							  printUsersList(data.users);
+							  addNewUserBtn();
+						 },
+						 error: function (jqXHR, status) {
+							 alert("Cannot retrieve data!");
+						 }
+					});
+				}
+				function printUsersList(users){
+					//print a list of users in a table
+					//clean screen
+					$('#main-content').remove();
+					$('#sub-content').remove();
+					//initialize html content
+					var obj_content="<div id=\"main-content\"><table class=\"uiGrid table table-hover table-striped\"><thead><tr><th>&nbsp;</th><th>User name</th><th>First name</th><th>Last name</th><th>Email</th></tr></thead><tbody>";
+						//loop through the list
+						$.each(users, function(key, value) {
+							obj_content+="<tr><td>"+key+"</td><td>"+value.username+"</td><td>"+value.firstname+"</td><td>"+value.lastname+"</td><td>"+value.email+"</td></tr>";
+						});
+					//add closing tag
+					obj_content+="</tbody></table></div>";
+					//add to screen
+					$('#main-body').append(obj_content);
+				}
+				function addNewUserBtn(){
+					var obj_content="<button id=\"add_new_user_btn\" onclick=\"addNewUser()\" class=\"btn btn-primary\" style=\"margin: 20px 30px 20px 30px\">Add new user</button>";
+					//add to screen
+					$('#main-content').append(obj_content);
+				}
+				function addNewUser(){
+					//clean screen
+					$('#sub-content').remove();
+					//initialize html content
+					var obj_content="<div id=\"sub-content\"><table class=\"uiGrid table table-hover table-striped\"><tr><td>User name: </td><td><input type=\"text\" id=\"username\"></td></tr><tr><td>First name: </td><td><input type=\"text\" id=\"firstname\"></td></tr><tr><td>Last name: </td><td><input type=\"text\" id=\"lastname\"></td></tr><tr><td>Password: </td><td><input type=\"password\"  id=\"password\"></td></tr><tr><td>Email: </td><td><input type=\"text\" id=\"email\"></td></tr><tr><td></td><td><button id=\"add_new_user_proc_btn\" onclick=\"addNewUserProcess()\">Submit</button></td></tr></table></div>";
+					//add to screen
+					$('#main-body').append(obj_content);
+				}
+				function addNewUserProcess(){
+					//check entered data
+					if(($("#username").val().trim()=="")||($("#firstname").val().trim()=="")||($("#lastname").val().trim()=="")||($("#password").val().trim()=="")||($("#email").val().trim()=="")) {
+						alert("Missing information");
+						return;
+					}
+					//initialize user information as a json object
+					var user_json_obj={
+						"username":$("#username").val(),
+						"email":$("#email").val(),
+						"firstname":$("#firstname").val(),
+						"lastname":$("#lastname").val(),
+						"password":$("#password").val()
+						};
+					//send http request
+					$.ajax({
+						url: "/rest/v1/social/users",
+						contentType: "application/json",
+						data: JSON.stringify(user_json_obj),
+						method: "POST"
+						}).done(function (data, status, xhr) {
+						   //reload users list
+						   getUsers();
+						}).fail(function (jqxhr, textStatus, error) {
+							alert("fail");
+					});
+				}
+				function getUserById(){
+					//check user id
+					if($("#get_user_by_id_txt").val().trim()==""){
+						alert("invalid id!");
+					}
+					//send http request
+					$.ajax({
+						 type: "GET",
+						 url: "/rest/v1/social/users/"+$("#get_user_by_id_txt").val().trim(),
+						 success: function (data, status, jqXHR) {
+							//update current user to process
+							current_user=data;
+							//print the result
+							var array=new Array(data);
+							printUsersList(array);
+							addUpdateUserBtn(); 
+						 },
+						 error: function (jqXHR, status) {
+							 alert("Cannot retrieve data!");
+						 }
+					});
+				}
+				function addUpdateUserBtn(){
+					var obj_content="<button id=\"delete_user_btn\" onclick=\"deleteUser()\" class=\"btn btn-primary\" style=\"margin: 20px 30px 20px 30px\">Delete this user</button><button id=\"update_user_btn\" onclick=\"updateUser()\" class=\"btn btn-primary\" style=\"margin: 20px 30px 20px 30px\">Update your email</button><input type=\"text\" id=\"update_user_txt\" placeholder=\"Enter your new email...\">";
+					//add to screen
+					$('#main-content').append(obj_content);
+				}
+				function deleteUser(){
+					//send http request
+					$.ajax({
+						url: "/rest/v1/social/users/"+current_user.username,
+						method: "DELETE"
+						}).done(function () {
+						//reload users list
+						   getUsers();
+						}).fail(function (jqxhr, textStatus, error) {
+							alert("fail");
+					});
+				}
+				function updateUser(){
+					//update email of the current user
+					current_user.email=$("#update_user_txt").val();
+					//send http request
+					$.ajax({
+						url: "/rest/v1/social/users/"+current_user.username,
+						contentType: "application/json",
+						data: JSON.stringify(current_user),
+						method: "PUT"
+						}).done(function (data, status, xhr) {
+							getUserById();
+						}).fail(function (jqxhr, textStatus, error) {
+							alert("Failed!");
+					});
+				}
+			</script>
+		]]>
+	</Content>
+</Module>

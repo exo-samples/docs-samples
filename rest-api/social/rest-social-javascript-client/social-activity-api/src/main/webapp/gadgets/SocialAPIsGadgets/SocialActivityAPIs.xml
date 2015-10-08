@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="Social Activity Gadget">
+	</ModulePrefs>
+	<Content type="html">
+		<![CDATA[
+			<!--Including platform css-->
+			<link href="/eXoSkin/skin/css/Core.css" rel="stylesheet"></link>
+			<link href="/eXoSkin/skin/css/sub-core.css" rel="stylesheet"></link>
+			<!--Including JQuery library-->
+			<script src="jquery-2.1.3.js"></script>
+			
+			<!--Gadget's main body which will be added by HTML DOM Object later-->
+			<div id="main-body" style="max-width: 800px" class="uiComposer uiGrayLightBox">
+					<div class="input-append" style="margin: 20px 30px 20px 30px">
+						//control button for getting all your activities
+						<button id="get_all_activities_btn" onclick="getAllActivities()" class="btn btn-primary">Get all your activities</button>
+						<button id="get_activity_by_id_btn" onclick="getActivityById()" class="btn btn-primary">Get an activity by id</button>
+						<input type="text" id="activity_id_txt" placeholder="Enter activity id...">
+					</div>
+			</div>
+			<!--Start calling js function-->
+			<script type="text/javascript">
+				var current_activity;
+				function getActivityById(){
+					//send http request
+					$.ajax({
+						 type: "GET",
+						 url: "/rest/v1/social/activities/"+$("#activity_id_txt").val(),
+						 success: function (data, status, jqXHR) {
+							//update current activity to be processed
+							current_activity=data;
+							//print the result
+							var array=new Array(data);
+							printActivitiesList(array);
+							getNumOfLikes($("#activity_id_txt").val());
+							getNumOfComments($("#activity_id_txt").val());
+							likeBtn();
+							commentBtn();
+							expandCommentsBtn();
+						 },
+						 error: function (jqXHR, status) {
+							 alert("Cannot retrieve data!");
+						 }
+					});
+				}
+				function expandCommentsBtn(){
+					var obj_content="<button id=\"expand_comments_btn\" onclick=\"expandComments()\" class=\"btn btn-primary\" style=\"margin: 20px 30px 20px 30px\">Expand all comments of this activity</button>";
+					//add to screen
+					$('#main-content').append(obj_content);
+				}
+				function expandComments(){
+					//send http request
+					$.ajax({
+						 type: "GET",
+						 url: "/rest/v1/social/activities/"+current_activity.id+"/comments",
+						 success: function (data, status, jqXHR) {
+							//print the comment list
+							printCommentsList(data.comments);
+						 },
+						 error: function (jqXHR, status) {
+							 alert("Cannot retrieve data!");
+						 }
+					});
+				}
+				function printCommentsList(comments){
+					//print a list of comments in a table
+					//clean screen
+					$('#sub-content').remove();
+					//initialize html content
+					var obj_content="<div id=\"sub-content\"><table class=\"uiGrid table table-hover table-striped\"><thead><tr><th>&nbsp;</th><th>Body</th><th>Id</th><th>Edit</th><th>Delete</th></tr></thead><tbody>";
+						//loop through the list
+						$.each(comments, function(key, value) {
+							obj_content+="<tr><td>"+key+"</td><td>"+value.body+"</td><td>"+value.id+"</td><td><a class=\"actionHover\" href=\"#\"><i class=\"uiIconEditMini uiIconLightGray\" onclick=\"editComment('"+value.id+"')\"> </i></a></td><td><a class=\"actionHover\" href=\"#\"><i class=\"uiIconTrashMini uiIconLightGray\" onclick=\"deleteComment('"+value.id+"')\"></i></a></td></tr>";
+						});
+					//add closing tag
+					obj_content+="</tbody></table></div>";
+					//add to screen
+					$('#main-body').append(obj_content);
+				}
+				function editComment(comment_id) {
+					var content = prompt("Please enter your comment", "Hello");
+					
+					if (content != null) {
+						//update content of comment
+						var comment_json_obj={
+							"title":content
+						}
+						//send http request
+						$.ajax({
+							url: "/rest/v1/social/comments/"+comment_id,
+							contentType: "application/json",
+							data: JSON.stringify(comment_json_obj),
+							method: "PUT"
+							}).done(function (data, status, xhr) {
+								//print the result
+								var array=new Array(current_relationship);
+								expandComments();
+							}).fail(function (jqxhr, textStatus, error) {
+								alert("Fail!");
+						});
+					}
+				}
+				function deleteComment(comment_id){
+					//send http request
+					$.ajax({
+						url: "/rest/v1/social/comments/"+comment_id,
+						method: "DELETE"
+						}).done(function () {
+						//reload comments list
+						   expandComments();
+						}).fail(function (jqxhr, textStatus, error) {
+							alert("fail");
+					});
+				}
+				function commentBtn(){
+					var obj_content="<button id=\"comment_activity_btn\" onclick=\"commentActivity()\" class=\"btn btn-primary\" style=\"margin: 20px 30px 20px 30px\">Comment on this activity</button><input type=\"text\" id=\"comment_txt\" placeholder=\"Enter comment...\">";
+					//add to screen
+					$('#main-content').append(obj_content);
+				}
+				function commentActivity(){
+					var comment_json_obj={
+						"title":$("#comment_txt").val()
+						};
+					//send http request
+					$.ajax({
+						url: "/rest/v1/social/activities/"+current_activity.id+"/comments",
+						contentType: "application/json",
+						data: JSON.stringify(comment_json_obj),
+						method: "POST"
+						}).done(function (data, status, xhr) {
+						   //reload this activity
+						   getActivityById();
+						}).fail(function (jqxhr, textStatus, error) {
+							alert("fail");
+					});
+				}
+				function likeBtn(){
+					var obj_content="<button id=\"like_activity_btn\" onclick=\"likeActivity()\" class=\"btn btn-primary\" style=\"margin: 20px 0px 20px 30px\">Like this activity</button>";
+					//add to screen
+					$('#main-content').append(obj_content);
+				}
+				function likeActivity(){
+					//send http request
+					$.ajax({
+						url: "/rest/v1/social/activities/"+current_activity.id+"/likes",
+						contentType: "application/json",
+						method: "POST"
+						}).done(function (data, status, xhr) {
+						   //reload this activity
+						   getActivityById();
+						}).fail(function (jqxhr, textStatus, error) {
+							alert("fail");
+					});
+				}
+				function getNumOfLikes(activity_id){
+					//send http request
+					$.ajax({
+						 type: "GET",
+						 url: "/rest/v1/social/activities/"+activity_id+"/likes",
+						 success: function (data, status, jqXHR) {
+							$('#main-content').append("<i class=\"uiIconThumbUp uiIconLightGray\"></i> &nbsp;"+data.likes.length+"&nbsp;&nbsp;");
+						 },
+						 error: function (jqXHR, status) {
+							 alert("Cannot retrieve data!");
+						 }
+					});
+				}
+				function getNumOfComments(activity_id){
+					//send http request
+					$.ajax({
+						 type: "GET",
+						 url: "/rest/v1/social/activities/"+activity_id+"/comments",
+						 success: function (data, status, jqXHR) {
+							$('#main-content').append("<i class=\"uiIconComment uiIconLightGray\"></i> &nbsp;"+data.comments.length+"&nbsp;&nbsp;");
+						 },
+						 error: function (jqXHR, status) {
+							 alert("Cannot retrieve data!");
+						 }
+					});
+				}
+				function getAllActivities(){
+					//send http request
+					$.ajax({
+						 type: "GET",
+						 url: "/rest/v1/social/activities/",
+						 success: function (data, status, jqXHR) {
+							//print the result
+							printActivitiesList(data.activities);
+						 },
+						 error: function (jqXHR, status) {
+							 alert("Cannot retrieve data!");
+						 }
+					});
+				}
+				function printActivitiesList(activities){
+					//print a list of activities in a table
+					//clean screen
+					$('#main-content').remove();
+					//initialize html content
+					var obj_content="<div id=\"main-content\"><table class=\"uiGrid table table-hover table-striped\"><thead><tr><th>&nbsp;</th><th>Type</th><th>Title</th><th>Id</th></tr></thead><tbody>";
+						//loop through the list
+						$.each(activities, function(key, value) {
+							obj_content+="<tr><td>"+key+"</td><td>"+value.type+"</td><td>"+value.title+"</td><td>"+value.id+"</td></tr>";
+						});
+					//add closing tag
+					obj_content+="</tbody></table></div>";
+					//add to screen
+					$('#main-body').append(obj_content);
+				}
+			</script>
+		]]>
+	</Content>
+</Module>

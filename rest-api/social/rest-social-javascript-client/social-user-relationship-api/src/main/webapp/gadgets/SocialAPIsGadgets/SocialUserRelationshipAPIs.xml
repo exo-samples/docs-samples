@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="Social Relationship Gadget">
+	</ModulePrefs>
+	<Content type="html">
+		<![CDATA[
+			<!--Including platform css-->
+			<link href="/eXoSkin/skin/css/Core.css" rel="stylesheet"></link>
+			<link href="/eXoSkin/skin/css/sub-core.css" rel="stylesheet"></link>
+			<!--Including JQuery library-->
+			<script src="jquery-2.1.3.js"></script>
+			
+			<!--Gadget's main body which will be added by HTML DOM Object later-->
+			<div id="main-body" style="max-width: 800px" class="uiComposer uiGrayLightBox">
+					<div class="input-append" style="margin: 20px 30px 20px 30px">
+						//control button for getting a specified user
+						<button id="get_user_by_id_btn" onclick="getUserById()" class="btn btn-primary">Get user by remote id</button>
+						<input type="text" id="get_user_by_id_txt" placeholder="Enter remote id...">
+					</div>
+					
+			</div>
+			<!--Start calling js function-->
+			<script type="text/javascript">
+				//current user to process
+				var current_user;
+				var current_relationship;
+				function getUserById(){
+					//check user id
+					if($("#get_user_by_id_txt").val().trim()==""){
+						alert("invalid id!");
+					}
+					//send http request
+					$.ajax({
+						 type: "GET",
+						 url: "/rest/v1/social/users/"+$("#get_user_by_id_txt").val().trim(),
+						 success: function (data, status, jqXHR) {
+							//update current user to process
+							current_user=data;
+							//print the result
+							var array=new Array(data);
+							printUsersList(array);
+							viewRelationshipsBtn();
+						 },
+						 error: function (jqXHR, status) {
+							 alert("Cannot retrieve data!");
+						 }
+					});
+				}
+				function viewRelationshipsBtn(){
+					var obj_content="<button id=\"view_relationship_btn\" onclick=\"viewRelationships()\" class=\"btn btn-primary\" style=\"margin: 20px 30px 20px 30px\">View relationships of this user</button>";
+					//add to screen
+					$('#main-content').append(obj_content);
+				}
+				function viewRelationships(){
+					//get all relationships
+					//send http request
+					$.ajax({
+						 type: "GET",
+						 url: "/rest/v1/social/usersRelationships?status=all&user="+current_user.username,
+						 success: function (data, status, jqXHR) {
+							//print the result
+							  printRelationshipsList(data.usersRelationships);
+							  selectARelationshipBtn();
+							  createRelationshipBtn();
+						 },
+						 error: function (jqXHR, status) {
+							 alert("Cannot retrieve data!");
+						 }
+					});
+				}
+				function selectARelationshipBtn(){
+					var obj_content="<button id=\"select_relationship_btn\" onclick=\"selectARelationship()\" class=\"btn btn-primary\" style=\"margin: 20px 30px 20px 30px\">Select a relationship by id</button><input type=\"text\" id=\"select_relationship_txt\" placeholder=\"Enter relationship id...\">";
+					//add to screen
+					$('#main-content').append(obj_content);
+				}
+				function selectARelationship(){
+					//send http request
+					$.ajax({
+						 type: "GET",
+						 url: "/rest/v1/social/usersRelationships/"+$("#select_relationship_txt").val(),
+						 success: function (data, status, jqXHR) {
+							//update current relationship to process
+							current_relationship=data;
+							//print the result
+							var array=new Array(data);
+							printRelationshipsList(array);
+							deleteRelationshipBtn();
+							updateRelationshipBtn();
+						 },
+						 error: function (jqXHR, status) {
+							 alert("Cannot retrieve data!");
+						 }
+					});
+				}
+				function createRelationshipBtn(){
+					var obj_content="<div><button id=\"create_relationship_btn\" onclick=\"createRelationship()\" class=\"btn btn-primary\" style=\"margin: 20px 30px 20px 30px\">Create a relationship with</button><input type=\"text\" id=\"selected_user_txt\" placeholder=\"Enter user name...\"><select id=\"selected_status\"><option value=\"PENDING\">PENDING</option><option value=\"CONFIRMED\">CONFIRMED</option></select></div>";
+					//add to screen
+					$('#main-content').append(obj_content);
+				}
+				function createRelationship(){
+					//check entered data
+					if($("#selected_user_txt").val().trim()=="") {
+						alert("Missing information");
+						return;
+					}
+					//initialize user information as a json object
+					var relationship_json_obj={
+						"sender":current_user.username,
+						"receiver":$("#selected_user_txt").val(),
+						"status":$("#selected_status").val()
+						};
+					//send http request
+					$.ajax({
+						url: "/rest/v1/social/usersRelationships/",
+						contentType: "application/json",
+						data: JSON.stringify(relationship_json_obj),
+						method: "POST"
+						}).done(function (data, status, xhr) {
+						   //reload relationships list
+						   viewRelationships();
+						}).fail(function (jqxhr, textStatus, error) {
+							alert("fail");
+					});
+				}
+				function deleteRelationshipBtn(){
+					var obj_content="<button id=\"delete_relationship_btn\" onclick=\"deleteRelationship()\" class=\"btn btn-primary\" style=\"margin: 20px 30px 20px 30px\">Delete this relationship</button>";
+					//add to screen
+					$('#main-content').append(obj_content);
+				}
+				function deleteRelationship(){
+					//send http request
+					$.ajax({
+						url: "/rest/v1/social/usersRelationships/"+current_relationship.id,
+						method: "DELETE"
+						}).done(function () {
+						//reload users list
+						   viewRelationships();
+						}).fail(function (jqxhr, textStatus, error) {
+							alert("fail");
+					});
+				}
+				function updateRelationshipBtn(){
+					var obj_content="<button id=\"update_relationship_btn\" onclick=\"updateRelationship()\" class=\"btn btn-primary\" style=\"margin: 20px 30px 20px 30px\">Update relationship status</button><select id=\"selected_status\"><option value=\"PENDING\">PENDING</option><option value=\"CONFIRMED\">CONFIRMED</option></select>";
+					//add to screen
+					$('#main-content').append(obj_content);
+				}
+				function updateRelationship(){
+					//update position of the current user
+					current_relationship.status=$("#selected_status").val();
+					//send http request
+					$.ajax({
+						url: "/rest/v1/social/usersRelationships/"+current_relationship.id,
+						contentType: "application/json",
+						data: JSON.stringify(current_relationship),
+						method: "PUT"
+						}).done(function (data, status, xhr) {
+							//print the result
+							var array=new Array(current_relationship);
+							printRelationshipsList(array);
+						}).fail(function (jqxhr, textStatus, error) {
+							alert("Fail!");
+					});
+				}
+				function printRelationshipsList(relationships){
+					//print a list of relationships in a table
+					//clean screen
+					$('#main-content').remove();
+					//initialize html content
+					var obj_content="<div id=\"main-content\"><table class=\"uiGrid table table-hover table-striped\"><thead><tr><th>&nbsp;</th><th>User name</th><th>Status</th><th>Id</th></tr></thead><tbody>";
+						//loop through the list
+						$.each(relationships, function(key, value) {
+							obj_content+="<tr><td>"+key+"</td><td>"+value.receiver.split("social/users/")[1]+"</td><td>"+value.status+"</td><td>"+value.id+"</td></tr>";
+						});
+					//add closing tag
+					obj_content+="</tbody></table></div>";
+					//add to screen
+					$('#main-body').append(obj_content);
+				}
+				function printUsersList(users){
+					//print a list of users in a table
+					//clean screen
+					$('#main-content').remove();
+					//initialize html content
+					var obj_content="<div id=\"main-content\"><table class=\"uiGrid table table-hover table-striped\"><thead><tr><th>&nbsp;</th><th>User name</th><th>First name</th><th>Last name</th><th>Email</th></tr></thead><tbody>";
+						//loop through the list
+						$.each(users, function(key, value) {
+							obj_content+="<tr><td>"+key+"</td><td>"+value.username+"</td><td>"+value.firstname+"</td><td>"+value.lastname+"</td><td>"+value.email+"</td></tr>";
+						});
+					//add closing tag
+					obj_content+="</tbody></table></div>";
+					//add to screen
+					$('#main-body').append(obj_content);
+				}
+			</script>
+		]]>
+	</Content>
+</Module>
