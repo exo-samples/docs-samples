@@ -1,0 +1,45 @@
+{
+  "id": "13979fcc7f0001016236f7a4a2b1e043",
+  "href": "http://localhost:8080/rest/v1/social/users/mary",
+  "identity": "http://localhost:8080/rest/v1/social/identities/13979f2b7f0001012c0a9eab6606475f",
+  "username": "mary",
+  "firstname": "Mary",
+  "lastname": "Williams",
+  "fullname": "Mary Williams",
+  "gender": "female",
+  "position": "developer",
+  "email": "mary@ex.com",
+  "avatar": "/rest/jcr/repository/social/production/soc%3Aproviders/soc%3Aorganization/soc%3Amary/soc%3Aprofile/soc%3Aavatar/?upd=1443512489914",
+  "phones": [
+    {
+      "phoneType": "work",
+      "phoneNumber": "09877777777"
+    }
+  ],
+  "experiences": [
+    {
+      "company": "eXo killing zone",
+      "description": "Write menu \r\nBuy foods\r\nCook",
+      "position": "Talent novice",
+      "skills": "Holly dagger",
+      "isCurrent": false,
+      "startDate": "09/07/2015",
+      "endDate": "09/16/2015"
+    }
+  ],
+  "ims": [
+    {
+      "imType": "gtalk",
+      "imId": "marylovescandies"
+    }
+  ],
+  "urls": [
+    {
+      "url": "http://marylovescandies.com"
+    },
+    {
+      "url": "http://maryhatescandies.com"
+    }
+  ],
+  "deleted": false
+}

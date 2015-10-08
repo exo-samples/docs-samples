@@ -1,0 +1,8 @@
+{
+  "id": "documentation:john:member",
+  "href": "http://localhost:8080/rest/v1/social/spacesMemberships/documentation:john:member",
+  "user": "http://localhost:8080/rest/v1/social/users/john",
+  "space": "http://localhost:8080/rest/v1/social/spaces/1d911fee7f00010116754edd66d77e6c",
+  "role": "member",
+  "status": "approved"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "3cb99a787f0001014ea5ca7b1e5aa3a2",
+  "href": "http://localhost:8080/rest/v1/social/activities/3cb99a787f0001014ea5ca7b1e5aa3a2",
+  "identity": "http://localhost:8080/rest/v1/social/identities/041e08bb7f000101003098264987225d",
+  "poster": "root",
+  "body": "Has joined the space.",
+  "mentions": [],
+  "createDate": "2015-10-06T17:36:48.120+07:00",
+  "updateDate": "2015-10-06T17:36:48.120+07:00"
+}

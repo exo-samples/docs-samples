@@ -1,0 +1,36 @@
+{
+  "comments": [
+    {
+      "id": "3cb99a787f0001014ea5ca7b1e5aa3a2",
+      "href": "http://localhost:8080/rest/v1/social/activities/3cb99a787f0001014ea5ca7b1e5aa3a2",
+      "identity": "http://localhost:8080/rest/v1/social/identities/041e08bb7f000101003098264987225d",
+      "poster": "root",
+      "body": "Has joined the space.",
+      "mentions": [],
+      "createDate": "2015-10-06T17:36:48.120+07:00",
+      "updateDate": "2015-10-06T17:36:48.120+07:00"
+    },
+    {
+      "id": "3cd134557f0001012d08eabf33a0cb12",
+      "href": "http://localhost:8080/rest/v1/social/activities/3cd134557f0001012d08eabf33a0cb12",
+      "identity": "http://localhost:8080/rest/v1/social/identities/13979f2b7f0001012c0a9eab6606475f",
+      "poster": "mary",
+      "body": "Has joined the space.",
+      "mentions": [],
+      "createDate": "2015-10-06T18:02:34.834+07:00",
+      "updateDate": "2015-10-06T18:02:34.834+07:00"
+    },
+    {
+      "id": "3cf2aefd7f00010109e1ded62fe5102f",
+      "href": "http://localhost:8080/rest/v1/social/activities/3cf2aefd7f00010109e1ded62fe5102f",
+      "identity": "http://localhost:8080/rest/v1/social/identities/13aeecb67f00010129539a6cc03b84fe",
+      "poster": "john",
+      "body": "Has joined the space.",
+      "mentions": [],
+      "createDate": "2015-10-06T18:39:08.922+07:00",
+      "updateDate": "2015-10-06T18:39:08.922+07:00"
+    }
+  ],
+  "offset": 0,
+  "limit": 20
+}

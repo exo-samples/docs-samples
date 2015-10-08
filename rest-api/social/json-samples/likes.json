@@ -1,0 +1,69 @@
+{
+  "likes": [
+    {
+      "id": "13979fcc7f0001016236f7a4a2b1e043",
+      "href": "http://localhost:8080/rest/v1/social/users/mary",
+      "identity": "http://localhost:8080/rest/v1/social/identities/13979f2b7f0001012c0a9eab6606475f",
+      "username": "mary",
+      "firstname": "Mary",
+      "lastname": "Williams",
+      "fullname": "Mary Williams",
+      "gender": "female",
+      "position": "developer",
+      "email": "mary@ex.com",
+      "avatar": "/rest/jcr/repository/social/production/soc%3Aproviders/soc%3Aorganization/soc%3Amary/soc%3Aprofile/soc%3Aavatar/?upd=1443512489914",
+      "phones": [
+        {
+          "phoneType": "work",
+          "phoneNumber": "09877777777"
+        }
+      ],
+      "experiences": [
+        {
+          "company": "eXo killing zone",
+          "description": "Write menu \r\nBuy foods\r\nCook",
+          "position": "Talent novice",
+          "skills": "Holly dagger",
+          "isCurrent": false,
+          "startDate": "09/07/2015",
+          "endDate": "09/16/2015"
+        }
+      ],
+      "ims": [
+        {
+          "imType": "gtalk",
+          "imId": "maryyeuanh"
+        }
+      ],
+      "urls": [
+        {
+          "url": "http://maryyeuanh.com"
+        },
+        {
+          "url": "http://maryghetanh.com"
+        }
+      ],
+      "deleted": false
+    },
+    {
+      "id": "13aeed257f0001010aaff03a9f71d0a4",
+      "href": "http://localhost:8080/rest/v1/social/users/john",
+      "identity": "http://localhost:8080/rest/v1/social/identities/13aeecb67f00010129539a6cc03b84fe",
+      "username": "john",
+      "firstname": "John",
+      "lastname": "Smith",
+      "fullname": "John Smith",
+      "gender": null,
+      "position": null,
+      "email": "john@gatein.com",
+      "avatar": null,
+      "phones": [],
+      "experiences": [],
+      "ims": [],
+      "urls": [],
+      "deleted": false
+    }
+  ],
+  "offset": 0,
+  "limit": 20
+}

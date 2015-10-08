@@ -1,0 +1,40 @@
+{
+  "id": "1d911fee7f00010116754edd66d77e6c",
+  "href": "http://localhost:8080/rest/v1/social/spaces/1d911fee7f00010116754edd66d77e6c",
+  "identity": "http://localhost:8080/rest/v1/social/identities/1d9120607f00010103ee7cad5d1ce1ce",
+  "groupId": "/spaces/documentation",
+  "applications": [
+    {
+      "id": "ForumPortlet",
+      "displayName": "Forums"
+    },
+    {
+      "id": "WikiPortlet",
+      "displayName": "wiki"
+    },
+    {
+      "id": "FileExplorerPortlet",
+      "displayName": "Documents"
+    },
+    {
+      "id": "CalendarPortlet",
+      "displayName": "Agenda"
+    },
+    {
+      "id": "SpaceSettingPortlet",
+      "displayName": "Space Settings"
+    },
+    {
+      "id": "MembersPortlet",
+      "displayName": "Members"
+    }
+  ],
+  "managers": "http://localhost:8080/rest/v1/social/spaces/1d911fee7f00010116754edd66d77e6c/users?role=manager",
+  "members": "http://localhost:8080/rest/v1/social/spaces/1d911fee7f00010116754edd66d77e6c/users",
+  "displayName": "development",
+  "description": "abc",
+  "url": null,
+  "avatarUrl": "/rest/jcr/repository/social/production/soc%3Aproviders/soc%3Aspace/soc%3Adocumentation/soc%3Aprofile/soc%3Aavatar/?upd=1443606140698",
+  "visibility": "private",
+  "subscription": "open"
+}

@@ -1,0 +1,63 @@
+{
+  "spacesMemberships": [
+    {
+      "id": "documentation:john:member",
+      "href": "http://localhost:8080/rest/v1/social/spacesMemberships/documentation:john:member",
+      "user": "http://localhost:8080/rest/v1/social/users/john",
+      "space": "http://localhost:8080/rest/v1/social/spaces/1d911fee7f00010116754edd66d77e6c",
+      "role": "member",
+      "status": "approved"
+    },
+    {
+      "id": "documentation:mary:member",
+      "href": "http://localhost:8080/rest/v1/social/spacesMemberships/documentation:mary:member",
+      "user": "http://localhost:8080/rest/v1/social/users/mary",
+      "space": "http://localhost:8080/rest/v1/social/spaces/1d911fee7f00010116754edd66d77e6c",
+      "role": "member",
+      "status": "approved"
+    },
+    {
+      "id": "documentation:john:manager",
+      "href": "http://localhost:8080/rest/v1/social/spacesMemberships/documentation:john:manager",
+      "user": "http://localhost:8080/rest/v1/social/users/john",
+      "space": "http://localhost:8080/rest/v1/social/spaces/1d911fee7f00010116754edd66d77e6c",
+      "role": "manager",
+      "status": "approved"
+    },
+    {
+      "id": "kokoro:root:member",
+      "href": "http://localhost:8080/rest/v1/social/spacesMemberships/kokoro:root:member",
+      "user": "http://localhost:8080/rest/v1/social/users/root",
+      "space": "http://localhost:8080/rest/v1/social/spaces/3cb997397f0001012108b43dfecbcf85",
+      "role": "member",
+      "status": "approved"
+    },
+    {
+      "id": "kokoro:john:member",
+      "href": "http://localhost:8080/rest/v1/social/spacesMemberships/kokoro:john:member",
+      "user": "http://localhost:8080/rest/v1/social/users/john",
+      "space": "http://localhost:8080/rest/v1/social/spaces/3cb997397f0001012108b43dfecbcf85",
+      "role": "member",
+      "status": "approved"
+    },
+    {
+      "id": "kokoro:mary:member",
+      "href": "http://localhost:8080/rest/v1/social/spacesMemberships/kokoro:mary:member",
+      "user": "http://localhost:8080/rest/v1/social/users/mary",
+      "space": "http://localhost:8080/rest/v1/social/spaces/3cb997397f0001012108b43dfecbcf85",
+      "role": "member",
+      "status": "approved"
+    },
+    {
+      "id": "kokoro:root:manager",
+      "href": "http://localhost:8080/rest/v1/social/spacesMemberships/kokoro:root:manager",
+      "user": "http://localhost:8080/rest/v1/social/users/root",
+      "space": "http://localhost:8080/rest/v1/social/spaces/3cb997397f0001012108b43dfecbcf85",
+      "role": "manager",
+      "status": "approved"
+    }
+  ],
+  "offset": 0,
+  "limit": 20,
+  "size": -1
+}

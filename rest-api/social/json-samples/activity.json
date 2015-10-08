@@ -1,0 +1,28 @@
+{
+  "id": "213a1e3f7f0001014783354eccc0f0c9",
+  "title": "123 jump <a href=\"http://localhost:8080/portal/intranet/profile/root\">Root Root</a>",
+  "body": null,
+  "link": null,
+  "type": "DEFAULT_ACTIVITY",
+  "href": "http://localhost:8080/rest/v1/social/activities/213a1e3f7f0001014783354eccc0f0c9",
+  "identity": "http://localhost:8080/rest/v1/social/identities/13aeecb67f00010129539a6cc03b84fe",
+  "owner": {
+    "id": "13aeecb67f00010129539a6cc03b84fe",
+    "href": "http://localhost:8080/rest/v1/social/users/john"
+  },
+  "mentions": [
+    {
+      "id": "041e08bb7f000101003098264987225d",
+      "href": "http://localhost:8080/rest/v1/social/users/root"
+    }
+  ],
+  "attachments": [],
+  "comments": "http://localhost:8080/rest/v1/social/activities/213a1e3f7f0001014783354eccc0f0c9/comments",
+  "likes": "http://localhost:8080//v1/social/activities/213a1e3f7f0001014783354eccc0f0c9/likers",
+  "createDate": "2015-10-01T09:27:48.413+07:00",
+  "updateDate": "2015-10-01T09:27:48.413+07:00",
+  "activityStream": {
+    "type": "user",
+    "id": "john"
+  }
+}

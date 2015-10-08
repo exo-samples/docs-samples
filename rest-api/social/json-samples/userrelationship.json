@@ -1,0 +1,7 @@
+{
+  "id": "1d8661627f0001013e43838b8622206e",
+  "href": "http://localhost:8080/rest/v1/social/usersRelationships/1d8661627f0001013e43838b8622206e",
+  "sender": "http://localhost:8080/rest/v1/social/users/root",
+  "receiver": "http://localhost:8080/rest/v1/social/users/john",
+  "status": "CONFIRMED"
+}
