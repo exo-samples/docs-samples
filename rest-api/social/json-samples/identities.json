@@ -1,0 +1,567 @@
+{
+  "identities": [
+    {
+      "id": "13aeecb67f00010129539a6cc03b84fe",
+      "href": "http://localhost:8080/rest/v1/social/identities/13aeecb67f00010129539a6cc03b84fe",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "john",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "13aeed257f0001010aaff03a9f71d0a4",
+        "href": "http://localhost:8080/rest/v1/social/users/john",
+        "identity": "http://localhost:8080/rest/v1/social/identities/13aeecb67f00010129539a6cc03b84fe",
+        "username": "john",
+        "firstname": "John",
+        "lastname": "Smith",
+        "fullname": "John Smith",
+        "gender": null,
+        "position": null,
+        "email": "john@gatein.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "18a1602a7f00010104ba9b2ce31f7c47",
+      "href": "http://localhost:8080/rest/v1/social/identities/18a1602a7f00010104ba9b2ce31f7c47",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "user_1443522238356",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "18a1609b7f00010176beb3e53cdc1b75",
+        "href": "http://localhost:8080/rest/v1/social/users/user_1443522238356",
+        "identity": "http://localhost:8080/rest/v1/social/identities/18a1602a7f00010104ba9b2ce31f7c47",
+        "username": "user_1443522238356",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Test Test",
+        "gender": null,
+        "position": null,
+        "email": "user_1443522238356@example.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "18a5c1a27f00010105469ad453c8f2fe",
+      "href": "http://localhost:8080/rest/v1/social/identities/18a5c1a27f00010105469ad453c8f2fe",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "user_1443522525925",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "18a5c2147f000101186d8bc409495ad9",
+        "href": "http://localhost:8080/rest/v1/social/users/user_1443522525925",
+        "identity": "http://localhost:8080/rest/v1/social/identities/18a5c1a27f00010105469ad453c8f2fe",
+        "username": "user_1443522525925",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Test Test",
+        "gender": null,
+        "position": null,
+        "email": "user_1443522525925@example.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "18a4881f7f000101362aa75426766f64",
+      "href": "http://localhost:8080/rest/v1/social/identities/18a4881f7f000101362aa75426766f64",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "user_1443522445366",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "18a488907f0001012fb5ed4bb26442fe",
+        "href": "http://localhost:8080/rest/v1/social/users/user_1443522445366",
+        "identity": "http://localhost:8080/rest/v1/social/identities/18a4881f7f000101362aa75426766f64",
+        "username": "user_1443522445366",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Test Test",
+        "gender": null,
+        "position": null,
+        "email": "user_1443522445366@example.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "18a305cb7f00010159def3d02692f9d0",
+      "href": "http://localhost:8080/rest/v1/social/identities/18a305cb7f00010159def3d02692f9d0",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "user_1443522346512",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "18a3063c7f000101677c068e208394b9",
+        "href": "http://localhost:8080/rest/v1/social/users/user_1443522346512",
+        "identity": "http://localhost:8080/rest/v1/social/identities/18a305cb7f00010159def3d02692f9d0",
+        "username": "user_1443522346512",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Test Test",
+        "gender": null,
+        "position": null,
+        "email": "user_1443522346512@example.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "041e08bb7f000101003098264987225d",
+      "href": "http://localhost:8080/rest/v1/social/identities/041e08bb7f000101003098264987225d",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "root",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "041e09197f0001017334bbb7802a4547",
+        "href": "http://localhost:8080/rest/v1/social/users/root",
+        "identity": "http://localhost:8080/rest/v1/social/identities/041e08bb7f000101003098264987225d",
+        "username": "root",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Root Root",
+        "gender": null,
+        "position": null,
+        "email": "user11a@ex.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "17e150287f000101381e74f8a6b8a87b",
+      "href": "http://localhost:8080/rest/v1/social/identities/17e150287f000101381e74f8a6b8a87b",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "user11",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "17e150937f00010178d916673c9a6b1e",
+        "href": "http://localhost:8080/rest/v1/social/users/user11",
+        "identity": "http://localhost:8080/rest/v1/social/identities/17e150287f000101381e74f8a6b8a87b",
+        "username": "user11",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Test Test",
+        "gender": null,
+        "position": null,
+        "email": "user11@ex.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "17df89247f000101347d7f0a3e68d68b",
+      "href": "http://localhost:8080/rest/v1/social/identities/17df89247f000101347d7f0a3e68d68b",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "user10",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "17df89ab7f0001012f88d8cdfcea78b6",
+        "href": "http://localhost:8080/rest/v1/social/users/user10",
+        "identity": "http://localhost:8080/rest/v1/social/identities/17df89247f000101347d7f0a3e68d68b",
+        "username": "user10",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Test Test",
+        "gender": null,
+        "position": null,
+        "email": "user10@ex.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "1d2c45917f000101291a984f376d2572",
+      "href": "http://localhost:8080/rest/v1/social/identities/1d2c45917f000101291a984f376d2572",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "user_1443598449524",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "1d2c45f77f0001014da4e089f4062f68",
+        "href": "http://localhost:8080/rest/v1/social/users/user_1443598449524",
+        "identity": "http://localhost:8080/rest/v1/social/identities/1d2c45917f000101291a984f376d2572",
+        "username": "user_1443598449524",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Test Test",
+        "gender": null,
+        "position": null,
+        "email": "user_1443598449524@example.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "1d27997b7f00010130d647eab96c8b4b",
+      "href": "http://localhost:8080/rest/v1/social/identities/1d27997b7f00010130d647eab96c8b4b",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "user_1443598144041",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "1d2799ec7f000101638f99aa133ba86d",
+        "href": "http://localhost:8080/rest/v1/social/users/user_1443598144041",
+        "identity": "http://localhost:8080/rest/v1/social/identities/1d27997b7f00010130d647eab96c8b4b",
+        "username": "user_1443598144041",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Test Test",
+        "gender": null,
+        "position": null,
+        "email": "user_1443598144041@example.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "1d7f2fd47f0001011b280911d76957a9",
+      "href": "http://localhost:8080/rest/v1/social/identities/1d7f2fd47f0001011b280911d76957a9",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "demo1",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "1d7f30647f0001017a82088a56b09455",
+        "href": "http://localhost:8080/rest/v1/social/users/demo1",
+        "identity": "http://localhost:8080/rest/v1/social/identities/1d7f2fd47f0001011b280911d76957a9",
+        "username": "demo1",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Test",
+        "gender": "male",
+        "position": null,
+        "email": "demo1@example.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "1c46bf397f000101797980be9a9e8bc3",
+      "href": "http://localhost:8080/rest/v1/social/identities/1c46bf397f000101797980be9a9e8bc3",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "user_1443583407443",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "1c46bfc17f0001011d554031b659f128",
+        "href": "http://localhost:8080/rest/v1/social/users/user_1443583407443",
+        "identity": "http://localhost:8080/rest/v1/social/identities/1c46bf397f000101797980be9a9e8bc3",
+        "username": "user_1443583407443",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Test Test",
+        "gender": null,
+        "position": null,
+        "email": "user_1443583407443@example.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "1c10e2557f00010149ae30bc2ed1af5f",
+      "href": "http://localhost:8080/rest/v1/social/identities/1c10e2557f00010149ae30bc2ed1af5f",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "user_1443579876634",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "1c10e2c57f00010143897da148b11ca9",
+        "href": "http://localhost:8080/rest/v1/social/users/user_1443579876634",
+        "identity": "http://localhost:8080/rest/v1/social/identities/1c10e2557f00010149ae30bc2ed1af5f",
+        "username": "user_1443579876634",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Test Test",
+        "gender": null,
+        "position": null,
+        "email": "user_1443579876634@example.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "1c138f9f7f0001013518bd3a455f0fcf",
+      "href": "http://localhost:8080/rest/v1/social/identities/1c138f9f7f0001013518bd3a455f0fcf",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "user_1443580053531",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "1c13900d7f0001017691cf04db5c67ac",
+        "href": "http://localhost:8080/rest/v1/social/users/user_1443580053531",
+        "identity": "http://localhost:8080/rest/v1/social/identities/1c138f9f7f0001013518bd3a455f0fcf",
+        "username": "user_1443580053531",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Test Test",
+        "gender": null,
+        "position": null,
+        "email": "user_1443580053531@example.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "1c72d04f7f0001013f7f2d256457968e",
+      "href": "http://localhost:8080/rest/v1/social/identities/1c72d04f7f0001013f7f2d256457968e",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "user_1443586294874",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "1c72d0df7f0001015577bbbade09f78d",
+        "href": "http://localhost:8080/rest/v1/social/users/user_1443586294874",
+        "identity": "http://localhost:8080/rest/v1/social/identities/1c72d04f7f0001013f7f2d256457968e",
+        "username": "user_1443586294874",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Test Test",
+        "gender": null,
+        "position": null,
+        "email": "user_1443586294874@example.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "1d26998c7f0001011fb6bac3f56daf8b",
+      "href": "http://localhost:8080/rest/v1/social/identities/1d26998c7f0001011fb6bac3f56daf8b",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "user_1443598078185",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "1d269a157f0001014b5b0951569136a4",
+        "href": "http://localhost:8080/rest/v1/social/users/user_1443598078185",
+        "identity": "http://localhost:8080/rest/v1/social/identities/1d26998c7f0001011fb6bac3f56daf8b",
+        "username": "user_1443598078185",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Test Test",
+        "gender": null,
+        "position": null,
+        "email": "user_1443598078185@example.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "1c66d1907f000101325b7c3aa5ee3a25",
+      "href": "http://localhost:8080/rest/v1/social/identities/1c66d1907f000101325b7c3aa5ee3a25",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "user_1443585509613",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "1c66d2017f0001011abea2ad9d9e1141",
+        "href": "http://localhost:8080/rest/v1/social/users/user_1443585509613",
+        "identity": "http://localhost:8080/rest/v1/social/identities/1c66d1907f000101325b7c3aa5ee3a25",
+        "username": "user_1443585509613",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Test Test",
+        "gender": null,
+        "position": null,
+        "email": "user_1443585509613@example.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "1c6505957f000101376374e260107439",
+      "href": "http://localhost:8080/rest/v1/social/identities/1c6505957f000101376374e260107439",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "user_1443585392034",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "1c6506047f00010130005ec31d7faa73",
+        "href": "http://localhost:8080/rest/v1/social/users/user_1443585392034",
+        "identity": "http://localhost:8080/rest/v1/social/identities/1c6505957f000101376374e260107439",
+        "username": "user_1443585392034",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Test Test",
+        "gender": null,
+        "position": null,
+        "email": "user_1443585392034@example.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "1c59c76f7f0001011d54ffa5bbbf8033",
+      "href": "http://localhost:8080/rest/v1/social/identities/1c59c76f7f0001011d54ffa5bbbf8033",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "user_1443584654630",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "1c59c7f57f00010118b1a40151598971",
+        "href": "http://localhost:8080/rest/v1/social/users/user_1443584654630",
+        "identity": "http://localhost:8080/rest/v1/social/identities/1c59c76f7f0001011d54ffa5bbbf8033",
+        "username": "user_1443584654630",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Test Test",
+        "gender": null,
+        "position": null,
+        "email": "user_1443584654630@example.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    },
+    {
+      "id": "1c6c75547f0001014ba198f992bedd35",
+      "href": "http://localhost:8080/rest/v1/social/identities/1c6c75547f0001014ba198f992bedd35",
+      "providerId": "organization",
+      "globalId": {
+        "localId": "user_1443585879349",
+        "domain": "organization"
+      },
+      "deleted": false,
+      "profile": {
+        "id": "1c6c75c37f00010123ac3ba2b538f1eb",
+        "href": "http://localhost:8080/rest/v1/social/users/user_1443585879349",
+        "identity": "http://localhost:8080/rest/v1/social/identities/1c6c75547f0001014ba198f992bedd35",
+        "username": "user_1443585879349",
+        "firstname": "Test",
+        "lastname": "Test",
+        "fullname": "Test Test",
+        "gender": null,
+        "position": null,
+        "email": "user_1443585879349@example.com",
+        "avatar": null,
+        "phones": [],
+        "experiences": [],
+        "ims": [],
+        "urls": [],
+        "deleted": false
+      }
+    }
+  ],
+  "offset": 0,
+  "limit": 20,
+  "size": 30
+}

@@ -1,0 +1,28 @@
+{
+  "id": "13aeecb67f00010129539a6cc03b84fe",
+  "href": "http://localhost:8080/rest/v1/social/identities/13aeecb67f00010129539a6cc03b84fe",
+  "providerId": "organization",
+  "globalId": {
+    "localId": "john",
+    "domain": "organization"
+  },
+  "deleted": false,
+  "profile": {
+    "id": "13aeed257f0001010aaff03a9f71d0a4",
+    "href": "http://localhost:8080/rest/v1/social/users/john",
+    "identity": "http://localhost:8080/rest/v1/social/identities/13aeecb67f00010129539a6cc03b84fe",
+    "username": "john",
+    "firstname": "John",
+    "lastname": "Smith",
+    "fullname": "John Smith",
+    "gender": null,
+    "position": null,
+    "email": "john@gatein.com",
+    "avatar": null,
+    "phones": [],
+    "experiences": [],
+    "ims": [],
+    "urls": [],
+    "deleted": false
+  }
+}
