@@ -1,0 +1,44 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>exo.doc.samples</groupId>
+	<artifactId>social-rest-client-standalone</artifactId>
+	<version>4.3.x</version>
+	<packaging>jar</packaging>
+	
+	<dependencies>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>social-rest-client</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>exo.samples.assembly.Executor</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<finalName>social-rest-client-standalone</finalName>
+					<appendAssemblyId>false</appendAssemblyId>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>install</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
