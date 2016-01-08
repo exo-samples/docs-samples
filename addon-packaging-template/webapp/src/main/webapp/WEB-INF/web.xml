@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<display-name>addon-template-webapp</display-name>
+	<listener>
+		<listener-class>org.exoplatform.container.web.PortalContainerConfigOwner</listener-class>
+	</listener>
+</web-app>
