@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Memories!" width="240" height="200"/>
+  <Content type="html">
+  <![CDATA[
+  <script src="jquery-2.1.3.js"></script>
+  <script src="myscript.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <!--Gadget's main body which will be added by HTML DOM Object later-->
+  <div id="slideshow">
+  </div>
+  <!--Start calling js function-->
+  <script type="text/javascript">
+    getImages();
+    //Creating gagdet's effects
+    $("#slideshow > div:gt(0)").hide();
+    setInterval(function() { 
+      $('#slideshow > div:first')
+        .fadeOut(1000)
+        .next()
+        .fadeIn(1000)
+        .end()
+        .appendTo('#slideshow');
+    },  3000);
+  </script>
+  ]]>
+  </Content>
+</Module>
+

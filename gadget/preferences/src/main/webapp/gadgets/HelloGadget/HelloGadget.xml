@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs author="eXoPlatform"
+	title="Hello World"
+	directory_title="Hello World"
+	description="The simplest gadget"
+	height="300">
+		<Require feature="setprefs"/>
+	</ModulePrefs>
+	<UserPref 
+		name="welcome" display_name="Welcome message" 
+		default_value="Welcome to Hello World gadget!" required="true"/>
+	<Content type="html">
+		<![CDATA[
+			<link rel="stylesheet" type="text/css" href="/eXoResources/skin/bootstrap/css/bootstrap.css" />
+			<script src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+			<script type="text/javascript">
+			$("body").live("click", ".hello .btn", function() {
+			$(".hello h6").css("color", "green");
+			});
+			var getUserPrefs = function() {
+			var prefs = new _IG_Prefs(__MODULE_ID__);
+			var welcome_message = prefs.getString("welcome");
+			$(".hello .alert-info h6").text(welcome_message);
+			};
+			gadgets.util.registerOnLoadHandler(getUserPrefs);
+			</script>
+			<div class='hello well'>
+			<h2>Hello</h2>
+			<div class='alert alert-info'>
+			<h6></h6>
+			</div>
+			<p>Click <a class='btn btn-primary'>here</a> to change the default color of the welcome message.
+			<p><i>Powered by eXo Platform.</i></p>
+			</div>
+		]]>
+	</Content>
+</Module>

@@ -1,0 +1,12 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.acme.samples</groupId>
+	<artifactId>custom-extension</artifactId>
+	<version>1.0</version>
+	<packaging>war</packaging>
+	<build>
+		<finalName>custom-extension</finalName>
+	</build>
+	<dependencies>
+	</dependencies>
+</project>
