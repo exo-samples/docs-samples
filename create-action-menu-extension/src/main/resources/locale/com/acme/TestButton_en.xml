@@ -1,0 +1,12 @@
+<bundle>
+    <UITabForm>
+        <label>
+            <testButton>Test Button</testButton>
+        </label>
+    </UITabForm>
+    <UIActionBar>
+        <tooltip>
+            <TestButton>Test Button</TestButton>
+        </tooltip>
+    </UIActionBar>
+</bundle>
