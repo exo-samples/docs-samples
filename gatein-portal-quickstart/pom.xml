@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    JBoss, Home of Professional Open Source
+    Copyright 2012, Red Hat, Inc. and/or its affiliates, and individual
+    contributors by the @authors tag. See the copyright.txt in the
+    distribution for a full listing of individual contributors.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+ -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.jboss.quickstarts.portal</groupId>
+    <artifactId>jboss-portal-quickstarts</artifactId>
+    <version>6.2.0.build-11-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>JBoss Portal Quickstarts</name>
+    <url>http://jboss.org</url>
+    <scm>
+        <url>https://github.com/jboss-developer/jboss-portal-quickstarts.git</url>
+    </scm>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <distribution>repo</distribution>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+        </license>
+    </licenses>
+
+    <modules>
+        <module>simplest-hello-world-portlet</module>
+        <module>jsf2-hello-world-portlet</module>
+        <module>jsf2-rf4-hello-world-portlet</module>
+        <module>navigation-api-portlet</module>
+        <module>cdi-generic-portlet</module>
+        <module>cdi-jsf-portlet</module>
+        <module>cdi-scopes-portlet</module>
+        <module>social-portlets</module>
+        <module>page-composition-api-portlet</module>
+        <module>portal-extension</module>
+        <module>sample-portal</module>
+    </modules>
+
+    <properties>
+        <org.jboss.ide.target.nameAndVersion>jbds8.0</org.jboss.ide.target.nameAndVersion>
+        <!-- descriptor.suffix history:
+            GateIn:
+             JBT 4.0.0.Alpha1 - <empty>
+             JBT 4.0.0.Alpha2 - '-001'
+             JBT 4.0.0.Beta1 - '-002'
+             JBT 4.1.0.Alpha2 - '-001'
+             JBT 4.1.0.CR1 - '-002'
+             JBDS 8.0.0.CR1 - '-001'
+        -->
+        <org.jboss.quickstarts.portal.descriptor.suffix>-001</org.jboss.quickstarts.portal.descriptor.suffix>
+        <version.jboss.portal.bom>6.2.0.build-6</version.jboss.portal.bom>
+
+        <compatibility.portal.community.versionMajor>3</compatibility.portal.community.versionMajor>
+        <compatibility.portal.community.versionMinor>8</compatibility.portal.community.versionMinor>
+        <compatibility.portal.community.versionMicro>0</compatibility.portal.community.versionMicro>
+        <compatibility.portal.community.versionMm>${compatibility.portal.community.versionMajor}.${compatibility.portal.community.versionMinor}</compatibility.portal.community.versionMm>
+        <compatibility.portal.community.versionMmm>${compatibility.portal.community.versionMm}.${compatibility.portal.community.versionMicro}</compatibility.portal.community.versionMmm>
+        <compatibility.portal.community.projectName>GateIn Portal</compatibility.portal.community.projectName>
+        <compatibility.portal.community.projectNameShort>GateIn</compatibility.portal.community.projectNameShort>
+        <compatibility.portal.community.projectNameAndVersion>${compatibility.portal.community.projectName} ${compatibility.portal.community.versionMm}</compatibility.portal.community.projectNameAndVersion>
+
+        <compatibility.portal.product.versionMajor>6</compatibility.portal.product.versionMajor>
+        <compatibility.portal.product.versionMinor>2</compatibility.portal.product.versionMinor>
+        <compatibility.portal.product.versionMicro>0</compatibility.portal.product.versionMicro>
+        <compatibility.portal.product.versionMm>${compatibility.portal.product.versionMajor}.${compatibility.portal.product.versionMinor}</compatibility.portal.product.versionMm>
+        <compatibility.portal.product.versionMmm>${compatibility.portal.product.versionMm}.${compatibility.portal.product.versionMicro}</compatibility.portal.product.versionMmm>
+        <compatibility.portal.product.projectName>Red Hat JBoss Portal</compatibility.portal.product.projectName>
+        <compatibility.portal.product.projectNameShort>JBoss Portal</compatibility.portal.product.projectNameShort>
+        <compatibility.portal.product.projectNameXShort>Portal</compatibility.portal.product.projectNameXShort>
+        <compatibility.portal.product.projectNameAndVersion>${compatibility.portal.product.projectName} ${compatibility.portal.product.versionMmm}</compatibility.portal.product.projectNameAndVersion>
+
+        <compatibility.portal.versionMajor>${compatibility.portal.product.versionMajor}</compatibility.portal.versionMajor>
+        <compatibility.portal.versionMinor>${compatibility.portal.product.versionMinor}</compatibility.portal.versionMinor>
+        <compatibility.portal.versionMm>${compatibility.portal.versionMajor}.${compatibility.portal.versionMinor}</compatibility.portal.versionMm>
+        <compatibility.portal.versionMmm>${compatibility.portal.versionMm}.${compatibility.portal.versionMicro}</compatibility.portal.versionMmm>
+        <compatibility.portal.projectName>${compatibility.portal.product.projectName}</compatibility.portal.projectName>
+        <compatibility.portal.projectNameShort>${compatibility.portal.product.projectNameShort}</compatibility.portal.projectNameShort>
+        <compatibility.portal.projectNameXShort>${compatibility.portal.product.projectNameXShort}</compatibility.portal.projectNameXShort>
+        <compatibility.portal.projectNameAndVersion>${compatibility.portal.projectName} ${compatibility.portal.versionMm}</compatibility.portal.projectNameAndVersion>
+
+        <compatibility.as.community.versionMajor>6</compatibility.as.community.versionMajor>
+        <compatibility.as.community.versionMinor>4</compatibility.as.community.versionMinor>
+        <compatibility.as.community.versionMicro>0</compatibility.as.community.versionMicro>
+        <compatibility.as.community.versionMm>${compatibility.as.community.versionMajor}.${compatibility.as.community.versionMinor}</compatibility.as.community.versionMm>
+        <compatibility.as.community.versionMmm>${compatibility.as.community.versionMm}.${compatibility.as.community.versionMicro}</compatibility.as.community.versionMmm>
+        <compatibility.as.community.projectName>JBoss EAP</compatibility.as.community.projectName>
+        <compatibility.as.community.projectNameAndVersion>${compatibility.as.community.projectName} ${compatibility.as.community.versionMm}</compatibility.as.community.projectNameAndVersion>
+
+        <compatibility.as.product.versionMajor>6</compatibility.as.product.versionMajor>
+        <compatibility.as.product.versionMinor>4</compatibility.as.product.versionMinor>
+        <compatibility.as.product.versionMicro>0</compatibility.as.product.versionMicro>
+        <compatibility.as.product.versionMm>${compatibility.as.product.versionMajor}.${compatibility.as.product.versionMinor}</compatibility.as.product.versionMm>
+        <compatibility.as.product.versionMmm>${compatibility.as.product.versionMm}.${compatibility.as.product.versionMicro}</compatibility.as.product.versionMmm>
+        <compatibility.as.product.projectName>JBoss EAP</compatibility.as.product.projectName>
+        <compatibility.as.product.projectNameAndVersion>${compatibility.as.product.projectName} ${compatibility.as.product.versionMm}</compatibility.as.product.projectNameAndVersion>
+
+        <compatibility.as.versionMajor>${compatibility.as.product.versionMajor}</compatibility.as.versionMajor>
+        <compatibility.as.versionMinor>${compatibility.as.product.versionMinor}</compatibility.as.versionMinor>
+        <compatibility.as.versionMicro>${compatibility.as.product.versionMicro}</compatibility.as.versionMicro>
+        <compatibility.as.versionMm>${compatibility.as.versionMajor}.${compatibility.as.versionMinor}</compatibility.as.versionMm>
+        <compatibility.as.versionMmm>${compatibility.as.versionMm}.${compatibility.as.versionMicro}</compatibility.as.versionMmm>
+        <compatibility.as.projectName>${compatibility.as.product.projectName}</compatibility.as.projectName>
+        <compatibility.as.projectNameAndVersion>${compatibility.as.projectName} ${compatibility.as.versionMm}</compatibility.as.projectNameAndVersion>
+
+
+        <compatibility.wfk.versionMajor>2</compatibility.wfk.versionMajor>
+        <compatibility.wfk.versionMinor>4</compatibility.wfk.versionMinor>
+        <compatibility.wfk.versionMicro>0</compatibility.wfk.versionMicro>
+        <compatibility.wfk.versionMmm>${compatibility.wfk.versionMajor}.${compatibility.wfk.versionMinor}.${compatibility.wfk.versionMicro}</compatibility.wfk.versionMmm>
+
+        <!-- External links used in READMEs -->
+        <mvnrepo.redhat.all.url>http://maven.repository.redhat.com/techpreview/all</mvnrepo.redhat.all.url>
+
+        <portal.user.forum.label>Online User Group</portal.user.forum.label>
+        <portal.user.forum.url>https://access.redhat.com/discussions?title=&amp;product=8&amp;category=All&amp;tags=All</portal.user.forum.url>
+
+        <!-- <jboss.confluence.root.url>http://documentation-devel.engineering.redhat.com/site/documentation/en-US</jboss.confluence.root.url> -->
+        <jboss.confluence.root.url>https://access.redhat.com/documentation/en-US</jboss.confluence.root.url>
+
+        <portal.docs.prefix>${jboss.confluence.root.url}/Red_Hat_JBoss_Portal/${compatibility.portal.versionMm}/html</portal.docs.prefix>
+        <portal.docs.url>${jboss.confluence.root.url}/Red_Hat_JBoss_Portal/${compatibility.portal.versionMm}</portal.docs.url>
+        <portal.devguide.url>${portal.docs.prefix}/Development_Guide</portal.devguide.url>
+
+        <portal.devguide.containers.url>${portal.docs.prefix}/Development_Guide/chap-Portal_Containers.html</portal.devguide.containers.url>
+        <portal.devguide.extensions.url>${portal.docs.prefix}/Development_Guide/chap-Portal_Extension.html</portal.devguide.extensions.url>
+
+        <portal.devguide.custom.groovy.template.url>${portal.docs.prefix}/Development_Guide/chap-Portal_Extension.html#Custom_Groovy_Template_for_a_Portlet</portal.devguide.custom.groovy.template.url>
+        <portal.devguide.custom.portlet.skin.url>${portal.docs.prefix}/Development_Guide/chap-Portal_Extension.html#sect-Custom_Skin_for_a_Portlet</portal.devguide.custom.portlet.skin.url>
+        <portal.devguide.nav.pages.url>${portal.docs.prefix}/Development_Guide/chap-Portal_Extension.html#sect-Custom_Navigation_and_Pages</portal.devguide.nav.pages.url>
+        <portal.devguide.i18n.url>${portal.docs.prefix}/Development_Guide/chap-Portal_Extension.html#Custom_Internationalization_Resource_Bundles</portal.devguide.i18n.url>
+
+        <portal.devguide.starting.portlet.project.url>${portal.docs.prefix}/Development_Guide/chap-Portlet_Development.html#sect-Starting_a_Portlet_Project</portal.devguide.starting.portlet.project.url>
+        <portal.devguide.jsf.plain.jsr268.portlet.url>${portal.docs.prefix}/Development_Guide/chap-Portlet_Development.html#sect-Standard_Portlet_Development_JSR-286</portal.devguide.jsf.plain.jsr268.portlet.url>
+        <portal.devguide.jsf.portlets.url>${portal.docs.prefix}/Development_Guide/chap-Basic_JSF_Portlet_Development.html</portal.devguide.jsf.portlets.url>
+        <portal.devguide.jsf.basic.portlet.url>${portal.docs.prefix}/Development_Guide/chap-Basic_JSF_Portlet_Development.html</portal.devguide.jsf.basic.portlet.url>
+        <portal.devguide.jsf.rf.portlet.url>${portal.docs.prefix}/Development_Guide/chap-JSF_Portlet_Development_with_RichFaces.html</portal.devguide.jsf.rf.portlet.url>
+        <portal.devguide.api.portal.url>${portal.docs.prefix}/Development_Guide/part-Portal_API.html</portal.devguide.api.portal.url>
+
+        <!-- TODO: Where is portlet primer in the prod docs? -->
+        <portal.refguide.portlet.primer.url>${portal.docs.prefix}/Development_Guide/chap-Portlet_Development_Resources.html#sect-JSR-168_and_JSR-286_overview</portal.refguide.portlet.primer.url>
+        <portal.refguide.pbr.url>${portal.docs.prefix}/Development_Guide/chap-Portlet_Bridge.html</portal.refguide.pbr.url>
+
+        <!-- TODO: CDI in prod doc. -->
+        <portal.devguide.cdi.url>${portal.docs.prefix}/Development_Guide/chap-CDI_Portlet_Development.html</portal.devguide.cdi.url>
+        <portal.devguide.cdi.generic.portlet.url>${portal.docs.prefix}/Development_Guide/chap-CDI_Portlet_Development.html#GenericPortlet_and_Portlet_Filter_Injection</portal.devguide.cdi.generic.portlet.url>
+        <portal.devguide.cdi.scope.portlets.url>${portal.docs.prefix}/Development_Guide/chap-CDI_Portlet_Development.html#sect-Portlet_CDI_Scopes</portal.devguide.cdi.scope.portlets.url>
+
+        <portal.refguide.oauth.url>${portal.docs.prefix}/Administration_and_Configuration_Guide/chap-OAuth_-_Authentication_with_Social_Network_accounts.html</portal.refguide.oauth.url>
+        <portal.refguide.facebook.url>${portal.docs.prefix}/Development_Guide/chap-Using_Data_from_Social_Networks_in_Portlets.html#Facebook</portal.refguide.facebook.url>
+        <portal.refguide.google.url>${portal.docs.prefix}/Development_Guide/chap-Using_Data_from_Social_Networks_in_Portlets.html#Google</portal.refguide.google.url>
+        <portal.refguide.twitter.url>${portal.docs.prefix}/Development_Guide/chap-Using_Data_from_Social_Networks_in_Portlets.html#Twitter</portal.refguide.twitter.url>
+
+        <jboss.admin.guide.url.prefix>${jboss.confluence.root.url}/JBoss_Enterprise_Application_Platform/${compatibility.as.versionMm}/html/Administration_and_Configuration_Guide</jboss.admin.guide.url.prefix>
+        <jboss.admin.guide.ds.url>${jboss.admin.guide.url.prefix}/chap-Datasource_Management.html</jboss.admin.guide.ds.url>
+        <jboss.admin.guide.ds.files.url>${jboss.admin.guide.url.prefix}/chap-Datasource_Management.html#Deployment_of_-ds.xml_files</jboss.admin.guide.ds.files.url>
+
+        <!-- Other URLs -->
+        <facebook.url>https://www.facebook.com</facebook.url>
+        <facebook.graph.url>https://developers.facebook.com/docs/reference/api/</facebook.graph.url>
+        <facebook.restfb.url>http://restfb.com/</facebook.restfb.url>
+        <google.plus.url>https://plus.google.com/</google.plus.url>
+        <google.oauth.api.url>https://developers.google.com/accounts/docs/OAuth2</google.oauth.api.url>
+        <google.plus.api.url>https://developers.google.com/+/api/latest/</google.plus.api.url>
+        <twitter.url>https://twitter.com/</twitter.url>
+        <twitter.twitter4j.url>http://twitter4j.org/en/index.html</twitter.twitter4j.url>
+
+
+
+
+        <maven.antrun.plugin.version>1.7</maven.antrun.plugin.version>
+        <github.global.server>github</github.global.server>
+        <downloads.maven.plugin.version>0.5</downloads.maven.plugin.version>
+        <com.google.code.maven-replacer-plugin>1.5.0</com.google.code.maven-replacer-plugin>
+        <org.codehaus.gmaven.version>1.4</org.codehaus.gmaven.version>
+        <org.freemarker.version>2.3.19</org.freemarker.version>
+        <aether.version>1.13.1</aether.version>
+        <maven.replacer.plugin.version>1.5.1</maven.replacer.plugin.version>
+
+        <!-- External links used in READMEs -->
+        <mvnrepo.redhat.all.url>http://maven.repository.redhat.com/techpreview/all</mvnrepo.redhat.all.url>
+
+        <portal.quickstarts.downloads.url.prefix>http://download.jboss.org/gatein/quickstarts/${compatibility.portal.projectNameShort}-${compatibility.portal.versionMm}</portal.quickstarts.downloads.url.prefix>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jboss.bom.portal</groupId>
+                <artifactId>jboss-portal-bom</artifactId>
+                <version>${version.jboss.portal.bom}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <profiles>
+        <profile>
+            <id>reset-bom-version</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.google.code.maven-replacer-plugin</groupId>
+                        <artifactId>replacer</artifactId>
+                        <version>${maven.replacer.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>replace</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <includes>
+                                <include>*/pom.xml</include>
+                            </includes>
+                            <replacements>
+                                <replacement>
+                                    <token>&lt;version.jboss.portal.bom>[^&lt;]*&lt;/version.jboss.portal.bom></token>
+                                    <value>&lt;version.jboss.portal.bom>${version.jboss.portal.bom}&lt;/version.jboss.portal.bom></value>
+                                </replacement>
+                            </replacements>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>generate-readmes</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.gmaven</groupId>
+                        <artifactId>gmaven-plugin</artifactId>
+                        <version>${org.codehaus.gmaven.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>execute</goal>
+                                </goals>
+                                <configuration>
+                                    <classpath>
+                                        <element>
+                                            <groupId>org.freemarker</groupId>
+                                            <artifactId>freemarker</artifactId>
+                                            <version>${org.freemarker.version}</version>
+                                        </element>
+                                        <element>
+                                            <artifactId>maven-model</artifactId>
+                                            <groupId>org.apache.maven</groupId>
+                                            <version>${maven.version}</version>
+                                        </element>
+                                        <element>
+                                            <groupId>org.sonatype.aether</groupId>
+                                            <artifactId>aether-api</artifactId>
+                                            <version>${aether.version}</version>
+                                        </element>
+                                        <element>
+                                            <groupId>org.sonatype.aether</groupId>
+                                            <artifactId>aether-util</artifactId>
+                                            <version>${aether.version}</version>
+                                        </element>
+                                    </classpath>
+                                    <source>${project.basedir}/src/build/groovy/FreeMarkerMerger.groovy</source>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>prepare-zips</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.gmaven</groupId>
+                        <artifactId>gmaven-plugin</artifactId>
+                        <version>${org.codehaus.gmaven.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>execute</goal>
+                                </goals>
+                                <configuration>
+                                    <classpath>
+                                        <element>
+                                            <artifactId>maven-model</artifactId>
+                                            <groupId>org.apache.maven</groupId>
+                                            <version>${maven.version}</version>
+                                        </element>
+                                    </classpath>
+                                    <source>${project.basedir}/src/build/groovy/Packager.groovy</source>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>publish-zips</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.gmaven</groupId>
+                        <artifactId>gmaven-plugin</artifactId>
+                        <version>${org.codehaus.gmaven.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>execute</goal>
+                                </goals>
+                                <configuration>
+                                    <classpath>
+                                        <element>
+                                            <artifactId>maven-model</artifactId>
+                                            <groupId>org.apache.maven</groupId>
+                                            <version>${maven.version}</version>
+                                        </element>
+                                    </classpath>
+                                    <source>${project.basedir}/src/build/groovy/Packager.groovy</source>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
+</project>

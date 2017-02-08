@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    JBoss, Home of Professional Open Source
+    Copyright 2012, Red Hat, Inc. and/or its affiliates, and individual
+    contributors by the @authors tag. See the copyright.txt in the
+    distribution for a full listing of individual contributors.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+ -->
+<projects>
+<!-- Beware that this file is handled by Maven during the build.
+     The text content of the following elements is overwritten (or added) by Maven, the new values being taken form the
+     respective sub-project's pom.xml:
+     - category
+     - included-projects
+     - shortDescription
+     - description
+     - size
+     - url
+ -->
+    <project>
+        <category></category>
+        <name>simplest-hello-world-portlet</name>
+        <priority>1</priority>
+        <included-projects></included-projects>
+        <shortDescription></shortDescription>
+        <description></description>
+        <size></size>
+        <url></url>
+        <fixes>
+            <fix type="wtpruntime">
+                <property name="allowed-types"></property>
+                <property name="description"></property>
+                <!-- <property name="downloadId">org.jboss.tools.runtime.core.as.711</property> -->
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.core</property>
+                <property name="versions">[1.0.0,2.0.0)</property>
+                <property name="description">m2e &gt;= 1.0</property>
+                <property name="connectorIds">org.eclipse.m2e.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.wtp</property>
+                <property name="versions">[0.16,2.0)</property>
+                <property name="description">This project example requires m2e-wtp &gt;= 0.16.0.</property>
+                <property name="connectorIds">org.maven.ide.eclipse.wtp.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.jboss.tools.maven.core</property>
+                <property name="versions">[1.3.0,2.0)</property>
+                <property name="description">JBoss Maven Tools</property>
+                <property name="connectorIds">org.jboss.tools.maven.feature,org.jboss.tools.maven.cdi.feature,org.jboss.tools.maven.hibernate.feature,org.jboss.tools.maven.jaxrs.feature,org.jboss.tools.maven.portlet.feature
+                </property>
+            </fix>
+        </fixes>
+        <importType>maven</importType>
+        <importTypeDescription>The project example requires the m2eclipse, m2e-wtp and JBoss Maven Project Examples
+            feature.
+        </importTypeDescription>
+        <tags>central</tags>
+        <icon path="icons/gatein.png" />
+    </project>
+    <project>
+        <category></category>
+        <name>jsf2-hello-world-portlet</name>
+        <priority>1</priority>
+        <included-projects></included-projects>
+        <shortDescription></shortDescription>
+        <description></description>
+        <size></size>
+        <url></url>
+        <fixes>
+            <fix type="wtpruntime">
+                <property name="allowed-types"></property>
+                <property name="description"></property>
+                <!-- <property name="downloadId">org.jboss.tools.runtime.core.as.711</property> -->
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.core</property>
+                <property name="versions">[1.0.0,2.0.0)</property>
+                <property name="description">m2e &gt;= 1.0</property>
+                <property name="connectorIds">org.eclipse.m2e.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.wtp</property>
+                <property name="versions">[0.16,2.0)</property>
+                <property name="description">This project example requires m2e-wtp &gt;= 0.16.0.</property>
+                <property name="connectorIds">org.maven.ide.eclipse.wtp.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.jboss.tools.maven.core</property>
+                <property name="versions">[1.3.0,2.0)</property>
+                <property name="description">JBoss Maven Tools</property>
+                <property name="connectorIds">org.jboss.tools.maven.feature,org.jboss.tools.maven.cdi.feature,org.jboss.tools.maven.hibernate.feature,org.jboss.tools.maven.jaxrs.feature,org.jboss.tools.maven.portlet.feature
+                </property>
+            </fix>
+        </fixes>
+        <importType>maven</importType>
+        <importTypeDescription>The project example requires the m2eclipse, m2e-wtp and JBoss Maven Project Examples
+            feature.
+        </importTypeDescription>
+        <tags>central</tags>
+        <icon path="icons/gatein.png" />
+    </project>
+    <project>
+        <category></category>
+        <name>jsf2-rf4-hello-world-portlet</name>
+        <priority>1</priority>
+        <included-projects></included-projects>
+        <shortDescription></shortDescription>
+        <description></description>
+        <size></size>
+        <url></url>
+        <fixes>
+            <fix type="wtpruntime">
+                <property name="allowed-types"></property>
+                <property name="description"></property>
+                <!-- <property name="downloadId">org.jboss.tools.runtime.core.as.711</property> -->
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.core</property>
+                <property name="versions">[1.0.0,2.0.0)</property>
+                <property name="description">m2e &gt;= 1.0</property>
+                <property name="connectorIds">org.eclipse.m2e.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.wtp</property>
+                <property name="versions">[0.16,2.0)</property>
+                <property name="description">This project example requires m2e-wtp &gt;= 0.16.0.</property>
+                <property name="connectorIds">org.maven.ide.eclipse.wtp.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.jboss.tools.maven.core</property>
+                <property name="versions">[1.3.0,2.0)</property>
+                <property name="description">JBoss Maven Tools</property>
+                <property name="connectorIds">org.jboss.tools.maven.feature,org.jboss.tools.maven.cdi.feature,org.jboss.tools.maven.hibernate.feature,org.jboss.tools.maven.jaxrs.feature,org.jboss.tools.maven.portlet.feature
+                </property>
+            </fix>
+        </fixes>
+        <importType>maven</importType>
+        <importTypeDescription>The project example requires the m2eclipse, m2e-wtp and JBoss Maven Project Examples
+            feature.
+        </importTypeDescription>
+        <tags>central</tags>
+        <icon path="icons/gatein.png" />
+    </project>
+    <project>
+        <category></category>
+        <name>navigation-api-portlet</name>
+        <priority>1</priority>
+        <included-projects></included-projects>
+        <shortDescription></shortDescription>
+        <description></description>
+        <size></size>
+        <url></url>
+        <fixes>
+            <fix type="wtpruntime">
+                <property name="allowed-types"></property>
+                <property name="description"></property>
+                <!-- <property name="downloadId">org.jboss.tools.runtime.core.as.711</property> -->
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.core</property>
+                <property name="versions">[1.0.0,2.0.0)</property>
+                <property name="description">m2e &gt;= 1.0</property>
+                <property name="connectorIds">org.eclipse.m2e.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.wtp</property>
+                <property name="versions">[0.16,2.0)</property>
+                <property name="description">This project example requires m2e-wtp &gt;= 0.16.0.</property>
+                <property name="connectorIds">org.maven.ide.eclipse.wtp.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.jboss.tools.maven.core</property>
+                <property name="versions">[1.3.0,2.0)</property>
+                <property name="description">JBoss Maven Tools</property>
+                <property name="connectorIds">org.jboss.tools.maven.feature,org.jboss.tools.maven.cdi.feature,org.jboss.tools.maven.hibernate.feature,org.jboss.tools.maven.jaxrs.feature,org.jboss.tools.maven.portlet.feature
+                </property>
+            </fix>
+        </fixes>
+        <importType>maven</importType>
+        <importTypeDescription>The project example requires the m2eclipse, m2e-wtp and JBoss Maven Project Examples
+            feature.
+        </importTypeDescription>
+        <tags>central</tags>
+        <icon path="icons/gatein.png" />
+    </project>
+    <project>
+        <category></category>
+        <name>page-composition-api-portlet</name>
+        <priority>1</priority>
+        <included-projects></included-projects>
+        <shortDescription></shortDescription>
+        <description></description>
+        <size></size>
+        <url></url>
+        <fixes>
+            <fix type="wtpruntime">
+                <property name="allowed-types"></property>
+                <property name="description"></property>
+                <!-- <property name="downloadId">org.jboss.tools.runtime.core.as.711</property> -->
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.core</property>
+                <property name="versions">[1.0.0,2.0.0)</property>
+                <property name="description">m2e &gt;= 1.0</property>
+                <property name="connectorIds">org.eclipse.m2e.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.wtp</property>
+                <property name="versions">[0.16,2.0)</property>
+                <property name="description">This project example requires m2e-wtp &gt;= 0.16.0.</property>
+                <property name="connectorIds">org.maven.ide.eclipse.wtp.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.jboss.tools.maven.core</property>
+                <property name="versions">[1.3.0,2.0)</property>
+                <property name="description">JBoss Maven Tools</property>
+                <property name="connectorIds">org.jboss.tools.maven.feature,org.jboss.tools.maven.cdi.feature,org.jboss.tools.maven.hibernate.feature,org.jboss.tools.maven.jaxrs.feature,org.jboss.tools.maven.portlet.feature
+                </property>
+            </fix>
+        </fixes>
+        <importType>maven</importType>
+        <importTypeDescription>The project example requires the m2eclipse, m2e-wtp and JBoss Maven Project Examples
+            feature.
+        </importTypeDescription>
+        <tags>central</tags>
+        <icon path="icons/gatein.png" />
+    </project>
+    <project>
+        <category></category>
+        <name>cdi-generic-portlet</name>
+        <priority>1</priority>
+        <included-projects></included-projects>
+        <shortDescription></shortDescription>
+        <description></description>
+        <size></size>
+        <url></url>
+        <fixes>
+            <fix type="wtpruntime">
+                <property name="allowed-types"></property>
+                <property name="description"></property>
+                <!-- <property name="downloadId">org.jboss.tools.runtime.core.as.711</property> -->
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.core</property>
+                <property name="versions">[1.0.0,2.0.0)</property>
+                <property name="description">m2e &gt;= 1.0</property>
+                <property name="connectorIds">org.eclipse.m2e.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.wtp</property>
+                <property name="versions">[0.16,2.0)</property>
+                <property name="description">This project example requires m2e-wtp &gt;= 0.16.0.</property>
+                <property name="connectorIds">org.maven.ide.eclipse.wtp.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.jboss.tools.maven.core</property>
+                <property name="versions">[1.3.0,2.0)</property>
+                <property name="description">JBoss Maven Tools</property>
+                <property name="connectorIds">org.jboss.tools.maven.feature,org.jboss.tools.maven.cdi.feature,org.jboss.tools.maven.hibernate.feature,org.jboss.tools.maven.jaxrs.feature,org.jboss.tools.maven.portlet.feature
+                </property>
+            </fix>
+        </fixes>
+        <importType>maven</importType>
+        <importTypeDescription>The project example requires the m2eclipse, m2e-wtp and JBoss Maven Project Examples
+            feature.
+        </importTypeDescription>
+        <tags>central</tags>
+        <icon path="icons/gatein.png" />
+    </project>
+    <project>
+        <category></category>
+        <name>cdi-jsf-portlet</name>
+        <priority>1</priority>
+        <included-projects></included-projects>
+        <shortDescription></shortDescription>
+        <description></description>
+        <size></size>
+        <url></url>
+        <fixes>
+            <fix type="wtpruntime">
+                <property name="allowed-types"></property>
+                <property name="description"></property>
+                <!-- <property name="downloadId">org.jboss.tools.runtime.core.as.711</property> -->
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.core</property>
+                <property name="versions">[1.0.0,2.0.0)</property>
+                <property name="description">m2e &gt;= 1.0</property>
+                <property name="connectorIds">org.eclipse.m2e.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.wtp</property>
+                <property name="versions">[0.16,2.0)</property>
+                <property name="description">This project example requires m2e-wtp &gt;= 0.16.0.</property>
+                <property name="connectorIds">org.maven.ide.eclipse.wtp.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.jboss.tools.maven.core</property>
+                <property name="versions">[1.3.0,2.0)</property>
+                <property name="description">JBoss Maven Tools</property>
+                <property name="connectorIds">org.jboss.tools.maven.feature,org.jboss.tools.maven.cdi.feature,org.jboss.tools.maven.hibernate.feature,org.jboss.tools.maven.jaxrs.feature,org.jboss.tools.maven.portlet.feature
+                </property>
+            </fix>
+        </fixes>
+        <importType>maven</importType>
+        <importTypeDescription>The project example requires the m2eclipse, m2e-wtp and JBoss Maven Project Examples
+            feature.
+        </importTypeDescription>
+        <tags>central</tags>
+        <icon path="icons/gatein.png" />
+    </project>
+    <project>
+        <category></category>
+        <name>cdi-scopes-portlet</name>
+        <priority>1</priority>
+        <included-projects></included-projects>
+        <shortDescription></shortDescription>
+        <description></description>
+        <size></size>
+        <url></url>
+        <fixes>
+            <fix type="wtpruntime">
+                <property name="allowed-types"></property>
+                <property name="description"></property>
+                <!-- <property name="downloadId">org.jboss.tools.runtime.core.as.711</property> -->
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.core</property>
+                <property name="versions">[1.0.0,2.0.0)</property>
+                <property name="description">m2e &gt;= 1.0</property>
+                <property name="connectorIds">org.eclipse.m2e.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.wtp</property>
+                <property name="versions">[0.16,2.0)</property>
+                <property name="description">This project example requires m2e-wtp &gt;= 0.16.0.</property>
+                <property name="connectorIds">org.maven.ide.eclipse.wtp.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.jboss.tools.maven.core</property>
+                <property name="versions">[1.3.0,2.0)</property>
+                <property name="description">JBoss Maven Tools</property>
+                <property name="connectorIds">org.jboss.tools.maven.feature,org.jboss.tools.maven.cdi.feature,org.jboss.tools.maven.hibernate.feature,org.jboss.tools.maven.jaxrs.feature,org.jboss.tools.maven.portlet.feature
+                </property>
+            </fix>
+        </fixes>
+        <importType>maven</importType>
+        <importTypeDescription>The project example requires the m2eclipse, m2e-wtp and JBoss Maven Project Examples
+            feature.
+        </importTypeDescription>
+        <tags>central</tags>
+        <icon path="icons/gatein.png" />
+    </project>
+    <project>
+        <category></category>
+        <name>social-portlets</name>
+        <priority>1</priority>
+        <included-projects></included-projects>
+        <shortDescription></shortDescription>
+        <description></description>
+        <size></size>
+        <url></url>
+        <fixes>
+            <fix type="wtpruntime">
+                <property name="allowed-types"></property>
+                <property name="description"></property>
+                <!-- <property name="downloadId">org.jboss.tools.runtime.core.as.711</property> -->
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.core</property>
+                <property name="versions">[1.0.0,2.0.0)</property>
+                <property name="description">m2e &gt;= 1.0</property>
+                <property name="connectorIds">org.eclipse.m2e.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.wtp</property>
+                <property name="versions">[0.16,2.0)</property>
+                <property name="description">This project example requires m2e-wtp &gt;= 0.16.0.</property>
+                <property name="connectorIds">org.maven.ide.eclipse.wtp.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.jboss.tools.maven.core</property>
+                <property name="versions">[1.3.0,2.0)</property>
+                <property name="description">JBoss Maven Tools</property>
+                <property name="connectorIds">org.jboss.tools.maven.feature,org.jboss.tools.maven.cdi.feature,org.jboss.tools.maven.hibernate.feature,org.jboss.tools.maven.jaxrs.feature,org.jboss.tools.maven.portlet.feature
+                </property>
+            </fix>
+        </fixes>
+        <importType>maven</importType>
+        <importTypeDescription>The project example requires the m2eclipse, m2e-wtp and JBoss Maven Project Examples
+            feature.
+        </importTypeDescription>
+        <tags>central</tags>
+        <icon path="icons/gatein.png" />
+    </project>
+    <project>
+        <category></category>
+        <name>portal-extension</name>
+        <priority>1</priority>
+        <included-projects></included-projects>
+        <shortDescription></shortDescription>
+        <description></description>
+        <size></size>
+        <url></url>
+        <fixes>
+            <fix type="wtpruntime">
+                <property name="allowed-types"></property>
+                <property name="description"></property>
+                <!-- <property name="downloadId">org.jboss.tools.runtime.core.as.711</property> -->
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.core</property>
+                <property name="versions">[1.0.0,2.0.0)</property>
+                <property name="description">m2e &gt;= 1.0</property>
+                <property name="connectorIds">org.eclipse.m2e.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.wtp</property>
+                <property name="versions">[0.16,2.0)</property>
+                <property name="description">This project example requires m2e-wtp &gt;= 0.16.0.</property>
+                <property name="connectorIds">org.maven.ide.eclipse.wtp.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.jboss.tools.maven.core</property>
+                <property name="versions">[1.3.0,2.0)</property>
+                <property name="description">JBoss Maven Tools</property>
+                <property name="connectorIds">org.jboss.tools.maven.feature,org.jboss.tools.maven.cdi.feature,org.jboss.tools.maven.hibernate.feature,org.jboss.tools.maven.jaxrs.feature,org.jboss.tools.maven.portlet.feature
+                </property>
+            </fix>
+        </fixes>
+        <importType>maven</importType>
+        <importTypeDescription>The project example requires the m2eclipse, m2e-wtp and JBoss Maven Project Examples
+            feature.
+        </importTypeDescription>
+        <tags>central</tags>
+        <icon path="icons/gatein.png" />
+    </project>
+    <project>
+        <category></category>
+        <name>sample-portal</name>
+        <priority>1</priority>
+        <included-projects></included-projects>
+        <shortDescription></shortDescription>
+        <description></description>
+        <size></size>
+        <url></url>
+        <fixes>
+            <fix type="wtpruntime">
+                <property name="allowed-types"></property>
+                <property name="description"></property>
+                <!-- <property name="downloadId">org.jboss.tools.runtime.core.as.711</property> -->
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.core</property>
+                <property name="versions">[1.0.0,2.0.0)</property>
+                <property name="description">m2e &gt;= 1.0</property>
+                <property name="connectorIds">org.eclipse.m2e.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.eclipse.m2e.wtp</property>
+                <property name="versions">[0.16,2.0)</property>
+                <property name="description">This project example requires m2e-wtp &gt;= 0.16.0.</property>
+                <property name="connectorIds">org.maven.ide.eclipse.wtp.feature</property>
+            </fix>
+            <fix type="plugin">
+                <property name="id">org.jboss.tools.maven.core</property>
+                <property name="versions">[1.3.0,2.0)</property>
+                <property name="description">JBoss Maven Tools</property>
+                <property name="connectorIds">org.jboss.tools.maven.feature,org.jboss.tools.maven.cdi.feature,org.jboss.tools.maven.hibernate.feature,org.jboss.tools.maven.jaxrs.feature,org.jboss.tools.maven.portlet.feature
+                </property>
+            </fix>
+        </fixes>
+        <importType>maven</importType>
+        <importTypeDescription>The project example requires the m2eclipse, m2e-wtp and JBoss Maven Project Examples
+            feature.
+        </importTypeDescription>
+        <tags>central</tags>
+        <icon path="icons/gatein.png" />
+    </project>
+</projects>
