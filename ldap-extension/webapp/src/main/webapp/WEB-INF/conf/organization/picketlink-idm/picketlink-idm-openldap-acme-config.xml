@@ -78,7 +78,7 @@
   <repositories>
     <repository>
       <id>PortalRepository</id>
-      <class>org.picketlink.idm.impl.repository.FallbackIdentityStoreRepository</class>
+      <class>org.gatein.portal.idm.impl.repository.ExoFallbackIdentityStoreRepository</class>
       <external-config/>
       <default-identity-store-id>HibernateStore</default-identity-store-id>
       <default-attribute-store-id>HibernateStore</default-attribute-store-id>
@@ -94,6 +94,10 @@
             <option>
               <name>readOnly</name>
               <value>true</value>
+            </option>
+            <option>
+              <name>mandatoryStoredObjects</name>
+              <value>USER,</value>
             </option>
           </options>
         </identity-store-mapping>
@@ -118,7 +122,7 @@
     <identity-stores>
       <identity-store>
         <id>HibernateStore</id>
-        <class>org.picketlink.idm.impl.store.hibernate.HibernateIdentityStoreImpl</class>
+        <class>org.gatein.portal.idm.impl.store.hibernate.ExoHibernateIdentityStoreImpl</class>
         <external-config/>
         <supported-relationship-types>
           <relationship-type>JBOSS_IDENTITY_MEMBERSHIP</relationship-type>
