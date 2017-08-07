@@ -176,7 +176,7 @@
       </identity-store>
       <identity-store>
         <id>PortalLDAPStore</id>
-        <class>org.picketlink.idm.impl.store.ldap.LDAPIdentityStoreImpl</class>
+        <class>org.picketlink.idm.impl.store.ldap.ExoLDAPIdentityStoreImpl</class>
         <external-config/>
         <supported-relationship-types>
           <relationship-type>JBOSS_IDENTITY_MEMBERSHIP</relationship-type>
