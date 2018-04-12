@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2003-2018 eXo Platform SAS.
+
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 3 of
+    the License, or (at your option) any later version.
+
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.exoplatform.sample</groupId>
+  <artifactId>sample-skin</artifactId>
+  <version>1.0.x-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Sample Skin</name>
+  <modules>
+    <module>sample-skin-webapp</module>
+    <module>packaging</module>
+  </modules>
+  <properties>
+    <sample-skin-final-name>SampleSkin</sample-skin-final-name>
+    <org.exoplatform.platform-ui.version>5.0.0</org.exoplatform.platform-ui.version>
+  </properties>
+  <dependencyManagement>
+    <!-- ### NEVER CHANGE THIS ORDER OF DEPMGT ### -->
+    <!-- * From top level to bottom projects -->
+    <!-- * maven-depmgt-pom must be the first -->
+    <!-- * Your own modules -->
+    <!-- * And projects below you -->
+    <dependencies>
+      <!-- Import versions of external dependencies to use -->
+      <dependency>
+         <groupId>org.exoplatform.platform-ui</groupId>
+         <artifactId>platform-ui-skin</artifactId>
+         <classifier>sources</classifier>
+         <version>${org.exoplatform.platform-ui.version}</version>
+         <scope>provided</scope>
+      </dependency>
+      <!-- Declare our own artifacts -->
+      <dependency>
+        <groupId>org.exoplatform.addons.enterprise-skin</groupId>
+        <artifactId>enterprise-skin</artifactId>
+        <version>${project.version}</version>
+        <type>zip</type>
+        <classifier>source-release</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.addons.enterprise-skin</groupId>
+        <artifactId>enterprise-ui-skin</artifactId>
+        <version>${project.version}</version>
+        <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.addons.enterprise-skin</groupId>
+        <artifactId>enterprise-ui-skin</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <configuration>
+            <!-- Don't include libraries into Web Archives -->
+            <packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  <profiles>
+    <profile>
+      <id>project-repositories</id>
+      <activation>
+        <property>
+          <name>!skip-project-repositories</name>
+        </property>
+      </activation>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+          <id>repository.exoplatform.org</id>
+          <url>https://repository.exoplatform.org/public</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+          <id>repository.exoplatform.org</id>
+          <url>https://repository.exoplatform.org/public</url>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+</project>
