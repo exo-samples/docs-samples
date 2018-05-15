@@ -4,19 +4,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.exoplatform.samples</groupId>
 	<artifactId>custom-extension</artifactId>
-	<version>4.2.x</version>
-	<packaging>pom</packaging>
+	<version>5.0.x</version>
+	<packaging>war</packaging>
 	<name>custom-extension-pom</name>
-	<description>The sample custom-extension</description>
-
-	<modules>
-		<module>lib</module>
-		<module>webapp</module>
-	</modules>
+	<description>The sample extension</description>
 
 	<properties>
-		<project.version>4.2.x</project.version>
-		<exoplatform.version>4.2.0</exoplatform.version>
+		<project.version>5.0.x</project.version>
+		<exoplatform.version>5.0.0</exoplatform.version>
 	</properties>
 
 	<dependencyManagement>
