@@ -7,4 +7,7 @@
     <version>1.0.x-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>Customized Enterprise Skin Webapp</name>
+    <build>
+        <finalName>CustomizedEnterpriseSkin</finalName>
+    </build>
 </project>
