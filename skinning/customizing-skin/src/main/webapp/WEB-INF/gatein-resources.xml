@@ -25,7 +25,7 @@
 
   <portal-skin>
     <skin-name>Default</skin-name>
-    <skin-module>CustomizedSkinModule</skin-module>
+    <skin-module>customModuleStyle</skin-module>
     <css-path>/skin/myStyle.css</css-path>
     <css-priority>1</css-priority>
   </portal-skin>
