@@ -3,6 +3,8 @@ const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
 let config = {
   context: path.resolve(__dirname, '.'),
+  // set the entry point of the application
+  // can use multiple entry
   entry: {
     sample: './src/main/webapp/vue-app/main.js'
   },
@@ -50,8 +52,10 @@ let config = {
     ]
   },
   plugins: [
+    // we use ExtractTextWebpackPlugin to extract the css code on a css file
     new ExtractTextWebpackPlugin('css/[name].css')
   ],
+  // we need to external vueJS since it's added to the PLF as AMD module to avoid having vueJs source code on every app
   externals: {
     vue: 'Vue'
   }
