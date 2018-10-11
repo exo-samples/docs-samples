@@ -21,3 +21,6 @@ pom.xml~
 *~
 .DS_Store
 transaction.log
+
+# Npm
+node_modules/
