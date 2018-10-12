@@ -1,11 +1,11 @@
 <project>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.acme.samples</groupId>
-	<artifactId>vue-sample</artifactId>
+	<artifactId>vue-webpack-sample</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
 	<build>
-		<finalName>vue-sample</finalName>
+		<finalName>vue-webpack-sample</finalName>
 		<plugins>
             <plugin>
                 <groupId>com.github.eirslett</groupId>

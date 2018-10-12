@@ -3,7 +3,7 @@
                   xmlns="http://www.exoplatform.org/xml/ns/gatein_resources_1_4">
 
     <portlet>
-        <name>vue-sample</name>
+        <name>vue-webpack-sample</name>
         <module>
             <depends>
                 <module>vueSampleBundle</module>
