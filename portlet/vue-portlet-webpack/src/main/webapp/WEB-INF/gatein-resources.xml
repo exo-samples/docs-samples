@@ -3,16 +3,16 @@
                   xmlns="http://www.exoplatform.org/xml/ns/gatein_resources_1_4">
 
     <portlet>
-        <name>vue-webpack-sample</name>
+        <name>vueWebpackSample</name>
         <module>
             <depends>
-                <module>vueSampleBundle</module>
+                <module>vueSampleWebpackBundle</module>
             </depends>
         </module>
     </portlet>
 
     <module>
-        <name>vueSampleBundle</name>
+        <name>vueSampleWebpackBundle</name>
         <script>
             <minify>false</minify>
             <path>/js/sample.bundle.js</path>
