@@ -2,135 +2,57 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.exoplatform.samples</groupId>
-	<artifactId>angular-webpack-sample</artifactId>
-	<packaging>war</packaging>
+	<artifactId>angular-webpack-sample-parent</artifactId>
+	<packaging>pom</packaging>
 	<version>1.0.x-SNAPSHOT</version>
-	<name>Angular6 + Webpack + Maven Webapp</name>
+	<name>Angular7 webpack sample parent</name>
+	
+	<modules>
+		<module>services</module>
+		<module>portlet</module>
+		<module>packaging</module>
+	</modules>
 
 	<properties>
-		<nodeVersion>v10.4.1</nodeVersion>
-		<npmVersion>6.1.0</npmVersion>
+		<org.exoplatform.platform.version>5.1.0</org.exoplatform.platform.version>
+		<eXoDistributionName>5.1.0</eXoDistributionName>
+		<org.exoplatform.depmgt.version>13</org.exoplatform.depmgt.version>
+		<maven.compiler.optimize>true</maven.compiler.optimize>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
-
-	<build>
-		<finalName>angular-portlet-webpack</finalName>
-		<plugins>
-			<!-- START OF BUILDING ANGULAR APP START -->
-
-			<!-- Step 1: Compile and build the angular webapp -->
-			<plugin>
-				<groupId>com.github.eirslett</groupId>
-				<artifactId>frontend-maven-plugin</artifactId>
-				<version>1.0</version>
-				<configuration>
-					<workingDirectory>src/main/webapp/frontend/</workingDirectory>
-					<installDirectory>target/frontend-maven-plugin</installDirectory>
-				</configuration>
-				<executions>
-
-					<!-- It will install nodejs and npm -->
-					<execution>
-						<id>install node and npm</id>
-						<goals>
-							<goal>install-node-and-npm</goal>
-						</goals>
-						<configuration>
-							<workingDirectory>src/main/webapp/</workingDirectory>
-							<installDirectory>target/node-and-npm</installDirectory>
-							<nodeVersion>${nodeVersion}</nodeVersion>
-							<npmVersion>${npmVersion}</npmVersion>
-						</configuration>
-					</execution>
-
-					<!-- Install webpack module -->
-					<execution>
-						<id>npm webpack</id>
-						<goals>
-							<goal>npm</goal>
-						</goals>
-						<configuration>
-							<workingDirectory>src/main/webapp/frontend/</workingDirectory>
-							<installDirectory>target/node-and-npm</installDirectory>
-							<arguments>install webpack -g</arguments>
-						</configuration>
-					</execution>
-
-					<!-- Download all dependencies in node_modules -->
-					<execution>
-						<id>npm install</id>
-						<goals>
-							<goal>npm</goal>
-						</goals>
-						<configuration>
-							<workingDirectory>src/main/webapp/frontend/</workingDirectory>
-							<installDirectory>target/node-and-npm</installDirectory>
-							<arguments>install</arguments>
-						</configuration>
-					</execution>
-
-					<!-- Converting ts file to js and bundling them all together. -->
-					<!-- For Dev Environment. -->
-
-					<execution>
-						<id>npm build</id>
-						<goals>
-							<goal>npm</goal>
-						</goals>
-						<configuration>
-							<workingDirectory>src/main/webapp/frontend</workingDirectory>
-							<installDirectory>target/node-and-npm/</installDirectory>
-							<arguments>run build</arguments>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<!-- START OF BUILDING ANGULAR APP END -->
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.1.1</version>
-				<configuration>
-					<webResources>
-						<resource>
-							<directory>src/main/webapp/frontend/dist</directory>
-							<targetPath>frontend</targetPath>
-						</resource>
-					</webResources>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-					<warSourceExcludes>**/frontend/**</warSourceExcludes>
-				</configuration>
-			</plugin>
-
-			<!-- START OF BUILDING ANGULAR APP START -->
-			<!-- Step 2: Clean up the build artifacts -->
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>3.0.0</version>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>src/main/webapp/frontend/dist</directory>
-							<includes>
-								<include>**/*</include>
-							</includes>
-							<followSymlinks>false</followSymlinks>
-						</fileset>
-					</filesets>
-				</configuration>
-			</plugin>
-			<!-- START OF BUILDING ANGULAR APP END -->
-		</plugins>
-	</build>
-
+	
+	<dependencyManagement>
+		<dependencies>
+		<!-- Import versions from platform project -->
+			<dependency>
+				<groupId>org.exoplatform.platform</groupId>
+				<artifactId>platform</artifactId>
+				<version>${org.exoplatform.platform.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.exoplatform</groupId>
+				<artifactId>maven-depmgt-pom</artifactId>
+				<version>${org.exoplatform.depmgt.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.exoplatform.samples</groupId>
+				<artifactId>angular-portlet-webpack</artifactId>
+				<type>war</type>
+				<scope>provided</scope>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.exoplatform.samples</groupId>
+				<artifactId>angular-portlet-webpack-services</artifactId>
+				<type>jar</type>
+				<scope>provided</scope>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>

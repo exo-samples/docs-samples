@@ -1,0 +1,55 @@
+<table id="productsTable" class="uiGrid table table-hover table-striped">
+	<thead>
+		<tr>
+			<th>Product Id</th>
+			<th>Product Name</th>
+			<th>Product Amount</th>
+			<th class="center">Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let product of products">
+			<td>{{product.id}}</td>
+			<td>{{product.name}}</td>
+			<td>{{product.amount}}</td>
+			<td class="center">
+				<a (click)="edit(product)" class="actionIcon">
+					<i class="uiIconEdit uiIconLightGray"></i>
+				</a> 
+				<a (click)="deleteProduct(product)" class="actionIcon">
+					<i class="uiIconDelete uiIconLightGray"></i>
+				</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<form id="productForm">
+	<div class="form-horizontal">
+		<div class="control-group" [hidden]="view">
+			<div class="control-label">Product Id:</div>
+				<div class="controls">
+					<input type="text" name="product.id" [disabled]="true" [(ngModel)]="product.id">*
+				</div>
+		</div>
+		<div class="control-group">
+			<div class="control-label">Product Name:</div>
+			<div class="controls">
+				<input type="text" name="product.name" [(ngModel)]="product.name">*
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="control-label">Product Amount:</div>
+			<div class="controls">
+				<input type="text" name="product.amount"  [(ngModel)]="product.amount">*
+			</div>
+		</div>			
+					
+		<div class="uiAction">
+			<button class="btn" [disabled]="product.name == '' || product.amount == ''" (click)="addEditProduct()">Save</button>
+			<button class="btn" (click)="init()">Cancel</button>
+		</div>
+		<div>(*) Mandatory fields</div>
+	</div>					
+</form>
+

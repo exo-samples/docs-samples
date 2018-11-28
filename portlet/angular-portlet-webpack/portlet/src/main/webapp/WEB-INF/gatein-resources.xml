@@ -3,16 +3,16 @@
                   xmlns="http://www.exoplatform.org/xml/ns/gatein_resources_1_4">
 
     <portlet>
-        <name>angular-portlet-webpack</name>
+        <name>angular-sample-portlet</name>
         <module>
             <depends>
-                <module>angularPortletWebpacklBundle</module>
+                <module>angularSamplePortletBundle</module>
             </depends>
         </module>
     </portlet>
 
     <module>
-        <name>angularPortletWebpacklBundle</name>
+        <name>angularSamplePortletBundle</name>
         <script>
             <minify>false</minify>
             <path>/frontend/main.js</path>
