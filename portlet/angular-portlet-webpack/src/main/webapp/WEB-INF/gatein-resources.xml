@@ -1,0 +1,33 @@
+<gatein-resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://www.exoplatform.org/xml/ns/gatein_resources_1_4 http://www.exoplatform.org/xml/ns/gatein_resources_1_4"
+                  xmlns="http://www.exoplatform.org/xml/ns/gatein_resources_1_4">
+
+    <portlet>
+        <name>angular-portlet-webpack</name>
+        <module>
+            <depends>
+                <module>angularPortletWebpacklBundle</module>
+            </depends>
+        </module>
+    </portlet>
+
+    <module>
+        <name>angularPortletWebpacklBundle</name>
+        <script>
+            <minify>false</minify>
+            <path>/frontend/main.js</path>
+        </script>
+		<depends>
+			<module>polyfillsBundle</module>
+		</depends>
+    </module>
+	
+	<module>
+        <name>polyfillsBundle</name>
+        <script>
+            <minify>false</minify>
+            <path>/frontend/polyfills.js</path>
+        </script>
+    </module>
+
+</gatein-resources>
