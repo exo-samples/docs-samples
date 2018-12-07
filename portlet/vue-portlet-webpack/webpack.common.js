@@ -8,6 +8,10 @@ let config = {
   entry: {
     sample: './src/main/webapp/vue-app/main.js'
   },
+  output: {
+    filename: 'js/[name].bundle.js',
+    libraryTarget: 'amd'
+  },
   module: {
     rules: [
       {
@@ -38,15 +42,13 @@ let config = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: [
-          'babel-loader',
-          'eslint-loader',
+          'babel-loader'
         ]
       },
       {
         test: /\.vue$/,
         use: [
-          'vue-loader',
-          'eslint-loader',
+          'vue-loader'
         ]
       }
     ]
@@ -54,11 +56,7 @@ let config = {
   plugins: [
     // we use ExtractTextWebpackPlugin to extract the css code on a css file
     new ExtractTextWebpackPlugin('css/[name].css')
-  ],
-  // we need to external vueJS since it's added to the PLF as AMD module to avoid having vueJs source code on every app
-  externals: {
-    vue: 'Vue'
-  }
+  ]
 };
 
 module.exports = config;
