@@ -7,8 +7,7 @@ const app = 'vue-webpack-sample';
 
 const config = merge(webpackCommonConfig, {
   output: {
-    path: path.resolve(__dirname, `./target/${app}/`),
-    filename: 'js/[name].bundle.js'
+    path: path.resolve(__dirname, `./target/${app}/`)
   }
 });
 
