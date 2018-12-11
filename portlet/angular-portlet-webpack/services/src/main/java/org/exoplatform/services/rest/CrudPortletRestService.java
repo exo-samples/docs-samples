@@ -69,10 +69,13 @@ public class CrudPortletRestService implements ResourceContainer {
   public Response deleteProduct(@Context UriInfo uriInfo, @PathParam("productId") String productId) throws Exception {
     Product product = productDAO.find(Long.parseLong(productId));
     if (product != null) {
-      String productName = product.getProductName();
+      JSONObject productJson = new JSONObject();
+      productJson.put("id", product.getProductId());
+      productJson.put("name", product.getProductName());
+      productJson.put("amount", product.getProductAmount());
       productDAO.delete(product);
       return Response.created(uriInfo.getAbsolutePath())
-          .entity(productName + " well deleted")
+          .entity(productJson.toString())
           .type(MediaType.TEXT_PLAIN + "; charset=utf-8")
           .status(Response.Status.OK)
           .build();

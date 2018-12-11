@@ -2,11 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 
-
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Product } from './product';
+import { Product } from '../models/product';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -17,6 +16,9 @@ const httpOptions = {
 
 @Injectable()
 export class ProductsService {
+
+  dialogData: any;
+  
   getProductsUrl = '/rest/crud/getAllProducts';
   
   addProductUrl = '/rest/crud/addProduct';
@@ -26,6 +28,10 @@ export class ProductsService {
   updateProductUrl = '/rest/crud/updateProduct';
 
   constructor(private http: HttpClient) { }
+  
+  getDialogData() {
+    return this.dialogData;
+  }
 
   getProducts (): Observable<Product[]> {
     return this.http.get<Product[]>(this.getProductsUrl);
@@ -34,9 +40,9 @@ export class ProductsService {
   addProduct (product: Product): Observable<Product> {
     return this.http.get<Product>(this.addProductUrl + "?productName=" + product.name + "&productAmount=" + product.amount);
   }
-  
-  deleteProduct (id: number): Observable<{}> {
-    return this.http.get(this.deleteProductUrl + "/" + id);
+    
+  deleteProduct (id: number): Observable<Product> {
+    return this.http.get<Product>(this.deleteProductUrl + "/" + id);
   }
   
   updateProduct (product: Product): Observable<Product> {
