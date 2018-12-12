@@ -1,5 +1,5 @@
 {
-  "name": "angular-portlet-webpack",
+  "name": "angular-portlets",
   "version": "1.0.0",
   "main": "webpack.config.js",
   "scripts": {

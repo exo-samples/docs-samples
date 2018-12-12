@@ -3,23 +3,23 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.exoplatform.samples</groupId>
-		<artifactId>angular-webpack-sample-parent</artifactId>
+		<artifactId>angular-samples-parent</artifactId>
 		<version>1.0.x-SNAPSHOT</version>
 	</parent>
-	<artifactId>angular-portlet-webpack-packaging</artifactId>
+	<artifactId>angular-portlets-packaging</artifactId>
 	<packaging>pom</packaging>
-	<name>Angular7 portlet webpack packaging</name>
+	<name>Angular portlets packaging</name>
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>angular-portlet-webpack</artifactId>
+			<artifactId>angular-portlets-war</artifactId>
 			<version>${project.version}</version>
 			<type>war</type>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>angular-portlet-webpack-services</artifactId>
+			<artifactId>angular-portlets-services</artifactId>
 			<version>${project.version}</version>
 			<type>jar</type>
 			<scope>provided</scope>
@@ -38,10 +38,10 @@
 							<goal>single</goal>
 						</goals>
 						<configuration>
-							<finalName>angular-portlet-webpack-package</finalName>
+							<finalName>angular-portlets-package</finalName>
 							<appendAssemblyId>false</appendAssemblyId>
 							<descriptors>
-								<descriptor>src/main/assemblies/angular-portlet-webpack-package.xml</descriptor>
+								<descriptor>src/main/assemblies/angular-portlets-package.xml</descriptor>
 							</descriptors>
 						</configuration>
 					</execution>

@@ -1,33 +1,33 @@
 <gatein-resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://www.exoplatform.org/xml/ns/gatein_resources_1_4 http://www.exoplatform.org/xml/ns/gatein_resources_1_4"
-                  xmlns="http://www.exoplatform.org/xml/ns/gatein_resources_1_4">
+	xsi:schemaLocation="http://www.exoplatform.org/xml/ns/gatein_resources_1_4 http://www.exoplatform.org/xml/ns/gatein_resources_1_4"
+	xmlns="http://www.exoplatform.org/xml/ns/gatein_resources_1_4">
 
-    <portlet>
-        <name>angular-sample-portlet</name>
-        <module>
-            <depends>
-                <module>angularSamplePortletBundle</module>
-            </depends>
-        </module>
-    </portlet>
+	<portlet>
+		<name>products-management-portlet</name>
+		<module>
+			<depends>
+				<module>productsManagementPortletBundle</module>
+			</depends>
+		</module>
+	</portlet>
 
-    <module>
-        <name>angularSamplePortletBundle</name>
-        <script>
-            <minify>false</minify>
-            <path>/frontend/main.js</path>
-        </script>
+	<module>
+		<name>productsManagementPortletBundle</name>
+		<script>
+			<minify>false</minify>
+			<path>/frontend/main.js</path>
+		</script>
 		<depends>
 			<module>polyfillsBundle</module>
 		</depends>
-    </module>
-	
+	</module>
+
 	<module>
-        <name>polyfillsBundle</name>
-        <script>
-            <minify>false</minify>
-            <path>/frontend/polyfills.js</path>
-        </script>
-    </module>
+		<name>polyfillsBundle</name>
+		<script>
+			<minify>false</minify>
+			<path>/frontend/polyfills.js</path>
+		</script>
+	</module>
 
 </gatein-resources>

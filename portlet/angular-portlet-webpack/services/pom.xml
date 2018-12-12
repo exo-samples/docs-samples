@@ -15,12 +15,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.exoplatform.samples</groupId>
-		<artifactId>angular-webpack-sample-parent</artifactId>
+		<artifactId>angular-samples-parent</artifactId>
 		<version>1.0.x-SNAPSHOT</version>
 	</parent>
-	<artifactId>angular-portlet-webpack-services</artifactId>
+	<artifactId>angular-portlets-services</artifactId>
 	<packaging>jar</packaging>
-	<name>Angular7 portlet webpack services</name>
+	<name>Angular portlets services</name>
 	<dependencies>
 		<dependency>
 			<groupId>org.exoplatform.core</groupId>

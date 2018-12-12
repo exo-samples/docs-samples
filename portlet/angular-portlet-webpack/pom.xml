@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.exoplatform.samples</groupId>
-	<artifactId>angular-webpack-sample-parent</artifactId>
+	<artifactId>angular-samples-parent</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0.x-SNAPSHOT</version>
-	<name>Angular7 webpack sample parent</name>
+	<name>Angular samples parent</name>
 	
 	<modules>
 		<module>services</module>
@@ -41,14 +41,14 @@
 			</dependency>
 			<dependency>
 				<groupId>org.exoplatform.samples</groupId>
-				<artifactId>angular-portlet-webpack</artifactId>
+				<artifactId>angular-portlets-war</artifactId>
 				<type>war</type>
 				<scope>provided</scope>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.exoplatform.samples</groupId>
-				<artifactId>angular-portlet-webpack-services</artifactId>
+				<artifactId>angular-portlets-services</artifactId>
 				<type>jar</type>
 				<scope>provided</scope>
 				<version>${project.version}</version>

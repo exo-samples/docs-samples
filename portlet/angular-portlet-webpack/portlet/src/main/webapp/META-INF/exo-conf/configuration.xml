@@ -22,7 +22,7 @@
 						<field name="dependencies">
 							<collection type="java.util.ArrayList">
 								<value>
-									<string>angular-portlet-webpack</string>
+									<string>angular-portlets</string>
 								</value>
 							</collection>
 						</field>

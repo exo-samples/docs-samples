@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.exoplatform.samples</groupId>
-		<artifactId>angular-webpack-sample-parent</artifactId>
+		<artifactId>angular-samples-parent</artifactId>
 		<version>1.0.x-SNAPSHOT</version>
 	</parent>
-	<artifactId>angular-portlet-webpack</artifactId>
+	<artifactId>angular-portlets-war</artifactId>
 	<packaging>war</packaging>
-	<name>Angular7 portlet webpack</name>
+	<name>Angular portlets webapp</name>
 
 	<properties>
 		<nodeVersion>v10.4.1</nodeVersion>
@@ -16,7 +16,7 @@
 	</properties>
 
 	<build>
-		<finalName>angular-portlet-webpack</finalName>
+		<finalName>angular-portlets</finalName>
 		<plugins>
 			<!-- START OF BUILDING ANGULAR APP START -->
 

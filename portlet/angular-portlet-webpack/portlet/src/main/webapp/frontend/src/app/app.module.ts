@@ -1,5 +1,5 @@
 import {NgModule} from "@angular/core";
-import {MatButtonModule, MatDialogModule, MatIconModule, MatInputModule, MatPaginatorModule, MatSortModule, MatTableModule, MatToolbarModule} from "@angular/material";
+import {MatButtonModule, MatDialogModule, MatIconModule, MatInputModule, MatPaginatorModule, MatSortModule, MatTableModule, MatToolbarModule, MatProgressSpinnerModule} from "@angular/material";
 import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -23,7 +23,8 @@ import {CrudComponent} from "./app.component";
     	MatSortModule,
    		MatToolbarModule,
     	MatPaginatorModule,
-    	ReactiveFormsModule
+    	ReactiveFormsModule,
+    	MatProgressSpinnerModule
     ],
     bootstrap:    [CrudComponent],
     declarations: [CrudComponent, AddEditDialogComponent, DeleteDialogComponent],

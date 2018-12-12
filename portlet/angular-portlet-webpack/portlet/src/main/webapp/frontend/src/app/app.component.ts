@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild } from '@angular/core';
-import {MatTable, MatDialog, MatDialogConfig} from '@angular/material';
+import {MatTable, MatDialog, MatDialogConfig, MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
 import {AddEditDialogComponent} from '../dialogs/addEdit/addEdit.dialog.component';
 import {DeleteDialogComponent} from '../dialogs/delete/delete.dialog.component';
 import {Product} from '../models/product';
@@ -12,16 +12,22 @@ import {ProductsService} from '../services/products.services';
     template: require("./app.component.html")
 })
 export class CrudComponent {
-
+	
   	displayedColumns: string[] = ['id', 'name', 'amount', 'action'];
   	
-	products: Product[];
+	dataSource: MatTableDataSource<Product>;
 	
 	product : Product = {} as Product;
 	
 	@ViewChild(MatTable) table: MatTable<Product>;
 	
-  	constructor(private productsService: ProductsService, public dialog: MatDialog) { }
+	@ViewChild(MatPaginator) paginator: MatPaginator;
+	
+  	@ViewChild(MatSort) sort: MatSort;
+	
+  	constructor(private productsService: ProductsService, public dialog: MatDialog) {
+  		 this.dataSource = new MatTableDataSource([]);
+  	}
 
   	ngOnInit() {
     	this.getProducts();
@@ -29,7 +35,7 @@ export class CrudComponent {
 
   	getProducts(): void {
     	this.productsService.getProducts()
-      	.subscribe(products => this.products = products);
+      	.subscribe(products => this.dataSource.data = products);
   	}
 
   	openProductDialog(product: Product) {
@@ -58,8 +64,9 @@ export class CrudComponent {
 	   				this.product.amount = result.amount;
 			    	this.productsService.addProduct(this.product)
 			      	.subscribe(product => {
-			      		this.products.push(product);
-			      		this.table.renderRows();
+			      		var products = this.dataSource.data;
+			      		products.push(product);
+			      		this.dataSource.data = products;
 			      	});
 			    }
 			    else {
@@ -68,11 +75,12 @@ export class CrudComponent {
 	   				this.product.amount = result.amount;
 			    	this.productsService.updateProduct(this.product)
 		        	.subscribe(product => {
-			          	const ix = product ? this.products.findIndex(p => p.id === product.id) : -1;
+		        		var products = this.dataSource.data;
+			          	const ix = product ? products.findIndex(p => p.id === product.id) : -1;
 			          	if (ix > -1) { 
-			          		this.products[ix] = product; 
+			          		products[ix] = product;
 			          	}
-			          	this.table.renderRows();
+			          	this.dataSource.data = products;
 		        	});
 			    }
 	      	}
@@ -91,10 +99,20 @@ export class CrudComponent {
 	    dialogRef.afterClosed().subscribe(product => {
 	   		if (product !== undefined) {
 	   			this.productsService.deleteProduct(product.id).subscribe(result => {
-			    	this.products = this.products.filter(p => p.id !== result.id);
-			        this.table.renderRows();
+			    	this.dataSource.data = this.dataSource.data.filter(p => p.id !== result.id);
 		        });
 	      	}
 	    });
   	}
+  	
+  	ngAfterViewInit() {
+	    this.dataSource.paginator = this.paginator;
+	    this.dataSource.sort = this.sort;
+  	}
+
+	applyFilter(filterValue: string) {
+		filterValue = filterValue.trim(); // Remove whitespace
+	    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+	    this.dataSource.filter = filterValue;
+	}
 }
