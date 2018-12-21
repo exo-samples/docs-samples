@@ -1,0 +1,60 @@
+<link href="https://unpkg.com/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<mat-toolbar color="primary">
+  <span>Products list</span>
+</mat-toolbar>
+
+<div class="container mat-elevation-z8">
+	<mat-form-field>
+    	<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  	</mat-form-field>
+
+	<mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+		<!-- Id Column -->
+		<ng-container matColumnDef="id">
+	    	<mat-header-cell *matHeaderCellDef mat-sort-header> Product Id </mat-header-cell>
+	    	<mat-cell *matCellDef="let product"> {{product.id}} </mat-cell>
+	  	</ng-container>
+	
+	  	<!-- Name Column -->
+	  	<ng-container matColumnDef="name">
+	    	<mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+	    	<mat-cell *matCellDef="let product"> {{product.name}} </mat-cell>
+	  	</ng-container>
+	  
+	  	<!-- Amount Column -->
+	  	<ng-container matColumnDef="amount">
+	    	<mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
+	    	<mat-cell *matCellDef="let product"> {{product.amount}} </mat-cell>
+	  	</ng-container>
+	  
+	  	<!-- Action Column -->
+	  	<ng-container matColumnDef="action">
+	    	<mat-header-cell *matHeaderCellDef>
+		        <button mat-icon-button color="primary" (click)="openProductDialog()">
+		          <mat-icon aria-label="Add new product">add</mat-icon>
+		        </button>
+	      	</mat-header-cell>
+	      	<mat-cell *matCellDef="let product">
+		        <button mat-icon-button color="primary" (click)="openProductDialog(product)">
+		          <mat-icon aria-label="Edit">edit</mat-icon>
+		        </button>
+		
+		        <button mat-icon-button color="primary" (click)="openDeleteProductDialog(product)">
+		          <mat-icon aria-label="Delete">delete</mat-icon>
+		        </button>
+	      	</mat-cell>
+	  	</ng-container>
+	
+	  	<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+	  	<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+	</mat-table>
+	
+	 <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+	<div class="no-results" [style.display]="dataSource.data.length == 0 ? '' : 'none'">
+		No products
+	</div>
+</div>
+

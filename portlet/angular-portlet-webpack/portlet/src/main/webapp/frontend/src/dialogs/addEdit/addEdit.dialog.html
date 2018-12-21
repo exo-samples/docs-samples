@@ -1,0 +1,46 @@
+<div class="container">
+  <h3 mat-dialog-title>{{data.title}}</h3>
+
+  <form class="mat-dialog-content" (ngSubmit)="submit" #formControl="ngForm">
+
+    <div class="form" [hidden]="data.view">
+      <mat-form-field color="accent">
+        <input matInput #input class="form-control" placeholder="Id" [(ngModel)]="data.id" name="id" [disabled]="true" required >
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+      	<input matInput #inputname class="form-control" placeholder="Name" [(ngModel)]="data.name" name="name" maxlength="20" required >
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+		<mat-hint align="end">{{inputname.value?.length || 0}}/20</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <!--Contains mat-hint for characters count and has maxLengt set-->
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput #input type="number" class="form-control" placeholder="Amount" [(ngModel)]="data.amount" name="amount" required >
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+      <button mat-button [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="data">Save</button>
+      <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+    </div>
+  </form>
+</div>
+
+<style>
+	@media (min-width: 1200px) {
+		.container {
+			width: 100%;
+		}
+	}
+	
+	.mat-dialog-content {
+		margin: auto;
+    	overflow: visible;
+	}
+</style>
