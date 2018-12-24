@@ -17,14 +17,18 @@
     props: ['name']
   });
   
-  // getting locale ressources
-  exoi18n.loadLanguageAsync(lang, url).then(i18n => {
-    // init Vue app when locale ressources are ready
-    new Vue({
-      el: '#vueSample',
-      template: '<app/>',
-      i18n
+  function init() {
+    // getting locale ressources
+    exoi18n.loadLanguageAsync(lang, url).then(i18n => {
+      // init Vue app when locale ressources are ready
+      new Vue({
+        el: '#vueSample',
+        template: '<app/>',
+        i18n
+      });
     });
-  });
+  }
+
+  return {'init': init}
 
 })()
