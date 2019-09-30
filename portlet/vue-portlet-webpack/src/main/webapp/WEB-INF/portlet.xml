@@ -15,5 +15,5 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 			<title>Vue Webpack Sample</title>
 		</portlet-info>
 	</portlet>
-	
+
 </portlet-app>

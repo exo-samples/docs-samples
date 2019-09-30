@@ -6,7 +6,7 @@ const webpackCommonConfig = require('./webpack.common.js');
 const app = 'vue-webpack-sample';
 
 // add the server path to your server location path
-const exoServerPath = "D:/MyWorkSpace/exo-servers/platform-5.1.x-SNAPSHOT-sample";
+const exoServerPath = "/exo-server";
 
 let config = merge(webpackCommonConfig, {
   output: {
