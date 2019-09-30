@@ -1,0 +1,34 @@
+<gatein-resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://www.exoplatform.org/xml/ns/gatein_resources_1_4 http://www.exoplatform.org/xml/ns/gatein_resources_1_4"
+                  xmlns="http://www.exoplatform.org/xml/ns/gatein_resources_1_4">
+  <portal-skin>
+    <skin-name>Default</skin-name>
+    <skin-module>customModuleSampleVuePortlet</skin-module>
+    <css-path>/css/sample.css</css-path>
+    <css-priority>11</css-priority>
+  </portal-skin>
+
+  <portal-skin>
+    <skin-name>Enterprise</skin-name>
+    <skin-module>customModuleSampleVuePortlet</skin-module>
+    <css-path>/css/sample.css</css-path>
+    <css-priority>11</css-priority>
+  </portal-skin>
+
+  <portlet>
+    <name>vueWebpackSample</name>
+    <module>
+      <script>
+        <minify>false</minify>
+        <path>/js/sample.bundle.js</path>
+      </script>
+      <depends>
+        <module>vue</module>
+      </depends>
+      <depends>
+        <module>eXoVueI18n</module>
+      </depends>
+    </module>
+  </portlet>
+
+</gatein-resources>
