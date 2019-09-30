@@ -6,9 +6,9 @@
   <priority>4</priority>
   <page-nodes>
     <node>
-      <name>vueSampleApp</name>
-      <label>Sample App</label>
-      <page-reference>portal::intranet::vueSampleAppPage</page-reference>
+      <name>vuetifySampleApp</name>
+      <label>Sample Vuetify App</label>
+      <page-reference>portal::intranet::vuetifySampleAppPage</page-reference>
     </node>
   </page-nodes>
 </node-navigation>

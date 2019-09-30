@@ -4,7 +4,7 @@
         xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_6 http://www.gatein.org/xml/ns/gatein_objects_1_6"
         xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_6">
   <page>
-    <name>vueSampleAppPage</name>
+    <name>vuetifySampleAppPage</name>
     <title>Sample App</title>
     <access-permissions>*:/platform/users</access-permissions>
     <edit-permission>*:/platform/administrators</edit-permission>
@@ -13,9 +13,9 @@
       <portlet-application>
         <portlet>
           <application-ref>vuetify-webpack-sample</application-ref>
-          <portlet-ref>vueWebpackSample</portlet-ref>
+          <portlet-ref>vuetifyWebpackSample</portlet-ref>
         </portlet>
-        <title>Vue Webpack Sample</title>
+        <title>Vuetify Webpack Sample</title>
         <access-permissions>*:/platform/users</access-permissions>
         <show-info-bar>false</show-info-bar>
       </portlet-application>

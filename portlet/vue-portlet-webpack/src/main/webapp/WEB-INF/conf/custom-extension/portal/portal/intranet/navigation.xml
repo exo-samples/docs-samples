@@ -7,7 +7,7 @@
   <page-nodes>
     <node>
       <name>vueSampleApp</name>
-      <label>Sample App</label>
+      <label>Sample Vue App</label>
       <page-reference>portal::intranet::vueSampleAppPage</page-reference>
     </node>
   </page-nodes>

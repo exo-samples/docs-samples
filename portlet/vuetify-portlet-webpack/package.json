@@ -12,7 +12,8 @@
     "watch": "webpack --config webpack.dev.js --progress --colors --watch -d",
     "test": "jest",
     "test-coverage": "jest --coverage",
-    "build": "webpack --config webpack.prod.js --mode production"
+    "build": "webpack --config webpack.prod.js --mode production",
+    "lint": "eslint --fix ./src/main/webapp/vue-app/*.js ./src/main/webapp/vue-app/**/*.vue"
   },
   "author": "eXo",
   "license": "LGPL",
