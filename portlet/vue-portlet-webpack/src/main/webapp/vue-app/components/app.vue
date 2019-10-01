@@ -1,11 +1,5 @@
 <template>
-  <hello name="VueJS"></hello>
+  <div id="vue_webpack_sample">
+    <span>{{ $t('sample.i18n.label') }}</span>
+  </div>
 </template>
-
-<script>
-import hello from './hello.vue';
-
-export default {
-  components: {hello}
-};
-</script>

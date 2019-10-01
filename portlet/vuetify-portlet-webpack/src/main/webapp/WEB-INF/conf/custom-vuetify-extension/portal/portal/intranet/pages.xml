@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<page-set 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_6 http://www.gatein.org/xml/ns/gatein_objects_1_6"
+        xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_6">
+  <page>
+    <name>vuetifySampleAppPage</name>
+    <title>Sample App</title>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <access-permissions>*:/platform/users</access-permissions>
+      <portlet-application>
+        <portlet>
+          <application-ref>vuetify-webpack-sample</application-ref>
+          <portlet-ref>vuetifyWebpackSample</portlet-ref>
+        </portlet>
+        <title>Vuetify Webpack Sample</title>
+        <access-permissions>*:/platform/users</access-permissions>
+        <show-info-bar>false</show-info-bar>
+      </portlet-application>
+    </container>
+  </page>
+</page-set>

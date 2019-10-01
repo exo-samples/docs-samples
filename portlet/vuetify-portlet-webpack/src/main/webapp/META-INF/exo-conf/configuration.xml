@@ -20,7 +20,7 @@
             <field name="dependencies">
               <collection type="java.util.ArrayList">
                 <value>
-                  <string>vue-webpack-sample</string>
+                  <string>vuetify-webpack-sample</string>
                 </value>
               </collection>
             </field>
