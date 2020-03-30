@@ -3,27 +3,6 @@
                   xmlns="http://www.exoplatform.org/xml/ns/gatein_resources_1_4">
 
   <portal-skin>
-    <skin-name>Default</skin-name>
-    <skin-module>customModuleVuetify</skin-module>
-    <css-path>/../eXoSkin/skin/css/vuetify/vuetify-all.css</css-path>
-    <css-priority>10</css-priority>
-  </portal-skin>
-
-  <portal-skin>
-    <skin-name>Enterprise</skin-name>
-    <skin-module>customModuleVuetify</skin-module>
-    <css-path>/../EnterpriseSkin/skin/css/vuetify/vuetify-all.css</css-path>
-    <css-priority>10</css-priority>
-  </portal-skin>
-
-  <portal-skin>
-    <skin-name>Default</skin-name>
-    <skin-module>customModuleSampleVuetifyPortlet</skin-module>
-    <css-path>/css/sample.css</css-path>
-    <css-priority>11</css-priority>
-  </portal-skin>
-
-  <portal-skin>
     <skin-name>Enterprise</skin-name>
     <skin-module>customModuleSampleVuetifyPortlet</skin-module>
     <css-path>/css/sample.css</css-path>
