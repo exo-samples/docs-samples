@@ -3,21 +3,27 @@
  */
 package com.ecommerce.microcommerce.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * @author Ayoub
  */
 @JsonIgnoreProperties(value = {"prixAchat", "id"})
+@Entity
 public class Product {
 
+  @Id
+  @GeneratedValue
   private int    id;
 
   private String nom;
 
   private int prix;
   
-  //information que nous ne souhaitons pas exposer
   //@JsonIgnore
   private int prixAchat;
 
