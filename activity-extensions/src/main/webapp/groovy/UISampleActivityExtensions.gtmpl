@@ -1,0 +1,12 @@
+<script type="text/javascript" defer="defer">
+  require(["SHARED/sampleActivityType", "SHARED/sampleActivityBody", "SHARED/sampleActivityMenuItem", "SHARED/sampleActivityAction", "SHARED/sampleCommentBody", "SHARED/sampleCommentMenuItem", "SHARED/sampleCommentAction"],
+    function (sampleActivityType, sampleActivityBody, sampleActivityMenuItem, sampleActivityAction, sampleCommentBody, sampleCommentMenuItem, sampleCommentAction) {
+      sampleActivityType.init();
+      sampleActivityBody.init();
+      sampleActivityMenuItem.init();
+      sampleActivityAction.init();
+      sampleCommentBody.init();
+      sampleCommentMenuItem.init();
+      sampleCommentAction.init();
+    });
+</script>
