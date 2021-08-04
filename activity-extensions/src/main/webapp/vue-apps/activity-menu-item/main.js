@@ -4,7 +4,7 @@ export function init() {
     labelKey: 'Change to Custom Type',
     isEnabled: (activity) => activity && activity.type !== 'aCustomType',
     click: (activity) => {
-      fetch(`/portal/rest/v1/social/activities/${activity.id}`, {
+      return fetch(`/portal/rest/v1/social/activities/${activity.id}`, {
         'headers': {
           'content-type': 'application/json',
         },
