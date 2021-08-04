@@ -1,0 +1,32 @@
+{
+  "name": "activity-extensions",
+  "version": "6.2.0",
+  "description": "eXo Activity Extensions",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/exo-samples/docs-samples"
+  },
+  "scripts": {
+    "lint": "eslint --fix src/main/webapp/**/*.js src/main/webapp/**/*.vue",
+    "build": "webpack --config webpack.prod.js --mode production",
+    "watch": "webpack --config webpack.watch.js --progress --colors --watch -d"
+  },
+  "author": "eXo",
+  "license": "LGPL",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-config-meedsio": "^1.0.3",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "vue": "^2.6.10",
+    "vue-loader": "^14.2.3",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1",
+    "webpack-merge": "^4.1.3"
+  }
+}
