@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.exoplatform.samples</groupId>
 	<artifactId>custom-extension</artifactId>
-	<version>5.0.x</version>
+	<version>1.0.x</version>
 	<packaging>war</packaging>
 	<name>custom-extension-pom</name>
 	<description>The sample extension</description>
+	<build>
+		<finalName>custom-extenion</finalName>
+	</build>
 
 	<properties>
-		<project.version>5.0.x</project.version>
-		<exoplatform.version>5.0.0</exoplatform.version>
+		<social.version>6.3.0</social.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>org.exoplatform.platform</groupId>
-				<artifactId>platform</artifactId>
-				<version>${exoplatform.version}</version>
+				<groupId>org.exoplatform.social</groupId>
+				<artifactId>social</artifactId>
+				<version>${social.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
