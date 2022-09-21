@@ -5,17 +5,17 @@
   <parent>
     <artifactId>addons-parent-pom</artifactId>
     <groupId>org.exoplatform.addons</groupId>
-    <version>14-RC01</version>
+    <version>15</version>
     <relativePath/>
   </parent>
 	<groupId>org.exoplatform.samples</groupId>
 	<artifactId>activity-extensions</artifactId>
-	<version>6.2.x</version>
+	<version>6.3.x</version>
 	<packaging>war</packaging>
 	<name>Acctivity UI Extensions</name>
 
 	<properties>
-    <org.exoplatform.social.version>6.2.x-SNAPSHOT</org.exoplatform.social.version>
+    <org.exoplatform.social.version>6.3.x-SNAPSHOT</org.exoplatform.social.version>
   </properties>
 
   <dependencyManagement>
