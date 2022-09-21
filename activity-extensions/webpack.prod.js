@@ -1,5 +1,6 @@
 const path = require('path');
-const merge = require('webpack-merge');
+const ESLintPlugin = require('eslint-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader')
 
 const config = {
   mode: 'production',
@@ -8,15 +9,24 @@ const config = {
     rules: [
       {
         test: /\.css$/,
-        use: ['vue-style-loader', 'css-loader']
+          use: [
+              'vue-style-loader',
+              'css-loader'
+          ],
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          'babel-loader',
+        ]
       },
       {
         test: /\.vue$/,
         use: [
           'vue-loader',
-          'eslint-loader',
         ]
-      },
+      }
     ]
   },
   entry: {
@@ -33,11 +43,22 @@ const config = {
     filename: 'js/[name].bundle.js',
     libraryTarget: 'amd'
   },
+  plugins: [
+    new ESLintPlugin({
+      files: [
+        './src/main/webapp/vue-apps/*.js',
+        './src/main/webapp/vue-apps/*.vue',
+        './src/main/webapp/vue-apps/**/*.js',
+        './src/main/webapp/vue-apps/**/*.vue',
+      ],
+    }),
+    new VueLoaderPlugin()
+  ],
   externals: {
     vue: 'Vue',
+    vuetify: 'Vuetify',
     jquery: '$',
-    vuetify: 'Vuetify'
-  }
+  },
 };
 
 module.exports = config;
