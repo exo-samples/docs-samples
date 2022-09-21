@@ -8,7 +8,7 @@
 	<name>custom-extension-pom</name>
 	<description>The sample extension</description>
 	<build>
-		<finalName>custom-extenion</finalName>
+		<finalName>custom-extension</finalName>
 	</build>
 
 	<properties>
