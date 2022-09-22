@@ -8,17 +8,7 @@ xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 		<component-plugin>
 			<name>SocialProfileListener</name>
 			<set-method>registerProfileListener</set-method>
-			<type>com.acme.samples.notification.SocialProfileListener</type>
-		</component-plugin>
-	</external-component-plugins>
-	<!-- register new channel -->
-	<external-component-plugins>
-		<target-component>org.exoplatform.commons.api.notification.channel.ChannelManager</target-component>
-		<component-plugin profiles="all">
-			<name>console.channel</name>
-			<set-method>register</set-method>
-			<type>com.acme.samples.notification.ConsoleChannel</type>
-			<description>Register the console channel to manager.</description>
+			<type>org.exoplatform.samples.notification.SocialProfileListener</type>
 		</component-plugin>
 	</external-component-plugins>
 	<!-- register new notification type -->
@@ -27,7 +17,7 @@ xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 		<component-plugin>
 			<name>notification.plugins</name>
 			<set-method>addPlugin</set-method>
-			<type>com.acme.samples.notification.plugin.UpdateProfilePlugin</type>
+			<type>org.exoplatform.samples.notification.plugin.UpdateProfilePlugin</type>
 			<description>Initial information for plugin.</description>
 			<init-params>
 				<object-param>

@@ -1,4 +1,4 @@
-package com.acme.samples.notification.plugin;
+package org.exoplatform.samples.notification.plugin;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,7 +14,10 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.model.Profile;
 import org.exoplatform.social.core.manager.RelationshipManager;
-//This class extends BaseNotificationPlugin to push new notification type of profile updating event
+
+/**
+ * This class extends BaseNotificationPlugin to push new notification type of profile updating event
+ */
 public class UpdateProfilePlugin extends BaseNotificationPlugin {
 	public final static ArgumentLiteral<Profile> PROFILE = new ArgumentLiteral<Profile>(Profile.class, "profile");
 	private static final Log LOG = ExoLogger.getLogger(UpdateProfilePlugin.class);

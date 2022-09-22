@@ -26,7 +26,7 @@ xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 						<field name="dependencies">
 							<collection type="java.util.ArrayList">
 								<value>
-									<string>console-notification-webapp</string>
+									<string>sample-notification-webapp</string>
 								</value>
 							</collection>
 						</field>
