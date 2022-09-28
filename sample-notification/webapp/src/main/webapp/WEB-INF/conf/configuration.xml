@@ -2,7 +2,7 @@
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
 xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
-	<!-- register new event listener -->
+	<!-- register new event listener that will be fired when a user updates his profile-->
 	<external-component-plugins>
 		<target-component>org.exoplatform.social.core.manager.IdentityManager</target-component>
 		<component-plugin>
@@ -17,23 +17,31 @@ xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 		<component-plugin>
 			<name>notification.plugins</name>
 			<set-method>addPlugin</set-method>
+			<!-- Add here the FQN of the new notification plugin -->
 			<type>org.exoplatform.samples.notification.plugin.UpdateProfilePlugin</type>
 			<description>Initial information for plugin.</description>
 			<init-params>
 				<object-param>
 					<name>template.UpdateProfilePlugin</name>
 					<description>The template of UpdateProfilePlugin</description>
-					<object
-					type="org.exoplatform.commons.api.notification.plugin.config.PluginConfig">
+					<object	type="org.exoplatform.commons.api.notification.plugin.config.PluginConfig">
+
+						<!-- The ID of the plugin as it was declared in the class org.exoplatform.samples.notification.plugin.UpdateProfilePlugin -->
 						<field name="pluginId">
 							<string>UpdateProfilePlugin</string>
 						</field>
+
+						<!-- The label that will be displayed for this notification type in 'Manage Notifications' user settings page -->
 						<field name="resourceBundleKey">
 							<string>UINotification.label.UpdateProfilePlugin</string>
 						</field>
+
+						<!-- Priority order of this plugin in the list of Notification plugins -->
 						<field name="order">
 							<string>11</string>
 						</field>
+
+						<!-- Default configuration of the sending frequency of this notification type for all users -->
 						<field name="defaultConfig">
 							<collection type="java.util.ArrayList">
 								<value>
@@ -41,14 +49,51 @@ xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 								</value>
 							</collection>
 						</field>
+
+						<!-- The group where the system will add this notification type in 'Manage Notifications' user settings page -->
 						<field name="groupId">
 							<string>general</string>
 						</field>
+
+						<!-- the path of the resource bundle file containing all the translated texts (dots . will be replaced by slashes / under the resources folder of the project) -->
 						<field name="bundlePath">
 							<string>locale.notification.template.Notification</string>
 						</field>
 					</object>
 				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+	<!-- template channel register -->
+	<external-component-plugins>
+		<!-- Target service to update-->
+		<target-component>org.exoplatform.commons.api.notification.channel.ChannelManager</target-component>
+		<component-plugin profiles="all">
+			<!-- unique name of our new plugin -->
+			<name>mail.channel.updateProfile.template</name>
+			<set-method>registerTemplateProvider</set-method>
+			<!-- The new Template provider that we have just added -->
+			<type>org.exoplatform.samples.notification.mail.MailNotificationProvider</type>
+			<init-params>
+				<!-- Target notification channel -->
+				<value-param>
+					<name>channel-id</name>
+					<value>MAIL_CHANNEL</value>
+				</value-param>
+			</init-params>
+		</component-plugin>
+		<component-plugin profiles="all">
+			<!-- unique name of our new plugin -->
+			<name>web.channel.updateProfile.template</name>
+			<set-method>registerTemplateProvider</set-method>
+			<!-- The new Template provider that we have just added -->
+			<type>org.exoplatform.samples.notification.web.WebNotificationProvider</type>
+			<init-params>
+				<!-- Target notification channel -->
+				<value-param>
+					<name>channel-id</name>
+					<value>WEB_CHANNEL</value>
+				</value-param>
 			</init-params>
 		</component-plugin>
 	</external-component-plugins>

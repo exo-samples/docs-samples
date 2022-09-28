@@ -15,33 +15,48 @@ import org.exoplatform.social.core.profile.ProfileListenerPlugin;
 public class SocialProfileListener extends ProfileListenerPlugin {
   @Override
   public void avatarUpdated(ProfileLifeCycleEvent event) {
-    snedNotification(event);
+    sendNotification(event);
   }
 
   @Override
   public void bannerUpdated(ProfileLifeCycleEvent event) {
-    snedNotification(event);
+    sendNotification(event);
   }
 
   @Override
   public void experienceSectionUpdated(ProfileLifeCycleEvent event) {
-    snedNotification(event);
+    sendNotification(event);
   }
 
   @Override
   public void contactSectionUpdated(ProfileLifeCycleEvent event) {
-    snedNotification(event);
+    sendNotification(event);
   }
 
   @Override
-  public void createProfile(ProfileLifeCycleEvent event) {
-    snedNotification(event);
+  public void createProfile(ProfileLifeCycleEvent event) {}
+
+  @Override
+  public void aboutMeUpdated(ProfileLifeCycleEvent event) {
+    sendNotification(event);
   }
 
-  private void snedNotification(ProfileLifeCycleEvent event) {
+  @Override
+  public void basicInfoUpdated(ProfileLifeCycleEvent event) {
+    sendNotification(event);
+  }
+
+  @Override
+  public void headerSectionUpdated(ProfileLifeCycleEvent event) {
+    sendNotification(event);
+  }
+
+  private void sendNotification(ProfileLifeCycleEvent event) {
+    // Load user profile
     Profile profile = event.getProfile();
+    // Create the notification context and append the profile object
     NotificationContext ctx = NotificationContextImpl.cloneInstance().append(UpdateProfilePlugin.PROFILE, profile);
+    // Call notification executor that will load the notification type configuration and create a new notification to be sent to concerned users
     ctx.getNotificationExecutor().with(ctx.makeCommand(PluginKey.key(UpdateProfilePlugin.ID))).execute(ctx);
   }
-
 }

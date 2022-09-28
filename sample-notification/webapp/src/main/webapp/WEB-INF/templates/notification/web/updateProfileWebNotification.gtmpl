@@ -1,0 +1,17 @@
+<li class="$READ clearfix" data-id="$NOTIFICATION_ID">
+  <div class="media">
+    <div class="media-body">
+      <div class="contentSmall" data-link="$USER_PROFILE_URL">
+        <div class="content">
+          <a href=$USER_PROFILE_URL>
+            Your connection $USER_FULL_NAME has updated his profile information
+          </a>
+        </div>
+
+        <div style="display:none;">$MESSAGE</div>
+        <div class="lastUpdatedTime">$LAST_UPDATED_TIME</div>
+      </div>
+    </div>
+  </div>
+  <span class="remove-item" data-rest=""><i class="uiIconClose uiIconLightGray"></i></span>
+</li>
