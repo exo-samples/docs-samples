@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+	<!-- register new event listener that will be fired when a user logs in-->
+	<external-component-plugins>
+		<!-- The service ListenerService registers all listeners with their respective event names -->
+		<target-component>org.exoplatform.services.listener.ListenerService</target-component>
+		<component-plugin>
+			<!-- The event name, it identifies an event, we can have many listeners for the same event -->
+			<name>exo.core.security.ConversationRegistry.register</name>
+			<!-- This is the function in ListenerService called to register each new listener -->
+			<set-method>addListener</set-method>
+			<!-- Here you put the FQN of the new listener -->
+			<type>org.exoplatform.samples.listener.LoginEventListener</type>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>
