@@ -1,19 +1,21 @@
-import app from './components/app.vue';
+import './initComponents.js'; // initialize other VueJS components
+import app from './components/app.vue'; // import the main VueJS application
 
-import '../css/main.less';
-
-// getting language of user
+// Get the user language
 const lang = eXo && eXo.env && eXo.env.portal && eXo.env.portal.language || 'en';
 
+// Get the name of the resource bundle
 const resourceBundleName = 'locale.addon.Sample';
+
+// Get the URL to load the resource bundles
 const url = `${eXo.env.portal.context}/${eXo.env.portal.rest}/i18n/bundle/${resourceBundleName}-${lang}.json`;
 
-// getting locale ressources
+// getting the resource bundles
 exoi18n.loadLanguageAsync(lang, url)
   .then(i18n => {
-    // init Vue app when locale ressources are ready
+    // init Vue app when locale resources are ready
     new Vue({
       render: h => h(app),
       i18n
-    }).$mount('#vue_webpack_sample');
+    }).$mount('#vue_webpack_sample'); // mount the application on the HTML element with id = 'vue_webpack_sample'
   });

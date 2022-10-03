@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_3.xsd http://www.exoplatform.org/xml/ns/kernel_1_3.xsd"
-  xmlns="http://www.exoplatform.org/xml/ns/kernel_1_3.xsd">
+               xmlns="http://www.exoplatform.org/xml/ns/kernel_1_3.xsd">
 
-    <external-component-plugins>
-        <target-component>org.exoplatform.services.resources.ResourceBundleService</target-component>
-        <component-plugin>
-        <name>Vue Sample Portlet Resource Bundle</name>
-        <set-method>addResourceBundle</set-method>
-        <type>org.exoplatform.services.resources.impl.BaseResourceBundlePlugin</type>
-        <init-params>
-          <values-param>
-            <name>classpath.resources</name>
-            <value>locale.addon.Sample</value>
-          </values-param>
-          <values-param>
-            <name>portal.resource.names</name>
-            <value>locale.addon.Sample</value>
-          </values-param>
-        </init-params>
-        </component-plugin>
-    </external-component-plugins>
-
+  <external-component-plugins>
+    <!-- Service managing resource bundles -->
+    <target-component>org.exoplatform.services.resources.ResourceBundleService</target-component>
+    <component-plugin>
+      <!-- Name of the plugin -->
+      <name>Vue Sample Portlet Resource Bundle</name>
+      <!-- function to add the resource bundle -->
+      <set-method>addResourceBundle</set-method>
+      <!-- type of the plugin -->
+      <type>org.exoplatform.services.resources.impl.BaseResourceBundlePlugin</type>
+      <init-params>
+        <!-- this resource bundle will be added to the portal (site) resource bundles-->
+        <values-param>
+          <name>portal.resource.names</name>
+          <!-- the location of resource bundles under resources folder -->
+          <value>locale.addon.Sample</value>
+        </values-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
 </configuration>

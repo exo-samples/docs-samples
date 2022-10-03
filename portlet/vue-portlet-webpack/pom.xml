@@ -1,4 +1,9 @@
 <project>
+  <parent>
+    <artifactId>maven-parent-pom</artifactId>
+    <groupId>org.exoplatform</groupId>
+    <version>25-M04</version>
+  </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.acme.samples</groupId>
   <artifactId>vue-webpack-sample</artifactId>
@@ -8,61 +13,16 @@
     <finalName>vue-webpack-sample</finalName>
     <plugins>
       <plugin>
-        <groupId>com.github.eirslett</groupId>
-        <artifactId>frontend-maven-plugin</artifactId>
-        <configuration>
-          <installDirectory>target</installDirectory>
-        </configuration>
-        <executions>
-          <execution>
-            <id>install node and npm</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>install-node-and-npm</goal>
-            </goals>
-            <configuration>
-              <nodeVersion>v11.4.0</nodeVersion>
-              <npmVersion>6.5.0</npmVersion>
-            </configuration>
-          </execution>
-          <execution>
-            <id>npm install</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-            <configuration>
-              <arguments>install</arguments>
-            </configuration>
-          </execution>
-          <execution>
-            <id>npm run test</id>
-            <phase>test</phase>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-            <configuration>
-              <arguments>test</arguments>
-            </configuration>
-          </execution>
-          <execution>
-            <id>npm run build</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-            <configuration>
-              <arguments>run build</arguments>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <configuration>
-          <packagingExcludes>**/*.less,**/*.vue,vue-app/**,mocks/**/*,**-dev.*</packagingExcludes>
+          <includeEmptyDirectories>false</includeEmptyDirectories>
+          <packagingExcludes>WEB-INF/lib/*.jar,**/*.less,**/less/**,**/*.vue,css/lib/*,vue-app/**,js/mock/**/*,**-dev.*,**/vue-apps</packagingExcludes>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
       </plugin>
     </plugins>
   </build>

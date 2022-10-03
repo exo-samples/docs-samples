@@ -1,0 +1,13 @@
+#vue_webpack_sample {
+  display: flex;
+  background: white;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 0;
+}
+#vue_webpack_sample > span {
+    color: red;
+    margin: auto;
+  }
+}
