@@ -29,7 +29,7 @@
             <field name="predefinedOwner">
               <collection type="java.util.HashSet">
                 <value>
-                  <string>intranet</string>
+                  <string>dw</string>
                 </value>
               </collection>
             </field>

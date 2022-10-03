@@ -1,6 +1,5 @@
+import './initComponents.js';
 import app from './components/app.vue';
-
-import '../css/main.less';
 
 // getting language of user
 const lang = eXo && eXo.env && eXo.env.portal && eXo.env.portal.language || 'en';
