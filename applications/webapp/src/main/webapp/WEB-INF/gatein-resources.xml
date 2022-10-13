@@ -1,0 +1,40 @@
+<gatein-resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://www.exoplatform.org/xml/ns/gatein_resources_1_4
+           http://www.exoplatform.org/xml/ns/gatein_resources_1_4"
+                  xmlns="http://www.exoplatform.org/xml/ns/gatein_resources_1_4">
+  <!-- This block will add a new CSS file that will be loaded in the page
+  along with a related portlet (it won't be available for other pages) -->
+  <portlet-skin>
+    <!-- application name : the display name of the war in web.xml file -->
+    <application-name>my-connections-birthday-webapp</application-name>
+    <!-- portlet name defined in portlet.xml file -->
+    <portlet-name>birthdayApplication</portlet-name>
+    <!-- Skin name : default to Enterprise-->
+    <skin-name>Enterprise</skin-name>
+    <!-- Path to CSS file under this webapp-->
+    <css-path>/css/birthdayApp.css</css-path>
+  </portlet-skin>
+
+  <!-- This block will add a new JS to the site. This CSS will be loaded in the page
+  along with a related portlet (it won't be available for other pages) -->
+  <portlet>
+    <!-- portlet name defined in portlet.xml file -->
+    <name>birthdayApplication</name>
+    <!-- JS file will be added as a Javascript module -->
+    <module>
+      <script>
+        <!-- JS is already minified by NPM, no need to minify it again -->
+        <minify>false</minify>
+        <!-- Path to JS file under this webapp-->
+        <path>/js/birthdayApp.bundle.js</path>
+      </script>
+      <!-- Javascript dependencies for this JS module -->
+      <depends>
+        <module>vue</module>
+      </depends>
+      <depends>
+        <module>eXoVueI18n</module>
+      </depends>
+    </module>
+  </portlet>
+</gatein-resources>

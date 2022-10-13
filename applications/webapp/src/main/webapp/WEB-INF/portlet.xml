@@ -1,0 +1,27 @@
+<portlet-app version="2.0" xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
+
+  <!-- block to define a new portlet-->
+  <portlet>
+    <!-- Portlet name -->
+    <portlet-name>birthdayApplication</portlet-name>
+    <!-- Portlet class -->
+    <portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+    <!-- Parameters needed to initiate the portlet. In this case the path to the HTML file of the VueJS application -->
+    <init-param>
+      <name>portlet-view-dispatched-file-path</name>
+      <value>/index.html</value>
+    </init-param>
+    <!-- supported mimetypes -->
+    <supports>
+      <mime-type>text/html</mime-type>
+    </supports>
+    <resource-bundle>locale.portlet.birthdayApp</resource-bundle>
+    <!-- Extra information for the portlet -->
+    <portlet-info>
+      <title>Vue Webpack Sample</title>
+    </portlet-info>
+  </portlet>
+
+</portlet-app>

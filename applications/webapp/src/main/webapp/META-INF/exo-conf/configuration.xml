@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+	<external-component-plugins>
+		<!-- The full qualified name of the PortalContainerConfig -->
+		<target-component>org.exoplatform.container.definition.PortalContainerConfig</target-component>
+		<component-plugin>
+			<!-- The name of the plugin -->
+			<name>Add PortalContainer Definitions</name>
+			<!-- The name of the method to call on the PortalContainerConfig in order to register the PortalContainerDefinitions -->
+			<set-method>registerChangePlugin</set-method>
+			<!-- The full qualified name of the PortalContainerDefinitionPlugin -->
+			<type>org.exoplatform.container.definition.PortalContainerDefinitionChangePlugin</type>
+			<priority>102</priority>
+			<init-params>
+				<values-param>
+					<name>apply.specific</name>
+					<value>portal</value>
+				</values-param>
+				<object-param>
+					<name>addDependencies</name>
+					<object type="org.exoplatform.container.definition.PortalContainerDefinitionChange$AddDependencies">
+						<!-- The name of the portal container -->
+						<field name="dependencies">
+							<collection type="java.util.ArrayList">
+								<value>
+									<string>my-connections-birthday-webapp</string>
+								</value>
+							</collection>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>

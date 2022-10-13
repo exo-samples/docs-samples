@@ -1,0 +1,26 @@
+ #birthdayAppMain {
+   display: flex;
+   background: white;
+   flex-direction: column;
+   align-items: center;
+   margin: auto;
+   padding: 0 0 20px 0;
+   margin-bottom: 20px;
+ }
+
+ #birthday-list {
+   min-width: 300px;
+ }
+
+ #birthday-list input {
+   width: 80%;
+ }
+
+.birthday-app-title {
+  text-transform: uppercase;
+  font-size: 1.25rem !important;
+  font-weight: 500;
+  line-height: 2rem;
+  letter-spacing: 0.0125em !important;
+  color: #5f708a;
+}
