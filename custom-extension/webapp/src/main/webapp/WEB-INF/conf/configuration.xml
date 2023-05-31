@@ -7,4 +7,56 @@ xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 		<key>org.exoplatform.samples.services.SampleService</key>
 		<type>org.exoplatform.samples.services.SampleService</type>
 	</component>
+
+
+	<component>
+		<key>org.exoplatform.portal.branding.BrandingService</key>
+		<type>org.exoplatform.portal.branding.BrandingServiceImpl</type>
+		<init-params>
+			<value-param>
+				<name>exo.branding.company.name</name>
+				<value>ACME corp</value>
+			</value-param>
+			<value-param>
+				<name>exo.branding.company.siteName</name>
+				<value>ACME digital village</value>
+			</value-param>
+			<value-param>
+				<name>exo.branding.company.link</name>
+				<value>https://acme.com</value>
+			</value-param>
+			<value-param>
+				<name>exo.branding.company.logo</name>
+				<value>${exo.branding.company.logo:/images/logo/DefaultLogo.png}</value>
+			</value-param>
+			<value-param>
+				<name>exo.branding.company.favicon</name>
+				<value>${exo.branding.company.favicon:/images/favicon/DefaultFavicon.ico}</value>
+			</value-param>
+			<value-param>
+				<name>authentication.background</name>
+				<value>${portal.authentication.background:}</value>
+			</value-param>
+			<value-param>
+				<name>authentication.title</name>
+				<value>${portal.authentication.title:UILoginForm.label.pageTitle}</value>
+			</value-param>
+			<value-param>
+				<name>authentication.subtitle</name>
+				<value>${portal.authentication.subtitle:UILoginForm.label.pageSubTitle}</value>
+			</value-param>
+			<value-param>
+				<name>exo.branding.theme.path</name>
+				<value>${exo.branding.theme.path:war:/conf/branding/branding.less}</value>
+			</value-param>
+			<values-param>
+				<name>exo.branding.theme.variables</name>
+				<value>${exo.branding.theme.primaryColor:primaryColor:#476A9C}</value>
+				<value>${exo.branding.theme.secondaryColor:secondaryColor:#476a9c}</value>
+				<value>${exo.branding.theme.tertiaryColor:tertiaryColor:#476A9C}</value>
+				<value>${exo.branding.theme.greyColorLighten1:greyColorLighten1:#5f708a}</value>
+				<value>${exo.branding.theme.textColor:textColor:#333333}</value>
+			</values-param>
+		</init-params>
+	</component>
 </configuration>

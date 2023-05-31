@@ -26,6 +26,9 @@ xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 						<field name="dependencies">
 							<collection type="java.util.ArrayList">
 								<value>
+									<string>digital-workplace</string>
+								</value>
+								<value>
 									<string>custom-extension-webapp</string>
 								</value>
 							</collection>
