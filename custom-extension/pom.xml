@@ -5,7 +5,7 @@
   <parent>
     <artifactId>addons-parent-pom</artifactId>
     <groupId>org.exoplatform.addons</groupId>
-    <version>16-M04</version>
+    <version>16-exo</version>
   </parent>
   <groupId>org.exoplatform.samples</groupId>
   <artifactId>custom-extension</artifactId>
@@ -16,7 +16,7 @@
     <module>webapp</module>
   </modules>
   <properties>
-    <org.exoplatform.social.version>6.3.0</org.exoplatform.social.version>
+    <org.exoplatform.social.version>6.4.0</org.exoplatform.social.version>
   </properties>
   <dependencyManagement>
     <dependencies>
