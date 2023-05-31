@@ -8,8 +8,7 @@ xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 		<type>org.exoplatform.samples.services.SampleService</type>
 	</component>
 
-
-	<component>
+	<!--component>
 		<key>org.exoplatform.portal.branding.BrandingService</key>
 		<type>org.exoplatform.portal.branding.BrandingServiceImpl</type>
 		<init-params>
@@ -58,5 +57,5 @@ xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 				<value>${exo.branding.theme.textColor:textColor:#333333}</value>
 			</values-param>
 		</init-params>
-	</component>
+	</component-->
 </configuration>
