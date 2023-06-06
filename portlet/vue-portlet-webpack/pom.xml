@@ -1,8 +1,8 @@
 <project>
   <parent>
-    <artifactId>maven-parent-pom</artifactId>
+    <artifactId>maven-exo-parent-pom</artifactId>
     <groupId>org.exoplatform</groupId>
-    <version>25-M04</version>
+    <version>26-M03</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.acme.samples</groupId>
