@@ -14,6 +14,7 @@ import org.json.JSONObject;
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import java.time.LocalDate;
@@ -44,6 +45,7 @@ public class MyConnectionsBirthdayRESTService implements ResourceContainer {
 
   @GET
   @RolesAllowed("users")
+  @Produces(MediaType.APPLICATION_JSON)
   public Response getMyConnectionsBirthday(@Context SecurityContext securityContext) {
 
     // Load current authenticated user

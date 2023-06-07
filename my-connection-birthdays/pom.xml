@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>addons-parent-pom</artifactId>
+    <artifactId>addons-exo-parent-pom</artifactId>
     <groupId>org.exoplatform.addons</groupId>
-    <version>16-M04</version>
+    <version>17-M03</version>
   </parent>
   <groupId>org.exoplatform.samples</groupId>
   <artifactId>my-connections-birthday-extension</artifactId>
@@ -17,14 +17,14 @@
     <module>webapp</module>
   </modules>
   <properties>
-    <org.exoplatform.social.version>6.3.0</org.exoplatform.social.version>
+    <org.exoplatform.commons-exo.version>6.5.x-SNAPSHOT</org.exoplatform.commons-exo.version>
   </properties>
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.exoplatform.social</groupId>
-        <artifactId>social</artifactId>
-        <version>${org.exoplatform.social.version}</version>
+        <groupId>org.exoplatform.commons-exo</groupId>
+        <artifactId>commons-exo</artifactId>
+        <version>${org.exoplatform.commons-exo.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
