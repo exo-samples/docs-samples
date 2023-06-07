@@ -13,6 +13,11 @@
       <!-- type of the plugin -->
       <type>org.exoplatform.services.resources.impl.BaseResourceBundlePlugin</type>
       <init-params>
+        <values-param>
+          <name>init.resources</name>
+          <description>Store the following resources into the db for the first launch</description>
+            <value>locale.addon.Sample</value>
+        </values-param>
         <!-- this resource bundle will be added to the portal (site) resource bundles-->
         <values-param>
           <name>portal.resource.names</name>
