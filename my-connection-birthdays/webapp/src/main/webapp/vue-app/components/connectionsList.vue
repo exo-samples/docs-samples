@@ -51,7 +51,7 @@ export default {
       return fetch(`${eXo.env.portal.context}/${eXo.env.portal.rest}/connections/birthday`, {
         method: 'POST',
         credentials: 'include',
-        body: `birthday=${this.birthdayDate}&userName=${eXo.env.portal.userName}`,
+        body: `birthday=${this.birthdayDate}`,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         }

@@ -79,13 +79,9 @@ public class MyConnectionsBirthdayRESTService implements ResourceContainer {
 
   @POST
   @RolesAllowed("users")
-  public Response updateBirthday(@Context SecurityContext securityContext, @FormParam("birthday") String birthday,@FormParam("userName") String userName) {
+  public Response updateBirthday(@Context SecurityContext securityContext, @FormParam("birthday") String birthday) {
     String authenticatedUserName = securityContext.getUserPrincipal().getName();
-    if(!authenticatedUserName.equalsIgnoreCase(userName)) {
-      // Only the user himself is able to update his birthday date
-      LOG.error("{} could not update the birthday of {}", authenticatedUserName, userName);
-      return Response.status(Response.Status.FORBIDDEN).build();
-    }
+    
     try {
       // Do a parsing to the received date and throw an exception if it is not valid
       LocalDate.parse(birthday, PARSER);
@@ -95,13 +91,8 @@ public class MyConnectionsBirthdayRESTService implements ResourceContainer {
       // set the received birthday in the user profile
       authenticatedUserProfile.setProperty(BIRTHDAY_PROPERTY, birthday);
       identityManager.updateProfile(authenticatedUserProfile);
-      // Prepare a response with the updated profile of the user
-      JSONObject jsonObject = new JSONObject();
-      jsonObject.put("userName", authenticatedUser.getRemoteId());
-      jsonObject.put("fullName", authenticatedUserProfile.getFullName());
-      jsonObject.put("avatar", authenticatedUserProfile.getAvatarUrl());
-      jsonObject.put(BIRTHDAY_PROPERTY, authenticatedUserProfile.getProperty(BIRTHDAY_PROPERTY));
-      return Response.ok(jsonObject.toString()).build();
+      
+      return Response.ok().build();
     } catch (DateTimeParseException ex) {
       LOG.error("Could not parse date {}", birthday, ex);
       return Response.serverError().build();
