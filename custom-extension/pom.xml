@@ -5,7 +5,7 @@
   <parent>
     <artifactId>addons-exo-parent-pom</artifactId>
     <groupId>org.exoplatform.addons</groupId>
-    <version>17-M02</version>
+    <version>18</version>
   </parent>
   <groupId>org.exoplatform.samples</groupId>
   <artifactId>custom-extension</artifactId>
@@ -16,7 +16,7 @@
     <module>webapp</module>
   </modules>
   <properties>
-    <org.exoplatform.commons-exo.version>6.5.x-SNAPSHOT</org.exoplatform.commons-exo.version>
+    <org.exoplatform.commons-exo.version>7.0.x-SNAPSHOT</org.exoplatform.commons-exo.version>
   </properties>
   <dependencyManagement>
     <dependencies>
