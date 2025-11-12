@@ -5,7 +5,7 @@
   <parent>
     <artifactId>addons-exo-parent-pom</artifactId>
     <groupId>org.exoplatform.addons</groupId>
-    <version>17-M03</version>
+    <version>19-RC01</version>
   </parent>
   <groupId>org.exoplatform.samples</groupId>
   <artifactId>my-connections-birthday-extension</artifactId>
@@ -17,10 +17,19 @@
     <module>webapp</module>
   </modules>
   <properties>
-    <org.exoplatform.commons-exo.version>6.5.x-SNAPSHOT</org.exoplatform.commons-exo.version>
+    <org.exoplatform.commons-exo.version>7.1.x-SNAPSHOT</org.exoplatform.commons-exo.version>
+    <io.meeds.social.version>7.1.x-exo-SNAPSHOT</io.meeds.social.version>
+
   </properties>
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>io.meeds.social</groupId>
+        <artifactId>social-component-core</artifactId>
+        <version>${io.meeds.social.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
       <dependency>
         <groupId>org.exoplatform.commons-exo</groupId>
         <artifactId>commons-exo</artifactId>
@@ -28,6 +37,13 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>my-connections-birthday-services</artifactId>
+        <version>${project.version}</version>
+        <scope>provided</scope>
+      </dependency>
     </dependencies>
+
   </dependencyManagement>
 </project>

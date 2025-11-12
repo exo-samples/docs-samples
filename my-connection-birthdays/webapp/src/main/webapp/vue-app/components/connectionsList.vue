@@ -33,7 +33,7 @@ export default {
     errorMessage: ''
   }),
   created() {
-    return fetch(`${eXo.env.portal.context}/${eXo.env.portal.rest}/connections/birthday`, {
+    return fetch('/my-connections-birthday-webapp/rest/connections', {
       method: 'GET',
       credentials: 'include',
     }).then(resp => {
@@ -43,12 +43,14 @@ export default {
         return resp.json();
       }
     }).then(data => {
-      this.birthdayItems = data;
+      console.log(data);
+      this.birthdayItems = JSON.parse(data.entity);
+      console.log(this.birthdayItems);
     });
   },
   methods: {
     saveBirthday() {
-      return fetch(`${eXo.env.portal.context}/${eXo.env.portal.rest}/connections/birthday`, {
+      return fetch('/my-connections-birthday-webapp/rest/connections', {
         method: 'POST',
         credentials: 'include',
         body: `birthday=${this.birthdayDate}`,

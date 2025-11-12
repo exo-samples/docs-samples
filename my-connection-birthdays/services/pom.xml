@@ -18,12 +18,16 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.exoplatform.ws</groupId>
+      <groupId>io.meeds.ws</groupId>
       <artifactId>exo.ws.rest.core</artifactId>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.social</groupId>
+      <groupId>io.meeds.social</groupId>
+      <artifactId>social-component-service</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.meeds.social</groupId>
       <artifactId>social-component-core</artifactId>
       <scope>provided</scope>
     </dependency>

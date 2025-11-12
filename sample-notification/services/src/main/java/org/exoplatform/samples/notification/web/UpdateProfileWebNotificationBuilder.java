@@ -9,7 +9,7 @@ import org.exoplatform.commons.api.notification.model.NotificationInfo;
 import org.exoplatform.commons.api.notification.service.template.TemplateContext;
 import org.exoplatform.commons.notification.template.TemplateUtils;
 import org.exoplatform.commons.utils.CommonsUtils;
-import org.exoplatform.webui.utils.TimeConvertUtils;
+import org.exoplatform.commons.utils.TimeConvertUtils;
 
 import java.io.Writer;
 import java.util.Calendar;

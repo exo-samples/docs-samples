@@ -1,5 +1,5 @@
 <template>
-  <div id="birthdayAppMain">
+  <div id="birthdayAppMain" class="pa-4">
     <span class="birthday-app-title">{{ $t('birthdayApp.i18n.label') }}</span>
     <birthday-connections-list birthday-items="" />
   </div>

@@ -2,7 +2,7 @@
   <parent>
     <artifactId>maven-exo-parent-pom</artifactId>
     <groupId>org.exoplatform</groupId>
-    <version>26-M03</version>
+    <version>28</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.acme.samples</groupId>

@@ -13,6 +13,13 @@
   <packaging>war</packaging>
   <name>My Connections birthday - webapp</name>
 
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>my-connections-birthday-services</artifactId>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
   <build>
     <finalName>my-connections-birthday-webapp</finalName>
     <plugins>

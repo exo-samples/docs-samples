@@ -5,7 +5,7 @@
 	<parent>
 		<artifactId>addons-exo-parent-pom</artifactId>
 		<groupId>org.exoplatform.addons</groupId>
-		<version>17-M02</version>
+		<version>19-RC01</version>
 	</parent>
 	<groupId>org.exoplatform.samples</groupId>
 	<artifactId>notification</artifactId>
@@ -16,7 +16,7 @@
 		<module>webapp</module>
 	</modules>
 	<properties>
-		<org.exoplatform.commons-exo.version>6.5.x-SNAPSHOT</org.exoplatform.commons-exo.version>
+		<org.exoplatform.commons-exo.version>7.1.x-SNAPSHOT</org.exoplatform.commons-exo.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
