@@ -1,6 +1,6 @@
 <template>
   <div id="todoList">
-    <input v-model="newTodo" @keyup.enter="addTodo">
+    <input v-model="newTodo" @keyup.enter="addTodo" class="ignore-vuetify-classes">
     <ul>
       <li v-for="(todo, index) in todos" :key="index">
         <span :id="'todo' + index">{{ todo.text }}</span>
