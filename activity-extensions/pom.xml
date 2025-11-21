@@ -10,12 +10,12 @@
   </parent>
 	<groupId>org.exoplatform.samples</groupId>
 	<artifactId>activity-extensions</artifactId>
-	<version>6.5.x</version>
+	<version>7.1.x</version>
 	<packaging>war</packaging>
 	<name>Acctivity UI Extensions</name>
 
 	<properties>
-    <org.exoplatform.commons-exo.version>6.5.x-SNAPSHOT</org.exoplatform.commons-exo.version>
+    <org.exoplatform.commons-exo.version>7.1.x-SNAPSHOT</org.exoplatform.commons-exo.version>
   </properties>
 
   <dependencyManagement>
